@@ -1,2 +1,2 @@
 # blog
-ISSS608 test page
+ISSS608 - Data Visualisation Blog
