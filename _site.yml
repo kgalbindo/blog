@@ -1,7 +1,7 @@
 name: "blog"
-title: "Idea"
+title: "Data Viz Learning"
 description: |
-  Idea
+  Learning data visualisation
 output_dir: "_site"
 navbar:
   right:

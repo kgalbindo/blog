@@ -1,0 +1,103 @@
+---
+title: "Data Viz Makeover 1"
+description: |
+  Data visualisation critique and makeover on labour force visualisation from Singapore Ministry of Manpower 2019 annual report on "Labour Force in Singapore".
+author:
+  - name: Kevin Gunawan Albindo
+    url: https://www.linkedin.com/in/kgalbindo
+date: 01-24-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(knitr)
+```
+
+# 1. Introduction
+
+This post is part of the submission for ISSS608 DataViz Makeover assignment 1. Data visualisation critique and makeover is done on one of the excerpt from "Labour Force in Singapore" 2019 annual report by Singapore Ministry of Manpower ([link](https://stats.mom.gov.sg/Pages/Labour-Force-In-Singapore-2019.aspx)).
+
+Data tables used are:  
+  - Resident Labour Force Participation Rate by Age and Sex, 2009-2019 (June) - T5  
+  - Resident Labour Force Aged Fifteen Years and Over by Age and Sex, 2009-2019 (June) - T7  
+Both of them can be found [here](https://stats.mom.gov.sg/Pages/Labour-Force-Tables2019.aspx)
+  
+The assessment criteria will be based on the visualisation's clarity and aesthetic, taking reference from ["Data Visualization: Clarity or Aesthetics?"](https://dataremixed.com/2012/05/data-visualization-clarity-or-aesthetics/) by Ben Jones. 
+In the article, he points out that a suitable visualisation type is critical to the clarity of information that we want to convey. A good visualisation should guide the reader in arriving at the correct conclusion as intended by the author. In addition, visual aesthetic plays important role in keeping the reader engaged and giving pleasant experience when looking at the visualisation. This could be in a form of good font and layout, as well as minimising harmful ["chartjunk"](https://eagereyes.org/blog/2012/three-types-chart-junk).
+
+The original data visualisation that will be assessed can be found in page 5 of the report.
+
+```{r, echo=FALSE, fig.align='center',fig.cap="Original data visualisation of labour force by age group", out.extra='style="background-color: #000000; padding:1.5px; display: inline-block;"'}
+include_graphics("images/excerpt.jpg")
+```
+
+# 2. Critique and suggestion
+
+==== Put 4 quadrant here ====
+
+## Clarity
+
+According to the explanation text preceding the visualisation, the author intends to compare the age distribution of labour force between 2009 and 2019 and highlight the increasing median age due to the following two observations:
+
+- Increasing share of older residents _(age 55 & above)_ in the labour force
+- Declining share of younger residents _(age 25-54)_ in the labour force
+
+1. While the median age is clearly represented by the two reference lines, the two observations are not directly apparent. In this visualisation,    the line chart provides the reader with a quick overview of the shape of distribution among different age groups. However, as the intention is to compare 2009 and 2019 values, bar chart is a better option according to the chart below taken from the rule of thumb in selecting visualisation type for a specific type of information.
+
+(ref:caption2) [Choosing visualisation type _(Lifehacker, 2012)_](https://lifehacker.com/how-to-choose-the-best-chart-for-your-data-5909501)
+
+```{r, echo=FALSE, fig.align='center', fig.cap='(ref:caption2)'}
+include_graphics("images/rule_of_thumb.webp")
+```
+
+2.	The current visualisation does not directly provide the percentage change between the two group of interest (25-54 and 55 & above) between 2009 and 2019. Although the value for individual age group allows reader to get the mentioned percentage change (with some calculation), the percentage change could be added to the visualisation to strike the conclusion clearer.
+
+3.	The title of the visualisation does not explain the basis of the percentage used. Although the preceding paragraph alludes to the percentage being a share from total labour force in the year, the title can do more to help reader understand the visualisation. We can amend the title to emphasise the percentage is based on the yearly total labour force.
+
+## Aesthetic  
+1.	The choice of font type and its size are good and clear. In addition, differentiation of 2009 and 2019 are consistently done through both colour and labelling of line chart, making it easy for reader to differentiate between the two periods.
+
+2.	The author also removes unnecessary data-ink by omitting the y-axis which directs reader straight to the shape of the distribution. However, this require the author to provide the actual value in tabular format for reader to compare the numbers. Positioning of median age is at the centre which draws the attention to the main conclusion. However, as the x-axis is rather ordinal by age group, the reference line for median treats the x-axis as continuous. As I am unable to provide a good solution for this, I will prefer to remove the reference line and provide this median-shift conclusion in the subtitle/through annotation instead.
+
+3.	The data source and note at the bottom of the visualisation are aligned to the opposing side. Though it may be subjective, I would prefer to have both of them aligned to the same side, keeping it tidy. Also, preferably left aligned, following the natural reading direction from left to right.
+
+# 3. Proposed visualisation
+## Sketch
+The following sketch shows the proposed visualisation and I will go through the rationale behind the choices made for this visualisation.
+
+```{r, echo=FALSE, fig.align='center', fig.cap='Sketch of proposed visualisation'}
+include_graphics("images/sketch.jpg")
+```
+
+## Rationale
+1. The clarity of comparing two different values (2009 and 2019) is made clearer through the use of bar chart. Specifically, I choose overlapping bar chart as opposed to side-by-side bar chart as it allows me to save spaces and it seems to be less cluttered for comparing 12 different age groups.
+
+2. To align the visualisation with the preceding text, I decided to aggregate the 12 age groups into 3 higher level groups, where 2 of them represent older and younger residents mentioned in the text.
+
+3. The author makes reference to the increasing Labour Force Participation Rate (LFPR) to support the conclusion. As this important data is unavailable in the original visualisation, the trend of LFPR is added using line chart to visualise the statement on increasing LFPR made in the preceding text.
+
+## Realising the proposed visualisation
+The proposed visualisation is made using Tableau with the 2 tables mentioned in the first section of this post as the data source.
+
+### Importing data table
+
+### Preparing data in the right format
+
+### Creating main chart on labour force distribution by age group
+
+### Creating second chart on labour force distribution by aggregated age group
+
+### Creating third chart on LFPR trend by aggregated age group
+
+### Putting it all together
+
+
+
+
+
+
+
