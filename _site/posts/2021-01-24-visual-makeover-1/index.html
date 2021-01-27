@@ -111,12 +111,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Data Viz Makeover 1"]},{"type":"character","attributes":{},"value":["Data visualisation critique and makeover on labour force visualisation from Singapore Ministry of Manpower 2019 annual report on \"Labour Force in Singapore\"."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Kevin Gunawan Albindo"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/in/kgalbindo"]}]}]},{"type":"character","attributes":{},"value":["01-24-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","preview","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Data Viz Makeover 1"]},{"type":"character","attributes":{},"value":["Data visualisation critique and makeover on labour force visualisation from Singapore Ministry of Manpower 2019 annual report on \"Labour Force in Singapore\"."]},{"type":"character","attributes":{},"value":["images/excerpt.jpg"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Kevin Gunawan Albindo"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/in/kgalbindo"]}]}]},{"type":"character","attributes":{},"value":["01-24-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_float"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["images/excerpt.jpg","images/rule_of_thumb.webp","images/sketch.jpg","visual-makeover-1_files/anchor-4.2.2/anchor.min.js","visual-makeover-1_files/bowser-1.9.3/bowser.min.js","visual-makeover-1_files/distill-2.2.21/template.v2.js","visual-makeover-1_files/header-attrs-2.6/header-attrs.js","visual-makeover-1_files/jquery-1.11.3/jquery.min.js","visual-makeover-1_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["images/4quad.png","images/addT5.JPG","images/AgeGroup.JPG","images/Border_Lines.JPG","images/DataImportT7.JPG","images/DraftDashboard.JPG","images/DraftDashboardPart2.JPG","images/DraftDashboardPart2Done.JPG","images/DraftDashboardPart3Done.jpg","images/DraftDashboardPatch.JPG","images/excerpt.jpg","images/Final_viz.JPG","images/Hide_age_group.JPG","images/rule_of_thumb.webp","images/sketch.jpg","images/T5_color_line.JPG","images/T5_filter.JPG","images/T5_final.JPG","images/T5_grouping.JPG","images/T5_label.JPG","images/T5_label_format.JPG","images/T5_line.JPG","images/T5_percentdiff.JPG","images/T5_pivot.JPG","images/T5_pivoted.JPG","images/T5_raw.JPG","images/T5_year_continuous.JPG","images/T7_barsize.JPG","images/T7_Col1.JPG","images/T7_dualaxis.JPG","images/T7_exclude_null.JPG","images/T7_final_part1.JPG","images/T7_newgroup.JPG","images/T7_part2_labelformatting.JPG","images/T7_part2_marklabel.JPG","images/T7_part2_rowdivider.JPG","images/T7_part2_start.JPG","images/T7_predashboard.JPG","images/T7_raw.JPG","images/T7_tidier.JPG","images/T7_wide.JPG","visual-makeover-1_files/anchor-4.2.2/anchor.min.js","visual-makeover-1_files/bowser-1.9.3/bowser.min.js","visual-makeover-1_files/distill-2.2.21/template.v2.js","visual-makeover-1_files/header-attrs-2.6/header-attrs.js","visual-makeover-1_files/jquery-1.11.3/jquery.min.js","visual-makeover-1_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2026,7 +2026,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <div class="nav-right">
 <a href="../../index.html">Home</a>
-<a href="../../dataviz.html">DataViz Makeover</a>
+<a href="../../index.html">DataViz Makeover</a>
 <a href="../../vap.html">Visual Analytics Project</a>
 <a href="../../about.html">About</a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
@@ -2051,24 +2051,64 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 <div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#introduction">1. Introduction</a></li>
+<li><a href="#critique-and-suggestion">2. Critique and suggestion</a>
+<ul>
+<li><a href="#clarity">Clarity</a></li>
+<li><a href="#aesthetic">Aesthetic</a></li>
+</ul></li>
+<li><a href="#proposed-visualisation">3. Proposed visualisation</a>
+<ul>
+<li><a href="#sketch">Sketch</a></li>
+<li><a href="#rationale">Rationale</a></li>
+<li><a href="#realising-the-proposed-visualisation">Realising the proposed visualisation</a>
+<ul>
+<li><a href="#importing-data-table">Importing data table</a></li>
+<li><a href="#preparing-data">Preparing data</a></li>
+<li><a href="#main-chart-on-distribution-by-age-group">Main chart on distribution by age group</a></li>
+<li><a href="#second-chart-on-distribution-by-aggregated-age-group">Second chart on distribution by aggregated age group</a></li>
+<li><a href="#third-chart-on-lfpr-trend-by-aggregated-age-group">Third chart on LFPR trend by aggregated age group</a></li>
+<li><a href="#putting-it-all-together">Putting it all together</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#observations-from-visualisation">4. Observations from visualisation</a></li>
+<li><a href="#conclusion">5. Conclusion</a></li>
+</ul>
+</nav>
+</div>
 <h1 id="introduction">1. Introduction</h1>
-<p>This post is part of the submission for ISSS608 DataViz Makeover assignment 1. In this post, data visualisation critique and makeover is done on one of the excerpt from “Labour Force in Singapore” 2019 annual report by Singapore Ministry of Manpower (<a href="https://stats.mom.gov.sg/Pages/Labour-Force-In-Singapore-2019.aspx">link</a>).</p>
+<p>This post is part of the submission for ISSS608 DataViz Makeover assignment 1. Data visualisation critique and makeover is done on one of the excerpt from “Labour Force in Singapore” 2019 annual report by Singapore Ministry of Manpower (<a href="https://stats.mom.gov.sg/Pages/Labour-Force-In-Singapore-2019.aspx">link</a>).</p>
 <p>Data tables used are:<br />
-- Resident Labour Force Participation Rate by Age and Sex, 2009-2019 (June) - T5<br />
-- Resident Labour Force Aged Fifteen Years and Over by Age and Sex, 2009-2019 (June) - T7<br />
+- Resident Labour Force Participation Rate by Age and Sex, 2009-2019 (June) - <strong>T5</strong><br />
+- Resident Labour Force Aged Fifteen Years and Over by Age and Sex, 2009-2019 (June) - <strong>T7</strong><br />
 Both of them can be found <a href="https://stats.mom.gov.sg/Pages/Labour-Force-Tables2019.aspx">here</a></p>
-<p>The assessment criteria will be based on the visualisation’s clarity and aesthetic, taking reference from <a href="https://dataremixed.com/2012/05/data-visualization-clarity-or-aesthetics/">“Data Visualization: Clarity or Aesthetics?”</a> by Ben Jones. In the article, he points out that a suitable visualisation type is critical to the clarity of information that we want to convey. A good visualisation should guide the reader in arriving at the correct conclusion as intended by the author. In addition, visual aesthetic plays important role in keeping the reader engaged and giving pleasant experience when looking at the visualisation. This could be in a form of good font and layout, as well as minimising harmful <a href="https://eagereyes.org/blog/2012/three-types-chart-junk">“chartjunk”</a>.</p>
-<p>The original data visualisation that will be assessed can be found in page 5 of the report.</p>
+<p>The assessment criteria will be based on the visualisation’s clarity and aesthetic, taking reference from <a href="https://dataremixed.com/2012/05/data-visualization-clarity-or-aesthetics/">“Data Visualization: Clarity or Aesthetics?”</a> by Ben Jones.</p>
+<p>He points out that a suitable visualisation type is critical to the clarity of information that we want to convey. A good visualisation should guide the reader in arriving at the correct conclusion as intended by the author. In addition, visual aesthetic plays important role in keeping the reader engaged and giving pleasant experience when looking at the visualisation. This could be in a form of good font and layout, as well as minimising/eliminating harmful <a href="https://eagereyes.org/blog/2012/three-types-chart-junk">“chartjunk”</a>.</p>
+<p>To quantify his assessment, he mapped the clarity and aesthetics of a visualisaiton into a cartesian coordinate system with 4 quadrants.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
-<img src="images/excerpt.jpg" alt="Original data visualisation of labour force by age group" width="488" style="background-color: #000000; padding:1.5px; display: inline-block;" />
+<img src="images/4quad.png" alt="Clarity and aesthetics of data visualisation" width="309" />
 <p class="caption">
-Figure 1: Original data visualisation of labour force by age group
+Figure 1: Clarity and aesthetics of data visualisation
 </p>
 </div>
 </div>
+<p>The top left (Q4) refers to visualisation with low clarity but high aesthetics. This could be a visualisation with good design and layout, but the message is not clear. What we are trying to achieve is the ideal state (Q1), where the visualisation delivers clear message and aesthetically pleasant.</p>
 <h1 id="critique-and-suggestion">2. Critique and suggestion</h1>
-<p>==== Put 4 quadrant here ====</p>
+<p>The original data visualisation that will be assessed can be found in page 5 of the report.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<img src="images/excerpt.jpg" alt="Original data visualisation of labour force by age group" width="488" style="background-color: #000000; padding:1.5px; display: inline-block;" />
+<p class="caption">
+Figure 2: Original data visualisation of labour force by age group
+</p>
+</div>
+</div>
+<p>In the 4 quadrant system, the original visualisation can be mapped into Q4 as it has a good aesthetic view, but the reader may find it difficult to tally the visualisation with the underlying conclusion.</p>
 <h2 id="clarity">Clarity</h2>
 <p>According to the explanation text preceding the visualisation, the author intends to compare the age distribution of labour force between 2009 and 2019 and highlight the increasing median age due to the following two observations:</p>
 <ul>
@@ -2076,52 +2116,403 @@ Figure 1: Original data visualisation of labour force by age group
 <li>Declining share of younger residents <em>(age 25-54)</em> in the labour force</li>
 </ul>
 <ol type="1">
-<li>While the median age is clearly represented by the two reference lines, the two observations are not directly apparent. In this visualisation, the line chart provides the reader with a quick overview of the shape of distribution among different age groups. However, as the intention is to compare 2009 and 2019 values, bar chart is a better option according to the chart below taken from the rule of thumb in selecting visualisation type for a specific type of information.</li>
+<li>While the median age is clearly represented by the two reference lines, the two observations above are not directly apparent. In this visualisation, the line chart provides the reader with a quick overview of the shape of distribution among different age groups. However, bar chart is a better option to compare 2009 and 2019 values. As a reference, the following rule of thumb suggest that bar chart is a suggested visualisation type to compare value among few categories, while line chart is more suitable for comparison across many periods.</li>
 </ol>
 
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
 <img src="images/rule_of_thumb.webp" alt="Choosing visualisation type (Lifehacker, 2012)"  />
 <p class="caption">
-Figure 2: <a href="https://lifehacker.com/how-to-choose-the-best-chart-for-your-data-5909501">Choosing visualisation type <em>(Lifehacker, 2012)</em></a>
+Figure 3: <a href="https://lifehacker.com/how-to-choose-the-best-chart-for-your-data-5909501">Choosing visualisation type <em>(Lifehacker, 2012)</em></a>
 </p>
 </div>
 </div>
 <ol start="2" type="1">
-<li><p>The current visualisation does not directly provide the percentage change between the two group of interest (25-54 and 55 &amp; above) between 2009 and 2019. Although the value for individual age group allows reader to get the mentioned percentage change (with some calculation), the percentage change could be added to the visualisation to strike the conclusion clearer.</p></li>
+<li><p>The current visualisation does not directly provide the percentage change between the two group of interest (25-54 and 55 &amp; above) between 2009 and 2019. Although the value for individual age group in the table allows reader to get to the percentage change (with some mental calculation), it could be added to the visualisation to make the conclusion more visible.</p></li>
 <li><p>The title of the visualisation does not explain the basis of the percentage used. Although the preceding paragraph alludes to the percentage being a share from total labour force in the year, the title can do more to help reader understand the visualisation. We can amend the title to emphasise the percentage is based on the yearly total labour force.</p></li>
 </ol>
 <h2 id="aesthetic">Aesthetic</h2>
 <ol type="1">
-<li><p>The choice of font type and its size are good and clear. In addition, differentiation of 2009 and 2019 are consistently done through both colour and labelling of line chart, making it easy for reader to differentiate between the two periods.</p></li>
-<li><p>The author also removes unnecessary data-ink by omitting the y-axis which directs reader straight to the shape of the distribution. However, this require the author to provide the actual value in tabular format for reader to compare the numbers. Positioning of median age is at the centre which draws the attention to the main conclusion. However, as the x-axis is rather ordinal by age group, the reference line for median treats the x-axis as continuous. As I am unable to provide a good solution for this, I will prefer to remove the reference line and provide this median-shift conclusion in the subtitle/through annotation instead.</p></li>
-<li><p>The data source and note at the bottom of the visualisation are aligned to the opposing side. Though it may be subjective, I would prefer to have both of them aligned to the same side, keeping it tidy. Also, preferably left aligned, following the natural reading direction from left to right.</p></li>
+<li><p>The choice of font type and its size are good and clear, which is also consistent throughout the report itself. In addition, differentiation of 2009 and 2019 are consistently done through both colour difference and labelling of line chart, making it easy for reader to differentiate between the two periods.</p></li>
+<li><p>The author also removes unnecessary data-ink by omitting the y-axis which directs reader straight to the shape of the distribution. However, this requires the author to provide the percentage value in tabular format for reader to make comparison. Positioning of median age at the centre draws the attention to the main conclusion. While the x-axis is of ordinal type (age group), the reference line treats the x-axis as continuous. Although this may contradict the usage of x-axis, the message on “shifting median age” is made clearer by positioning the reference line apart.</p></li>
+<li><p>The data source and note at the bottom of the visualisation are aligned to the opposing side. Though it may be subjective, having both of them aligned to the same side will keep the layout tidier. Also, it is preferably left aligned, following reading direction from left to right.</p></li>
 </ol>
 <h1 id="proposed-visualisation">3. Proposed visualisation</h1>
 <h2 id="sketch">Sketch</h2>
-<p>The following sketch shows the proposed visualisation and I will go through the rationale behind the choices made for this visualisation.</p>
+<p>The following sketch shows the proposed visualisation and the rationale behind the choices made are given below.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
 <img src="images/sketch.jpg" alt="Sketch of proposed visualisation" width="2016" />
 <p class="caption">
-Figure 3: Sketch of proposed visualisation
+Figure 4: Sketch of proposed visualisation
 </p>
 </div>
 </div>
 <h2 id="rationale">Rationale</h2>
 <ol type="1">
-<li><p>The clarity of comparing two different values (2009 and 2019) is made clearer through the use of bar chart. Specifically, I choose overlapping bar chart as opposed to side-by-side bar chart as it allows me to save spaces and it seems to be less cluttered for comparing 12 different age groups.</p></li>
-<li><p>To align the visualisation with the preceding text, I decided to aggregate the 12 age groups into 3 higher level groups, where 2 of them represent older and younger residents mentioned in the text.</p></li>
-<li><p>The author makes reference to the increasing Labour Force Participation Rate (LFPR) to support the conclusion. As this important data is unavailable in the original visualisation, the trend of LFPR is added using line chart to visualise the statement on increasing LFPR made in the preceding text.</p></li>
+<li><p>The comparison of two different values (2009 and 2019) is made clearer through the use of bar chart. Specifically, overlapping bar chart is chosen, as opposed to side-by-side bar chart, in order to save some space. It is also less cluttered in comparing 12 different age groups.</p></li>
+<li><p>To connect the visualisation with the preceding text, additional bar chart is used to aggregate 12 age groups into 3 higher level groups, where 2 of them represent older and younger residents. This makes connecting the statement between the text and visualisation easier.</p></li>
+<li><p>The author makes reference to the increasing Labour Force Participation Rate (LFPR) to support the conclusion. As this important data is unavailable in the original visualisation, the trend of LFPR is added using line chart to visualise the increasing LFPR stated in the preceding text.</p></li>
 </ol>
 <h2 id="realising-the-proposed-visualisation">Realising the proposed visualisation</h2>
-<p>The proposed visualisation is made using Tableau with the 2 tables mentioned in the first section of this post as the data source.</p>
+<p>The proposed visualisation is made using Tableau with the 2 tables (mentioned in the first section of this post) as the data source.</p>
 <h3 id="importing-data-table">Importing data table</h3>
-<h3 id="preparing-data-in-the-right-format">Preparing data in the right format</h3>
-<h3 id="creating-main-chart-on-labour-force-distribution-by-age-group">Creating main chart on labour force distribution by age group</h3>
-<h3 id="creating-second-chart-on-labour-force-distribution-by-aggregated-age-group">Creating second chart on labour force distribution by aggregated age group</h3>
-<h3 id="creating-third-chart-on-lfpr-trend-by-aggregated-age-group">Creating third chart on LFPR trend by aggregated age group</h3>
+<p>Before importing to Tableau, we first open both tables in Excel to look at the table layout.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
+<img src="images/T7_raw.JPG" alt="Raw T7 table (T5 has similar layout)" width="50%" />
+<p class="caption">
+Figure 5: Raw T7 table (T5 has similar layout)
+</p>
+</div>
+</div>
+<p>The data table is not readily usable as it includes the title text, side note, data source text, and several patches of empty cells. However, Tableau has a “Data Interpreter” function which could help with data preparation. After importing T7 excel file into Tableau, click on “Data Interpreter” and drag <strong>T7_T</strong> (referring to total) into the table area.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
+<img src="images/DataImportT7.jpg" alt="Using data interpreter and import table" width="496" />
+<p class="caption">
+Figure 6: Using data interpreter and import table
+</p>
+</div>
+</div>
+<p>Looking at the table view, the first column can be hidden as it does not carry any relevant data (in fact it is the side note of the raw table). Click on the small dropdown menu of the first column and select “Hide”</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-7"></span>
+<img src="images/T7_Col1.JPG" alt="Hide first column" width="492" />
+<p class="caption">
+Figure 7: Hide first column
+</p>
+</div>
+</div>
+<p>To add the next data source <strong>(T5)</strong>, click on the side of T7 data source and select <em>New Data Source</em>. Subsequently, select “data interpreter” option and drag <strong>T5_T</strong> into the table area. At this point, both <strong>T5</strong> and <strong>T7</strong> have been imported into Tableau.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
+<img src="images/addT5.JPG" alt="Adding T5 as a new data source" width="635" />
+<p class="caption">
+Figure 8: Adding T5 as a new data source
+</p>
+</div>
+</div>
+<h3 id="preparing-data">Preparing data</h3>
+<p>For both <strong>T7</strong> and <strong>T5</strong>, we will remove multiple whitespaces in the original age group text by creating a new calculated field <em>Age group</em> using <em>REPLACE</em> formula. The original age group column can then be hidden.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
+<img src="images/AgeGroup.JPG" alt="Tidying up age group" width="494" />
+<p class="caption">
+Figure 9: Tidying up age group
+</p>
+</div>
+</div>
+<p>At this point, the yearly labour force data in <strong>T7</strong> is separated into different columns. This is fine as the first 2 plots will compare the value between 2009 and 2019. The <em>null</em> value under the <em>Age group</em> columnn refers to the total of the entire age group, which we are not going to use.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
+<img src="images/T7_wide.JPG" alt="T7 final appearance" width="594" />
+<p class="caption">
+Figure 10: T7 final appearance
+</p>
+</div>
+</div>
+<p>Currently, the 2009-2019 LFPR data in <strong>T5</strong> are stored separately (each year has its own individual column). For the last plot in the visualisation, we are going to visualise the trend of LFPR, which means the Year has to be one of the measure. To do so, <em>Pivot</em> function is used by selecting all year columns, right click and select Pivot.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-11"></span>
+<img src="images/T5_pivot.JPG" alt="Pivoting T5 columns" width="501" />
+<p class="caption">
+Figure 11: Pivoting T5 columns
+</p>
+</div>
+</div>
+<p>Once pivoted, we can change the field name to <em>Year</em> and <em>LFPR</em> for ease of reference. The field type for <em>Year</em> is then changed to represent <em>Date</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-12"></span>
+<img src="images/T5_pivoted.jpg" alt="T5 final appearance" width="162" />
+<p class="caption">
+Figure 12: T5 final appearance
+</p>
+</div>
+</div>
+<h3 id="main-chart-on-distribution-by-age-group">Main chart on distribution by age group</h3>
+<p>The first part of the visualisation basically transforms the original labour force distribution curve into bar charts. Open a new worksheet and select <strong>T7_T</strong> as the data source.</p>
+<p>First, drag the <em>Age group</em> from the Data pane to the <em>Filters</em> shelf. In the dialog box, click <em>Exclude</em> and select the <em>Null</em> value from the list. This will exclude <em>Null</em> row (which refer to the total value) from our plot.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-13"></span>
+<img src="images/T7_exclude_null.jpg" alt="Filter to exclude _Null_ value" width="110%" />
+<p class="caption">
+Figure 13: Filter to exclude <em>Null</em> value
+</p>
+</div>
+</div>
+<p>Next, drag <em>2009</em> and <em>2019</em> to the <em>Columns</em> shelf and <em>Age group</em> to the <em>Rows</em> shelf. Right click on <em>2019</em> bullet and select <em>Dual Axis</em>. In the <em>Marks</em> shelf, change the chart type to bar chart for both <em>SUM(2009)</em> and <em>SUM(2019)</em>. Right click on the x-axis and set <em>Synchronize Axis</em>. Set the Worksheet View to <em>Entire View</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-14"></span>
+<img src="images/T7_dualaxis.jpg" alt="Dual axis for 2019 and 2019 value" width="110%" />
+<p class="caption">
+Figure 14: Dual axis for 2019 and 2019 value
+</p>
+</div>
+</div>
+<p>At this point of time, the difference between 2009 and 2019 can be seen between 20-24 and 30-44 age groups. To get the percentage for each age group, right click on the <em>SUM(2009)</em> bullet, select <em>Quick Table Calculation</em>, and choose <em>Percent of Total</em>. Do the same for <em>SUM(2019)</em>. To make the comparison clearer, some adjustments are made:<br />
+- in the <em>Columns</em> shelf, shift <em>SUM(2019)</em> to the left of <em>SUM(2009)</em> so that it will be displayed on top<br />
+- under <em>All</em> pane, change the type of <em>Measure Names</em> from color to size to differentiate bar chart size between 2009 and 2019<br />
+- grey and blue color is set for <em>SUM(2009)</em> and <em>SUM(2019)</em> correspondingly<br />
+- 20% opacity is set for 2009 to send a message that it is of older time period</p>
+<p>At this stage, the chart should look like this.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-15"></span>
+<img src="images/T7_barsize.jpg" alt="Bar chart with different size" width="110%" />
+<p class="caption">
+Figure 15: Bar chart with different size
+</p>
+</div>
+</div>
+<p>Double click on the legend at the top right, and select <em>Reversed</em> so that 2019 bar chart is smaller than the 2009. Also adjust the right hand slider towards the middle so that the bar size is more comparable. Next, we can remove the top x-axis header, hide the <em>Age group</em> field label, adjust x-axis tick mark, and add the title of the plot.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-16"></span>
+<img src="images/T7_tidier.jpg" alt="Further adjustment" width="110%" />
+<p class="caption">
+Figure 16: Further adjustment
+</p>
+</div>
+</div>
+<p>Additional row divider is then added to clearly show the 2 main groups of interest mentioned in the text. First, we need to create an aggregated age group from <em>Age group</em>. To do so, right click on <em>Age group</em>, go to <em>Create</em> and select <em>Group</em>. In the dialog box, simply select multiple age group (e.g. 15-19 and 20-24), click on <em>Group</em>, and assign a new group name.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-17"></span>
+<img src="images/T7_newgroup.jpg" alt="Creating new age group" width="110%" />
+<p class="caption">
+Figure 17: Creating new age group
+</p>
+</div>
+</div>
+<p>A new measure <em>Age group (group)</em> is then created. Drag this to the <em>Rows</em> shelf to the left of our initial <em>Age group</em>. Once the row divider is seen, we can remove the header for <em>Age group (group)</em>. The final appearance of the plot should look like this. Rename the worksheet as “Part 1” for ease of reference.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-18"></span>
+<img src="images/T7_final_part1.jpg" alt="First part of visualisation" width="110%" />
+<p class="caption">
+Figure 18: First part of visualisation
+</p>
+</div>
+</div>
+<h3 id="second-chart-on-distribution-by-aggregated-age-group">Second chart on distribution by aggregated age group</h3>
+<p>Duplicate the first worksheet and rename it to “Part 2”. Next, remove the <em>Age group</em> bullet from the <em>Rows</em> shelf so that the distribution is grouped into just the 3 aggregated age groups. Right click on the <em>Age group (group)</em> bullet and enable <em>Show Header</em>. Adjust the x-tick mark accordingly so that it shows the entire range of bar chart. The bar chart is also adjusted to be slightly thinner.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-19"></span>
+<img src="images/T7_part2_start.jpg" alt="Aggregated age group" width="110%" />
+<p class="caption">
+Figure 19: Aggregated age group
+</p>
+</div>
+</div>
+<p>There is enough room to show the data label in order to help reader connects the text and the visualisation. Under <em>All</em> pane, click on <em>Label</em> and select <em>Show mark labels</em>. Choose <em>Min/Max</em> and <em>Cell</em> for the label and scope. The minimum label is not required in this case and can be turned off from the <em>Options</em> menu.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-20"></span>
+<img src="images/T7_part2_marklabel.jpg" alt="Enabling label" width="110%" />
+<p class="caption">
+Figure 20: Enabling label
+</p>
+</div>
+</div>
+<p>To differentiate the label value between 2009 and 2019 data, some adjustments are made:<br />
+- font size for 2009 is made smaller (8pt) with Top-Right alignment<br />
+- font size for 2019 is made bigger (10pt) with <strong>bold</strong> style</p>
+<p>The decimal place is also removed to make it clearer. First, right click on the plot area and select <em>Format</em>, this will open a <em>Format</em> pane on the left side of the interface. Click on the <em>Fields</em> menu and select <em>% of Total SUM(2009)</em>. Click on <em>Pane</em>, <em>Numbers</em>, and choose <em>Percentage</em> with 0 decimal place. Do the same thing for <em>% of Total SUM(2019)</em> field.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-21"></span>
+<img src="images/T7_part2_labelformatting.jpg" alt="Formatting label" width="110%" />
+<p class="caption">
+Figure 21: Formatting label
+</p>
+</div>
+</div>
+<p>We also activate the row divider for the aggregated age group by setting the slider for the <em>Row Divider</em> level accordingly.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-22"></span>
+<img src="images/T7_part2_rowdivider.jpg" alt="Second part of visualisation" width="132" />
+<p class="caption">
+Figure 22: Second part of visualisation
+</p>
+</div>
+</div>
+<p>We may want to look at how it pans out when the two plots are joined together. First, we create a new dashboard and drag the 2 worksheets to the dashboard side-by-side.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-23"></span>
+<img src="images/T7_predashboard.jpg" alt="Joined view of Part 1 and Part 2" width="110%" />
+<p class="caption">
+Figure 23: Joined view of Part 1 and Part 2
+</p>
+</div>
+</div>
+<p>Now the visualisation has both the granularity of individual age group and the aggregated age group. The reader can now afford to connect the percentage in the text (67% and 25% for 2019) with the visual. However, there is a downside with this view as the row dividers are not aligned between the 2 plots as compared to the initial sketch. We will address this issue later.</p>
+<h3 id="third-chart-on-lfpr-trend-by-aggregated-age-group">Third chart on LFPR trend by aggregated age group</h3>
+<p>The last part of the visualisation is to show the reader that the LFPR for the younger and older residents have increased since 2009, as what the original author has highlighted. For this, we will use the data from <strong>T5</strong>.</p>
+<p>First, we create new worksheet called “Part 3” and select <strong>T5_T</strong> in the data pane. Take note that <strong>T5_T</strong> contains overlapping age group, hence we should first filter out those groups and keep only the individual age groups similar to <strong>T7</strong>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-24"></span>
+<img src="images/T5_filter.jpg" alt="Filter T5 age group" width="110%" />
+<p class="caption">
+Figure 24: Filter T5 age group
+</p>
+</div>
+</div>
+<p>Similar to part 2, we then proceed to create a new aggregated age group. As there are predefined aggregated group inside <strong>T5_T</strong>, we add “group” to the group name to differentiate.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-25"></span>
+<img src="images/T5_grouping.jpg" alt="Create aggregated age group" width="110%" />
+<p class="caption">
+Figure 25: Create aggregated age group
+</p>
+</div>
+</div>
+<p>To plot the trend of average LFPR within each group, drag the <em>Year</em> to <em>Columns</em> shelf while <em>Age group (group)</em> and <em>LFPR</em> to the <em>Rows</em> shelf. Change the <em>SUM(LFPR)</em> to <em>AVG(LFPR)</em> by right clicking the bullet, select <em>Measure</em> and <em>Average</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-26"></span>
+<img src="images/T5_line.JPG" alt="Calculate average value" width="110%" />
+<p class="caption">
+Figure 26: Calculate average value
+</p>
+</div>
+</div>
+<p>As each group has different initial average LFPR value, it is difficult to compare among them. Therefore, we will set the <em>AVG(LFPR)</em> in 2009 as the baseline and chart the difference in each year as compared to 2009. To do so, right click on the <em>AVG(LFPR)</em> bullet, select <em>Quick Table Calculation</em>, and choose <em>Percent Difference</em>. To use 2009 (first value) as the baseline, select <em>Relative to</em> and choose <em>First</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-27"></span>
+<img src="images/T5_percentdiff.jpg" alt="Average LFPR difference from 2009" width="110%" />
+<p class="caption">
+Figure 27: Average LFPR difference from 2009
+</p>
+</div>
+</div>
+<p>Color gradation is then added to the line chart from 2009-2019. However, we have to first change the <em>Year</em> measure from <em>Discrete</em> to <em>Continuous</em> type.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-28"></span>
+<img src="images/T5_year_continuous.jpg" alt="Continuous _Year_ measure" width="110%" />
+<p class="caption">
+Figure 28: Continuous <em>Year</em> measure
+</p>
+</div>
+</div>
+<p>Hold Ctrl in the keyboard while clicking the continuous <em>Year</em> bullet, drag it from <em>Columns</em> shelf into the <em>Color</em> pane to activate coloring on the line chart.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-29"></span>
+<img src="images/T5_color_line.jpg" alt="Line chart with color gradation" width="110%" />
+<p class="caption">
+Figure 29: Line chart with color gradation
+</p>
+</div>
+</div>
+<p>As the whole visualisation is about comparing 2009 and 2019, we can remove the x-axis title to reduce non data-ink. In addition, the color gradation helps to allude a trend towards 2019. Y-axis is also removed as the starting point for all 3 age groups is zero. Data label for 2019 is added to provide reader a comparative value between 2009 and 2019. Click <em>Show mark labels</em> and select <em>Most Recent</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-30"></span>
+<img src="images/T5_label.JPG" alt="Adding label to the most recent data point" width="110%" />
+<p class="caption">
+Figure 30: Adding label to the most recent data point
+</p>
+</div>
+</div>
+<p>Right click on one of the data label and select <em>Format</em>. Click <em>Fields</em> and select <em>% Difference in AVG(LFPR)</em>. Click <em>Pane</em> and change the <em>Numbers</em> format to <em>Percentage</em> with 0 decimal place.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-31"></span>
+<img src="images/T5_label_format.jpg" alt="Label formatting" width="192" />
+<p class="caption">
+Figure 31: Label formatting
+</p>
+</div>
+</div>
+<p>The final appearance for the third part of visualisation will look like this.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-32"></span>
+<img src="images/T5_final.JPG" alt="Third part of visualisation" width="110%" />
+<p class="caption">
+Figure 32: Third part of visualisation
+</p>
+</div>
+</div>
 <h3 id="putting-it-all-together">Putting it all together</h3>
+<p>If we put all 3 parts together, we will get something like shown below. As pointed out before, the row divider among 3 parts are not the same as in the initial sketch. The label for the LFPR trend plot also now becomes illegible as it overlaps with the line plot, hence text alignment has to be adjusted. The height of the LFPR trend plot also jutted out of alignment as compared to the other 2 plots.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-33"></span>
+<img src="images/DraftDashboard.jpg" alt="Putting it all together, _not quite right_" width="110%" />
+<p class="caption">
+Figure 33: Putting it all together, <em>not quite right</em>
+</p>
+</div>
+</div>
+<p>In order to have the intended row divider for the last 2 plots, we have to create 3 different plots to represent each aggregated age group.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-34"></span>
+<img src="images/DraftDashboardPatch.jpg" alt="Putting it all together, _with some workaround_" width="110%" />
+<p class="caption">
+Figure 34: Putting it all together, <em>with some workaround</em>
+</p>
+</div>
+</div>
+<p>Duplicate part 2 into 3 new worksheets where in each worksheet, we will show only 1 age group. Reactivate <em>Show Header</em> for <em>Age group (group)</em>, right click the group to be hidden, and select <em>Hide</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-35"></span>
+<img src="images/Hide_age_group.jpg" alt="Hide specific age group from view" width="110%" />
+<p class="caption">
+Figure 35: Hide specific age group from view
+</p>
+</div>
+</div>
+<p>We then hide the title and x-axis according to the order of the plots in the dashboard i.e. only the bottom plot require x-axis, only the top plot requires title.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-36"></span>
+<img src="images/DraftDashboardPart2.jpg" alt="Putting it all together, _with duplicated worksheets_" width="110%" />
+<p class="caption">
+Figure 36: Putting it all together, <em>with duplicated worksheets</em>
+</p>
+</div>
+</div>
+<p>Adjustment to the border setting and x-axis range for each plot are done to get standardised format. Only the top and bottom plot would have horizontal border line, while the middle plot is left borderless.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-37"></span>
+<img src="images/Border_Lines.jpg" alt="Formatting borders and lines" width="110%" />
+<p class="caption">
+Figure 37: Formatting borders and lines
+</p>
+</div>
+</div>
+<p>Slight layout padding adjustment is also made in the dashboard setting to achieve better alignment between the plots. Finally, we can achieve the following appearance.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-38"></span>
+<img src="images/DraftDashboardPart2Done.jpg" alt="Putting it all together, _part 2 segregated and aligned_" width="110%" />
+<p class="caption">
+Figure 38: Putting it all together, <em>part 2 segregated and aligned</em>
+</p>
+</div>
+</div>
+<p>Repeating the same process for LFPR trend plot, we arrive at the following appearance where all 3 plots are now aligned properly.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-39"></span>
+<img src="images/DraftDashboardPart3Done.jpg" alt="Putting it all together, _part 3 segregated and aligned_" width="110%" />
+<p class="caption">
+Figure 39: Putting it all together, <em>part 3 segregated and aligned</em>
+</p>
+</div>
+</div>
+<p>Adding the main conclusion into the title and subtitle with some formatting done to highlight the key points:<br />
+- Year 2019 uses <strong>bold</strong> style and colored <span style="color: blue;font-weight:bold">blue</span> so that reader may relate blue color with 2019<br />
+- Younger and older residents are highlighted in <strong>bold</strong> style<br />
+- Percentage change and LFPR are also highlighted in <strong>bold</strong> style<br />
+- Shift in median age is in <strong>bold</strong> and inserted as the final statement to end the subtitle</p>
+<p>Finally, inserting data source and notes at the bottom to complete the visualisation.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-40"></span>
+<img src="images/Final_viz.jpg" alt="Putting it all together, _final visualisation_" width="110%" />
+<p class="caption">
+Figure 40: Putting it all together, <em>final visualisation</em>
+</p>
+</div>
+</div>
+<p><em>Note: The final visualisation is saved under “Desktop” dashboard. Uploading to Tableau Public makes the row divider misaligned and hence requires additional adjustment. The Tableau Public version is saved under “Public” dashboard <a href="https://public.tableau.com/views/Y210127_VizMakeover1/Public?:language=en&amp;:display_count=y&amp;publish=yes&amp;:origin=viz_share_link">(Tableau Public)</a>.</em></p>
+<h1 id="observations-from-visualisation">4. Observations from visualisation</h1>
+<ol type="1">
+<li>There is less younger residents aged 25-54 in the 2019 labour force. Their percentage share in the total labour force drops from 75% in 2009 to 67% in 2019. In contrast, the share of older residents aged 55 &amp; above increases from 16% to 25%.<br />
+</li>
+<li>The distribution in 2009 has its peak percentage residing in the 35-39 age group. The peak has moved to 45-49 age group in 2019, pointing to the insufficient influx of younger age group in the labour force to balance Singapore’s aging population. This could be attributed to Singapore’s lower birth rate as pointed out by the original author.<br />
+</li>
+<li>Average participation rate of older residents (age 55 &amp; above) into the labour force increases by 27% as compared to 2009. This is in contrast to the 5% increase in the average participation rate of younger age group. This comparison helps to explain why the share of younger resident falls despite the increasing participation rate. In addition, this observation could be useful to initiate further exploration on the retirement and re-employment policy that Singapore took towards 2019.</li>
+</ol>
+<h1 id="conclusion">5. Conclusion</h1>
+<p>A critique and makeover on labour force distribution plot have been done by first assessing both clarity and aesthetics aspects of the original visualisation. Subsequently, a proposed new visualisation has been developed with the intention to improve the clarity of author’s intended message and visual aspects of the original visualisation. The rationale behind the choice of visualisation type and components have also been provided. Lastly, the visualisation has been realised in Tableau, with observations from the new visualisation explained.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

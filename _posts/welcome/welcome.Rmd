@@ -1,11 +1,11 @@
 ---
-title: "Welcome to Idea"
+title: "Welcome to Data Viz Learning"
 description: |
-  Welcome to our new blog, Idea. We hope you enjoy 
-  reading what we have to say!
+  Welcome to my new blog Data Viz Learning!
+  
 author:
   - name: Kevin Gunawan Albindo
-    url: https://www.linkedin.com/in/kgalbindo
+    link: https://www.linkedin.com/in/kgalbindo
     affiliation: 
     affiliation_url: 
 date: 01-04-2021
@@ -17,10 +17,11 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 
+
 # Learn more about creating blogs with Distill at:
 # https://rstudio.github.io/distill/blog.html
 
 ```
-
+[Tableau public](https://public.tableau.com/profile/kevin.gunawan.albindo#!/)
 
 
