@@ -157,13 +157,13 @@ First, drag the _Age group_ from the Data pane to the _Filters_ shelf. In the di
 include_graphics("images/T7_exclude_null.jpg")
 ```
 
-Next, drag _2009_ and _2019_ to the _Columns_ shelf and _Age group_ to the _Rows_ shelf. Right click on _2019_ bullet and select _Dual Axis_. In the _Marks_ shelf, change the chart type to bar chart for both _SUM(2009)_ and _SUM(2019)_. Right click on the x-axis and set _Synchronize Axis_. Set the Worksheet View to _Entire View_.
+Next, drag _2009_ and _2019_ to the _Columns_ shelf and _Age group_ to the _Rows_ shelf. Right click on _2019_ field and select _Dual Axis_. In the _Marks_ shelf, change the chart type to bar chart for both _SUM(2009)_ and _SUM(2019)_. Right click on the x-axis and set _Synchronize Axis_. Set the Worksheet View to _Entire View_.
 
 ```{r, echo=FALSE, out.width="110%", fig.align='center', fig.cap='Dual axis for 2019 and 2019 value'}
 include_graphics("images/T7_dualaxis.jpg")
 ```
 
-At this point of time, the difference between 2009 and 2019 can be seen between 20-24 and 30-44 age groups. To get the percentage for each age group, right click on the _SUM(2009)_ bullet, select _Quick Table Calculation_, and choose _Percent of Total_. Do the same for _SUM(2019)_. To make the comparison clearer, some adjustments are made:  
+At this point of time, the difference between 2009 and 2019 can be seen between 20-24 and 30-44 age groups. To get the percentage for each age group, right click on the _SUM(2009)_ field, select _Quick Table Calculation_, and choose _Percent of Total_. Do the same for _SUM(2019)_. To make the comparison clearer, some adjustments are made:  
   - in the _Columns_ shelf, shift _SUM(2019)_ to the left of _SUM(2009)_ so that it will be displayed on top  
   - under _All_ pane, change the type of _Measure Names_ from color to size to differentiate bar chart size between 2009 and 2019  
   - grey and blue color is set for _SUM(2009)_ and _SUM(2019)_ correspondingly  
@@ -196,7 +196,7 @@ include_graphics("images/T7_final_part1.jpg")
 
 ### Second chart on distribution by aggregated age group
 
-Duplicate the first worksheet and rename it to "Part 2". Next, remove the _Age group_ bullet from the _Rows_ shelf so that the distribution is grouped into just the 3 aggregated age groups. Right click on the _Age group (group)_ bullet and enable _Show Header_. Adjust the x-tick mark accordingly so that it shows the entire range of bar chart. The bar chart is also adjusted to be slightly thinner.
+Duplicate the first worksheet and rename it to "Part 2". Next, remove the _Age group_ field from the _Rows_ shelf so that the distribution is grouped into just the 3 aggregated age groups. Right click on the _Age group (group)_ field and enable _Show Header_. Adjust the x-tick mark accordingly so that it shows the entire range of bar chart. The bar chart is also adjusted to be slightly thinner.
 
 ```{r, echo=FALSE, out.width="110%", fig.align='center', fig.cap='Aggregated age group'}
 include_graphics("images/T7_part2_start.jpg")
@@ -248,13 +248,13 @@ Similar to part 2, we then proceed to create a new aggregated age group. As ther
 include_graphics("images/T5_grouping.jpg")
 ```
 
-To plot the trend of average LFPR within each group, drag the _Year_ to _Columns_ shelf while _Age group (group)_ and _LFPR_ to the _Rows_ shelf. Change the _SUM(LFPR)_ to _AVG(LFPR)_ by right clicking the bullet, select _Measure_ and _Average_.
+To plot the trend of average LFPR within each group, drag the _Year_ to _Columns_ shelf while _Age group (group)_ and _LFPR_ to the _Rows_ shelf. Change the _SUM(LFPR)_ to _AVG(LFPR)_ by right clicking the field, select _Measure_ and _Average_.
 
 ```{r, echo=FALSE, out.width="110%", fig.align='center', fig.cap='Calculate average value'}
 include_graphics("images/T5_line.jpg")
 ```
 
-As each group has different initial average LFPR value, it is difficult to compare among them. Therefore, we will set the _AVG(LFPR)_ in 2009 as the baseline and chart the difference in each year as compared to 2009. To do so, right click on the _AVG(LFPR)_ bullet, select _Quick Table Calculation_, and choose _Percent Difference_. To use 2009 (first value) as the baseline, select _Relative to_ and choose _First_.
+As each group has different initial average LFPR value, it is difficult to compare among them. Therefore, we will set the _AVG(LFPR)_ in 2009 as the baseline and chart the difference in each year as compared to 2009. To do so, right click on the _AVG(LFPR)_ field, select _Quick Table Calculation_, and choose _Percent Difference_. To use 2009 (first value) as the baseline, select _Relative to_ and choose _First_.
 
 ```{r, echo=FALSE, out.width="110%", fig.align='center', fig.cap='Average LFPR difference from 2009'}
 include_graphics("images/T5_percentdiff.jpg")
@@ -266,7 +266,7 @@ Color gradation is then added to the line chart from 2009-2019. However, we have
 include_graphics("images/T5_year_continuous.jpg")
 ```
 
-Hold Ctrl in the keyboard while clicking the continuous _Year_ bullet, drag it from _Columns_ shelf into the _Color_ pane to activate coloring on the line chart.
+Hold Ctrl in the keyboard while clicking the continuous _Year_ field, drag it from _Columns_ shelf into the _Color_ pane to activate coloring on the line chart.
 
 ```{r, echo=FALSE, out.width="110%", fig.align='center', fig.cap='Line chart with color gradation'}
 include_graphics("images/T5_color_line.jpg")
