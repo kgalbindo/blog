@@ -1633,7 +1633,7 @@ Figure 13: Filter to exclude <em>Null</em> value
 </p>
 </div>
 </div>
-<p>Next, drag <em>2009</em> and <em>2019</em> to the <em>Columns</em> shelf and <em>Age group</em> to the <em>Rows</em> shelf. Right click on <em>2019</em> bullet and select <em>Dual Axis</em>. In the <em>Marks</em> shelf, change the chart type to bar chart for both <em>SUM(2009)</em> and <em>SUM(2019)</em>. Right click on the x-axis and set <em>Synchronize Axis</em>. Set the Worksheet View to <em>Entire View</em>.</p>
+<p>Next, drag <em>2009</em> and <em>2019</em> to the <em>Columns</em> shelf and <em>Age group</em> to the <em>Rows</em> shelf. Right click on <em>2019</em> field and select <em>Dual Axis</em>. In the <em>Marks</em> shelf, change the chart type to bar chart for both <em>SUM(2009)</em> and <em>SUM(2019)</em>. Right click on the x-axis and set <em>Synchronize Axis</em>. Set the Worksheet View to <em>Entire View</em>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-14"></span>
 <img src="images/T7_dualaxis.jpg" alt="Dual axis for 2019 and 2019 value" width="110%" />
@@ -1642,7 +1642,7 @@ Figure 14: Dual axis for 2019 and 2019 value
 </p>
 </div>
 </div>
-<p>At this point of time, the difference between 2009 and 2019 can be seen between 20-24 and 30-44 age groups. To get the percentage for each age group, right click on the <em>SUM(2009)</em> bullet, select <em>Quick Table Calculation</em>, and choose <em>Percent of Total</em>. Do the same for <em>SUM(2019)</em>. To make the comparison clearer, some adjustments are made:<br />
+<p>At this point of time, the difference between 2009 and 2019 can be seen between 20-24 and 30-44 age groups. To get the percentage for each age group, right click on the <em>SUM(2009)</em> field, select <em>Quick Table Calculation</em>, and choose <em>Percent of Total</em>. Do the same for <em>SUM(2019)</em>. To make the comparison clearer, some adjustments are made:<br />
 - in the <em>Columns</em> shelf, shift <em>SUM(2019)</em> to the left of <em>SUM(2009)</em> so that it will be displayed on top<br />
 - under <em>All</em> pane, change the type of <em>Measure Names</em> from color to size to differentiate bar chart size between 2009 and 2019<br />
 - grey and blue color is set for <em>SUM(2009)</em> and <em>SUM(2019)</em> correspondingly<br />
@@ -1684,7 +1684,7 @@ Figure 18: First part of visualisation
 </div>
 </div>
 <h3 id="second-chart-on-distribution-by-aggregated-age-group">Second chart on distribution by aggregated age group</h3>
-<p>Duplicate the first worksheet and rename it to “Part 2”. Next, remove the <em>Age group</em> bullet from the <em>Rows</em> shelf so that the distribution is grouped into just the 3 aggregated age groups. Right click on the <em>Age group (group)</em> bullet and enable <em>Show Header</em>. Adjust the x-tick mark accordingly so that it shows the entire range of bar chart. The bar chart is also adjusted to be slightly thinner.</p>
+<p>Duplicate the first worksheet and rename it to “Part 2”. Next, remove the <em>Age group</em> field from the <em>Rows</em> shelf so that the distribution is grouped into just the 3 aggregated age groups. Right click on the <em>Age group (group)</em> field and enable <em>Show Header</em>. Adjust the x-tick mark accordingly so that it shows the entire range of bar chart. The bar chart is also adjusted to be slightly thinner.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-19"></span>
 <img src="images/T7_part2_start.jpg" alt="Aggregated age group" width="110%" />
@@ -1753,7 +1753,7 @@ Figure 25: Create aggregated age group
 </p>
 </div>
 </div>
-<p>To plot the trend of average LFPR within each group, drag the <em>Year</em> to <em>Columns</em> shelf while <em>Age group (group)</em> and <em>LFPR</em> to the <em>Rows</em> shelf. Change the <em>SUM(LFPR)</em> to <em>AVG(LFPR)</em> by right clicking the bullet, select <em>Measure</em> and <em>Average</em>.</p>
+<p>To plot the trend of average LFPR within each group, drag the <em>Year</em> to <em>Columns</em> shelf while <em>Age group (group)</em> and <em>LFPR</em> to the <em>Rows</em> shelf. Change the <em>SUM(LFPR)</em> to <em>AVG(LFPR)</em> by right clicking the field, select <em>Measure</em> and <em>Average</em>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-26"></span>
 <img src="images/T5_line.JPG" alt="Calculate average value" width="110%" />
@@ -1762,7 +1762,7 @@ Figure 26: Calculate average value
 </p>
 </div>
 </div>
-<p>As each group has different initial average LFPR value, it is difficult to compare among them. Therefore, we will set the <em>AVG(LFPR)</em> in 2009 as the baseline and chart the difference in each year as compared to 2009. To do so, right click on the <em>AVG(LFPR)</em> bullet, select <em>Quick Table Calculation</em>, and choose <em>Percent Difference</em>. To use 2009 (first value) as the baseline, select <em>Relative to</em> and choose <em>First</em>.</p>
+<p>As each group has different initial average LFPR value, it is difficult to compare among them. Therefore, we will set the <em>AVG(LFPR)</em> in 2009 as the baseline and chart the difference in each year as compared to 2009. To do so, right click on the <em>AVG(LFPR)</em> field, select <em>Quick Table Calculation</em>, and choose <em>Percent Difference</em>. To use 2009 (first value) as the baseline, select <em>Relative to</em> and choose <em>First</em>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-27"></span>
 <img src="images/T5_percentdiff.jpg" alt="Average LFPR difference from 2009" width="110%" />
@@ -1780,7 +1780,7 @@ Figure 28: Continuous <em>Year</em> measure
 </p>
 </div>
 </div>
-<p>Hold Ctrl in the keyboard while clicking the continuous <em>Year</em> bullet, drag it from <em>Columns</em> shelf into the <em>Color</em> pane to activate coloring on the line chart.</p>
+<p>Hold Ctrl in the keyboard while clicking the continuous <em>Year</em> field, drag it from <em>Columns</em> shelf into the <em>Color</em> pane to activate coloring on the line chart.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-29"></span>
 <img src="images/T5_color_line.jpg" alt="Line chart with color gradation" width="110%" />
