@@ -2,7 +2,7 @@
 title: "Data Viz Makeover 1"
 description: |
   Data visualisation critique and makeover on labour force visualisation from Singapore Ministry of Manpower 2019 annual report on "Labour Force in Singapore".
-preview: images/excerpt.jpg
+preview: images/cover.jpg
 author:
   - name: Kevin Gunawan Albindo
     url: https://www.linkedin.com/in/kgalbindo

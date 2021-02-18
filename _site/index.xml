@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Data Viz Learning</title>
+    <link>https://kgalbindo.netlify.app/</link>
+    <atom:link href="https://kgalbindo.netlify.app/index.xml" rel="self" type="application/rss+xml"/>
+    <description>Learning data visualisation
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Sun, 14 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Data Viz Makeover 2</title>
+      <dc:creator>Kevin Gunawan Albindo</dc:creator>
+      <link>https://kgalbindo.netlify.app/posts/2021-02-14-visual-makeover-2</link>
+      <description>Data visualisation critique and makeover on survey response towards COVID19 vaccination between countries.</description>
+      <guid>https://kgalbindo.netlify.app/posts/2021-02-14-visual-makeover-2</guid>
+      <pubDate>Sun, 14 Feb 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://kgalbindo.netlify.app/posts/2021-02-14-visual-makeover-2/images/vaccine.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>Data Viz Makeover 1</title>
+      <dc:creator>Kevin Gunawan Albindo</dc:creator>
+      <link>https://kgalbindo.netlify.app/posts/2021-01-24-visual-makeover-1</link>
+      <description>Data visualisation critique and makeover on labour force visualisation from Singapore Ministry of Manpower 2019 annual report on "Labour Force in Singapore".</description>
+      <guid>https://kgalbindo.netlify.app/posts/2021-01-24-visual-makeover-1</guid>
+      <pubDate>Sat, 23 Jan 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://kgalbindo.netlify.app/posts/2021-01-24-visual-makeover-1/images/cover.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>Welcome to Data Viz Learning</title>
+      <dc:creator>Kevin Gunawan Albindo</dc:creator>
+      <link>https://kgalbindo.netlify.app/posts/welcome</link>
+      <description>Welcome to my new blog Data Viz Learning!</description>
+      <guid>https://kgalbindo.netlify.app/posts/welcome</guid>
+      <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

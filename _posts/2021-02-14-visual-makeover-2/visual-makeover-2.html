@@ -1,0 +1,2493 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+  <!--radix_placeholder_meta_tags-->
+  <title>Data Viz Makeover 2</title>
+
+  <meta property="description" itemprop="description" content="Data visualisation critique and makeover on survey response towards COVID19 vaccination between countries."/>
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2021-02-14"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-02-14"/>
+  <meta name="article:author" content="Kevin Gunawan Albindo"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="Data Viz Makeover 2"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Data visualisation critique and makeover on survey response towards COVID19 vaccination between countries."/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="Data Viz Makeover 2"/>
+  <meta property="twitter:description" content="Data visualisation critique and makeover on survey response towards COVID19 vaccination between countries."/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","preview","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Data Viz Makeover 2"]},{"type":"character","attributes":{},"value":["Data visualisation critique and makeover on survey response towards COVID19 vaccination between countries.\n"]},{"type":"character","attributes":{},"value":["images/vaccine.jpg"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Kevin Gunawan Albindo"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/in/kgalbindo"]}]}]},{"type":"character","attributes":{},"value":["02-14-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_float"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["images/dashboard1.JPG","images/dashboard2.JPG","images/dataPrep_1.JPG","images/dataPrep_addFiles.JPG","images/dataPrep_checkEmpStatus.JPG","images/dataPrep_checkInfoCompleteness.JPG","images/dataPrep_checkInfoCompleteness2.JPG","images/dataPrep_checkInfoCompleteness3.JPG","images/dataPrep_checkInfoCompleteness4.JPG","images/dataPrep_contextFilter.JPG","images/dataPrep_Country.JPG","images/dataPrep_createUnion.JPG","images/dataPrep_deleteEmptyVac1.JPG","images/dataPrep_deleteIsrael.JPG","images/dataPrep_fieldsCheck.JPG","images/dataPrep_filename.JPG","images/dataPrep_filterCountry.JPG","images/dataPrep_final.JPG","images/dataPrep_hideEmployment.JPG","images/dataPrep_hideFields.JPG","images/dataPrep_hideProfileHseWrk.JPG","images/dataPrep_reimportData.JPG","images/dataPrep_reshape.JPG","images/dataPrep_responseInt.JPG","images/dataPrep_similarFields.JPG","images/dataPrep_sortVac1Asc.JPG","images/dataPrep_standardiseEmpStatus.JPG","images/dataPrep_viewData.JPG","images/dataPrep_viewExportData.JPG","images/excerpt.JPG","images/obs1.JPG","images/obs2.JPG","images/obs3.JPG","images/obs4.JPG","images/obs5.JPG","images/plot1_aliasQuestion.jpg","images/plot1_CIbar.JPG","images/plot1_color.JPG","images/plot1_filterCaption.JPG","images/plot1_filterQuestion.JPG","images/plot1_final.JPG","images/plot1_finalTouch.JPG","images/plot1_labelDot.JPG","images/plot1_meanCIfields.JPG","images/plot1_meanDot.JPG","images/plot1_newFields.jpg","images/plot1_parameter.jpg","images/plot1_placeholder.jpg","images/plot1_refLine.JPG","images/plot1_strongRefLine.JPG","images/plot1_title.JPG","images/plot1_tooltipCI.JPG","images/plot1_tooltipMean.JPG","images/plot2_addLabel.JPG","images/plot2_addTitle.JPG","images/plot2_addTooltip.JPG","images/plot2_age_createCards.JPG","images/plot2_age_createDonut.JPG","images/plot2_age_createPie.JPG","images/plot2_age_final.JPG","images/plot2_age_percentTotal.JPG","images/plot2_age_removeDecimal.JPG","images/plot2_age_title.JPG","images/plot2_aliasResponse.JPG","images/plot2_calcFieldsNeutral.JPG","images/plot2_changeCountry2.JPG","images/plot2_colorLegend.JPG","images/plot2_countPct.JPG","images/plot2_countResponse.JPG","images/plot2_country.JPG","images/plot2_createRefLine.JPG","images/plot2_dragMeasure.JPG","images/plot2_editLabel.JPG","images/plot2_editTooltip.JPG","images/plot2_emp_addMeasure.JPG","images/plot2_emp_final.JPG","images/plot2_emp_label.JPG","images/plot2_emp_reorder.JPG","images/plot2_filterLink.JPG","images/plot2_final.JPG","images/plot2_final2.JPG","images/plot2_gender_final.JPG","images/plot2_gender_label.JPG","images/plot2_gender_measures.JPG","images/plot2_gender_percent.JPG","images/plot2_gender_pie.JPG","images/plot2_gender_removeDecimal.JPG","images/plot2_house_addMeasure.JPG","images/plot2_house_final.JPG","images/plot2_house_final_2.JPG","images/plot2_house_labelFormat.JPG","images/plot2_proportionalBox.JPG","images/plot2_proportionIssue.JPG","images/plot2_readjustNeutral.JPG","images/plot2_removeLabel.JPG","images/plot2_showFilter.JPG","images/plot2_syncAxis.JPG","images/plot2_zeroRefLine.JPG","images/publish_adjustment.JPG","images/sketch.jpg","images/vaccine.jpg","visual-makeover-2_files/anchor-4.2.2/anchor.min.js","visual-makeover-2_files/bowser-1.9.3/bowser.min.js","visual-makeover-2_files/distill-2.2.21/template.v2.js","visual-makeover-2_files/header-attrs-2.6/header-attrs.js","visual-makeover-2_files/jquery-1.11.3/jquery.min.js","visual-makeover-2_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="visual-makeover-2_files/header-attrs-2.6/header-attrs.js"></script>
+  <script src="visual-makeover-2_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="visual-makeover-2_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="visual-makeover-2_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="visual-makeover-2_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="visual-makeover-2_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Data Viz Makeover 2","description":"Data visualisation critique and makeover on survey response towards COVID19 vaccination between countries.","authors":[{"author":"Kevin Gunawan Albindo","authorURL":"https://www.linkedin.com/in/kgalbindo","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-02-14T00:00:00.000+08:00","citationText":"Albindo, 2021"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Data Viz Makeover 2</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
+<p><p>Data visualisation critique and makeover on survey response towards COVID19 vaccination between countries.</p></p>
+</div>
+
+<div class="d-byline">
+  Kevin Gunawan Albindo <a href="https://www.linkedin.com/in/kgalbindo" class="uri">https://www.linkedin.com/in/kgalbindo</a> 
+  
+<br/>02-14-2021
+</div>
+
+<div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#introduction">1. Introduction</a></li>
+<li><a href="#critique-and-suggestion">2. Critique and suggestion</a>
+<ul>
+<li><a href="#clarity">Clarity</a></li>
+<li><a href="#aesthetic">Aesthetic</a></li>
+</ul></li>
+<li><a href="#proposed-visualisation">3. Proposed visualisation</a>
+<ul>
+<li><a href="#sketch">Sketch</a></li>
+<li><a href="#rationale">Rationale</a></li>
+<li><a href="#variable-list">Variable list</a></li>
+<li><a href="#data-preparation">Data preparation</a></li>
+<li><a href="#visualisation-part-1-dot-plot-with-error-bar">Visualisation part 1 – Dot plot with error bar</a></li>
+<li><a href="#visualisation-part-2-likert-chart-for-survey-questions">Visualisation part 2 – Likert chart for survey questions</a>
+<ul>
+<li><a href="#gender">1. Gender</a></li>
+<li><a href="#age">2. Age</a></li>
+<li><a href="#employment-status">3. Employment status</a></li>
+<li><a href="#household-size-and-children">4. Household Size and Children</a></li>
+<li><a href="#tooltip-integration"><em>Tooltip integration</em></a></li>
+<li><a href="#capitalise-country-label"><em>Capitalise country label</em></a></li>
+<li><a href="#creating-dashboard"><em>Creating dashboard</em></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#observations">4. Observations</a></li>
+</ul>
+</nav>
+</div>
+<h1 id="introduction">1. Introduction</h1>
+<p>This post is part of the submission for ISSS608 DataViz Makeover assignment 2. Data visualisation critique and makeover is done on the visualisation of survey response regarding public willingness regarding COVID19 vaccination. The data is available from “Imperial College London YouGov Covid 19 Behaviour Tracker Data Hub” <a href="https://github.com/YouGov-Data/covid-19-tracker">[link]</a></p>
+<p>The assessment criteria will be similar to the previous blog post, based on the clarity and aesthetic aspect of the visualisation (taking reference from <a href="https://dataremixed.com/2012/05/data-visualization-clarity-or-aesthetics/">“Data Visualization: Clarity or Aesthetics?”</a> by Ben Jones).</p>
+<h1 id="critique-and-suggestion">2. Critique and suggestion</h1>
+<p>The original data visualisation that will be assessed is shown below.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
+<img src="images/excerpt.JPG" alt="Original data visualisation of survey response on public willingness to be vaccinated" width="548" style="background-color: #000000; padding:1.5px; display: inline-block;" />
+<p class="caption">
+Figure 1: Original data visualisation of survey response on public willingness to be vaccinated
+</p>
+</div>
+</div>
+<p>There are room for improvement to enhance the clarity and aesthetic of the original visualisation. Currently, while the intention is clearly stated by the questions posed in the title, reader may find it difficult to navigate through the visualisation and make appropriate conclusion.</p>
+<h2 id="clarity">Clarity</h2>
+<ol type="1">
+<li><p>The original author would like to compare the public willingness on vaccination between countries. While the first chart provides the distribution of public opinion in each country, it does not allow reader to compare between countries easily. The visualisation is sorted according to the country name in an alphabetical order, which requires reader to search for the longest blue bar to find country with highest number of strong opinions towards vaccination. In this case, the highest percentage is by any chance belongs to UK at the bottom (not so difficult to find). On the other hand, the second bar chart answers the question more directly as it is sorted in descending order by the percentage of strong opinion in each country.</p></li>
+<li><p>On the other hand, the second bar chart on the right seems to answer the question more directly as it is sorted in descending order by the percentage of strong opinion in each country. However, both the 100% stacked bar chart and the sorted bar chart fails to convey the fact that the number of respondents from each country varies between 2000 and 5000. It is important to inform the reader about the difference in sample size and hence the uncertainty that comes when estimating the average public opinion.</p></li>
+<li><p>There is also room for improvement in terms of the textual explanation. Currently, the title does a good job in posing the main question that the author would like to answer. However, more explanation and conclusion should be added in the visualisation to emphasise the main observations that the author has regarding public opinion on vaccination.</p></li>
+<li><p>It is also beneficial to understand the respondent profile (overall or within each country) to help the reader assess the validity/significance of the different opinion between countries e.g. whether the response is skewed due to the distribution of a particular respondent’s profile (age, gender, etc.).</p></li>
+</ol>
+<h2 id="aesthetic">Aesthetic</h2>
+<ol type="1">
+<li><p>The existing color palette (green, cyan, red, orange, blue) does not help in representing the opposing view of public opinion. Alternatively, diverging color palette like blue-grey-red can be used to represent positive, neutral, and negative opinion accordingly.</p></li>
+<li><p>Legend title is not elaborated further and left with the default field name (vac_1). Reader may wonder what is the variable/survey question being visualised here. Also, there is minor inconsistency in the length of dash character (-) in the label text.</p></li>
+<li><p>Position of legend is selected at the top right corner which leaves a lot of whitespace at the bottom right. The space usage can be maximised by embedding the legend into the chart instead.</p></li>
+</ol>
+<h1 id="proposed-visualisation">3. Proposed visualisation</h1>
+<h2 id="sketch">Sketch</h2>
+<p>The following sketch shows the proposed visualisation and the rationale behind the choices made are given below.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<img src="images/sketch.jpg" alt="Sketch of proposed visualisation" width="1426" />
+<p class="caption">
+Figure 2: Sketch of proposed visualisation
+</p>
+</div>
+</div>
+<h2 id="rationale">Rationale</h2>
+<ol type="1">
+<li><p>To improve the comparison of response between countries, diverging bar chart is used instead of 100% stacked bar chart. By doing so, contrast between agree and disagree will be more apparent. I also choose to plot <em>Neutral</em> response separately rather than distributing it equally to both sides of the response, as it is important to understand how many percentage are sitting on the fence regarding vaccination and this may warrant further investigation.</p></li>
+<li><p>It is also important to understand the uncertainty in the survey response which differs between countries due to the different sampling size. We can use dot plot with error bar to better convey the uncertainty to the reader. This will also aid in the comparison of average response between different variables.</p></li>
+<li><p>To allow more meaningful insight, respondent profile is also considered in the analysis. This is included through interactive visualisation, leveraging on the tooltip function in Tableau.</p></li>
+</ol>
+<p>The link to Tableau visualisation can be found <a href="https://public.tableau.com/profile/kevin.gunawan.albindo#!/vizhome/Y210218_VM2_v2/AverageResponse">here</a></p>
+<h2 id="variable-list">Variable list</h2>
+<p>For this visualisation, we are going to consider the following variables.</p>
+<p><strong>Survey questions on vaccination</strong></p>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 92%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Survey question</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>vac_1</td>
+<td>“If a Covid-19 vaccine were made available to me this week, I would definitely get it.”</td>
+</tr>
+<tr class="even">
+<td>vac2_1</td>
+<td>“I am worried about getting COVID19”</td>
+</tr>
+<tr class="odd">
+<td>vac2_2</td>
+<td>“I am worried about potential side effects of a COVID19 vaccine”</td>
+</tr>
+<tr class="even">
+<td>vac2_3</td>
+<td>“I believe government health authorities in my country will provide me with an effective COVID19 vaccine”</td>
+</tr>
+<tr class="odd">
+<td>vac2_6</td>
+<td>“If I do not get a COVID19 vaccine when it is available, I will regret it”</td>
+</tr>
+<tr class="even">
+<td>vac_3</td>
+<td>“If a Covid-19 vaccine becomes available to me a year from now, I definitely intend to get it”</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Respondent profile</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>gender</td>
+<td>Gender of respondent</td>
+</tr>
+<tr class="even">
+<td>age</td>
+<td>Age of respondent</td>
+</tr>
+<tr class="odd">
+<td>household_size</td>
+<td>Number of people in respondent’s household</td>
+</tr>
+<tr class="even">
+<td>household_children</td>
+<td>Number of children under 18 in respondent’s household</td>
+</tr>
+<tr class="odd">
+<td>employment_status</td>
+<td>Employment status of respondent</td>
+</tr>
+</tbody>
+</table>
+<h2 id="data-preparation">Data preparation</h2>
+<p>As each data file corresponds to one country, it is easier if we combine all data tables into one before we proceed with creating the visualisation. We can do this by creating <em>Union</em> of all countries’ data. First, add connection to one of the csv file. The list of other table within the same folder can be seen in the left side panel.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<img src="images/dataPrep_1.jpg" alt="Importing one of the csv file" width="402" />
+<p class="caption">
+Figure 3: Importing one of the csv file
+</p>
+</div>
+</div>
+<p>Click on the “australia.csv” table menu and select <em>Convert to Union</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
+<img src="images/dataPrep_createUnion.jpg" alt="Creating union" width="334" />
+<p class="caption">
+Figure 4: Creating union
+</p>
+</div>
+</div>
+<p>Select all the csv files to be added from the left side panel and drag them to the window box. Once all the countries are added, click OK (the union creation process may take some time).</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
+<img src="images/dataPrep_addFiles.jpg" alt="Add files to be combined" width="150%" />
+<p class="caption">
+Figure 5: Add files to be combined
+</p>
+</div>
+</div>
+<p>Some columns are specific to a certain country. For example, field “UAEEmirates” is relevant only to <em>united-arab-emirates.csv</em> data table. Therefore, we need to check if all countries have information on the relevant variables that we need. Notice that Tableau also automatically add a new field (<em>Table Name</em>) to indicate the table source.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
+<img src="images/dataPrep_filename.jpg" alt="Variation in field names between data form different countries" width="744" />
+<p class="caption">
+Figure 6: Variation in field names between data form different countries
+</p>
+</div>
+</div>
+<p>We can use <em>Table Name</em> field as Country indicator by creating new calculated field to remove “.csv” extension in the <em>Table Name</em>. Once created, convert the data type from <em>“String”</em> to <em>“Country/Region”</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-7"></span>
+<img src="images/dataPrep_Country.jpg" alt="Get country name from _Table Name_ field" width="150%" />
+<p class="caption">
+Figure 7: Get country name from <em>Table Name</em> field
+</p>
+</div>
+</div>
+<p>Next, we can remove those fields that are not in our variable list by selecting them, right click, and select <em>Hide</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
+<img src="images/dataPrep_hideFields.jpg" alt="Hide unused fields" width="150%" />
+<p class="caption">
+Figure 8: Hide unused fields
+</p>
+</div>
+</div>
+<p>However, there are some fields with similar name and not indicated in the data codebook. We can display the metadata of our table by clicking on the <em>Manage metadata</em> icon shown below. Upon further check of the csv files, some countries like Sweden and Norway have different encoding format for <em>Employment Status</em> where one-hot-encoding is used (the fields <em>employment_status_N</em> are of Boolean type - zero or one). Other fields with similar name are <em>profile_household_children</em> and <em>profile_work_stat</em>. We should investigate this further to understand what data resides within these fields.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
+<img src="images/dataPrep_similarFields.jpg" alt="Different encoding for employment status" width="430" />
+<p class="caption">
+Figure 9: Different encoding for employment status
+</p>
+</div>
+</div>
+<p>By tabulating the count of records for each ambiguous field by countries, we can assess if we need to clean the data further. In the screenshot below, we first find out the countries with response recorded for <em>Vac_1</em>, which is our main variable of interest. Sweden, Norway, Finland, and Denmark have different employment status record and they also have records on <em>Vac_1</em>. Therefore, we cannot exclude those <em>employment_status_N</em> fields and we need to standardise them with records from other countries.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
+<img src="images/dataPrep_fieldsCheck.jpg" alt="Checking data in our table" width="150%" />
+<p class="caption">
+Figure 10: Checking data in our table
+</p>
+</div>
+</div>
+<p>On the other hand, we can hide <em>profile_household_children</em> and <em>profile_work_stat</em> as they have zero record for countries with response to <em>Vac_1</em> variable. Select both from the <em>Data</em> pane and right click to select <em>Hide</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-11"></span>
+<img src="images/dataPrep_hideProfileHseWrk.jpg" alt="Hide fields with zero record" width="297" />
+<p class="caption">
+Figure 11: Hide fields with zero record
+</p>
+</div>
+</div>
+<p>As the data volume is quite huge, we can improve the performance by creating a <a href="https://help.tableau.com/current/pro/desktop/en-us/filtering_context.htm"><em>Context Filter</em></a> to include only countries of interest . Drag <em>Country</em> to <em>Filters</em> pane and set the filter criteria using <em>Condition</em> tab as shown below.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-12"></span>
+<img src="images/dataPrep_filterCountry.jpg" alt="Filter country with response to _Vac_1_ question" width="270" />
+<p class="caption">
+Figure 12: Filter country with response to <em>Vac_1</em> question
+</p>
+</div>
+</div>
+<p>Click on the <em>Country</em> pill in the <em>Filters</em> pane and select <em>Add to Context</em>. Click on <em>Apply to Worksheets</em> and select <em>All Using Related Data Sources</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-13"></span>
+<img src="images/dataPrep_contextFilter.jpg" alt="Apply country filter as context filter to all visualisation using related data sources" width="595" />
+<p class="caption">
+Figure 13: Apply country filter as context filter to all visualisation using related data sources
+</p>
+</div>
+</div>
+<p>To standardise the employment status into 1 field, we need to create a new calculated field with the following formula.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-14"></span>
+<img src="images/dataPrep_standardiseEmpStatus.jpg" alt="Standardise employment status field from different countries" width="150%" />
+<p class="caption">
+Figure 14: Standardise employment status field from different countries
+</p>
+</div>
+</div>
+<p>To check if the new field works correctly, drag the new <em>Emp Status</em> field to the <em>Columns</em> shelf, change the <em>Measure</em> to <em>Count</em> and drag it to <em>Measure Values</em> pane.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-15"></span>
+<img src="images/dataPrep_checkEmpStatus.jpg" alt="Check new field _Emp Status_" width="582" />
+<p class="caption">
+Figure 15: Check new field <em>Emp Status</em>
+</p>
+</div>
+</div>
+<p>Now, all employment status info is consolidated into <em>Emp Status</em> field. Note that there is no employment info for Israel. As we would like to compare the respondent profile (which include employment status), we should exclude Israel from our visualisation (the original author also excludes Israel from the list).</p>
+<p>We can then proceed to hide <em>Employment Status</em> and <em>employment_status_N</em> fields by selecting them in the <em>Data</em> pane and right click to select <em>Hide</em> (note that we have to remove them from the <em>Measure Values</em> pane before we can hide it).</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-16"></span>
+<img src="images/dataPrep_hideEmployment.jpg" alt="Hide original employment status fields" width="252" />
+<p class="caption">
+Figure 16: Hide original employment status fields
+</p>
+</div>
+</div>
+<p>Notice that the count of <em>Emp Status</em> entries are higher than the count of <em>Vac 1</em> which means not all respondents have answered vaccination questions. As the number of respondents who answer the <em>Vac 1</em> question is roughly only 20% of the total respondent, there are significant number of records that will not be used. But first, let’s see if all <em>Vac 1</em> responses are accompanied by the respondent information (age, employment status, household size, etc.).</p>
+<p>Drag the <em>Age</em>, <em>Household Children</em>, and <em>Household Size</em> fields to the <em>Measure Values</em> shelf and change the aggregation for <em>Age</em> to <em>Count (CNT)</em>. Also, drag the <em>Vac 1</em> field to <em>Filters</em> pane and exclude <em>Null</em> value. At this point, we can see that the number of counts for all fields are equal (except Israel).</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-17"></span>
+<img src="images/dataPrep_checkInfoCompleteness.jpg" alt="Check information completeness for _Age_, _Household Children_, and _Household Size_" width="150%" />
+<p class="caption">
+Figure 17: Check information completeness for <em>Age</em>, <em>Household Children</em>, and <em>Household Size</em>
+</p>
+</div>
+</div>
+<p>Next, for <em>Gender</em>, <em>Vac 3</em>, <em>Vac2 1</em>, <em>Vac2 2</em>, <em>Vac2 3</em>, <em>Vac2 6</em>, select all of them and drag to the <em>Rows</em> shelf. Select all of them by using Shift and mouse click, use right click to change the <em>Measure</em> to <em>Count</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-18"></span>
+<img src="images/dataPrep_checkInfoCompleteness2.jpg" alt="Create _Gender_, _Vac 3_, _Vac2 1_, _Vac2 2_, _Vac2 3_, _Vac2 6_ as measure _Count_" width="632" />
+<p class="caption">
+Figure 18: Create <em>Gender</em>, <em>Vac 3</em>, <em>Vac2 1</em>, <em>Vac2 2</em>, <em>Vac2 3</em>, <em>Vac2 6</em> as measure <em>Count</em>
+</p>
+</div>
+</div>
+<p>Once they are converted to measure <em>Count</em>, select and drag all of them to <em>Measure Values</em> shelf.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-19"></span>
+<img src="images/dataPrep_checkInfoCompleteness3.jpg" alt="Count records of _Gender_, _Vac 3_, _Vac2 1_, _Vac2 2_, _Vac2 3_, _Vac2 6_" width="631" />
+<p class="caption">
+Figure 19: Count records of <em>Gender</em>, <em>Vac 3</em>, <em>Vac2 1</em>, <em>Vac2 2</em>, <em>Vac2 3</em>, <em>Vac2 6</em>
+</p>
+</div>
+</div>
+<p>Now, we know that the count for <em>Vac 3</em> is less than the other fields. This means not all respondent answer <em>Vac 3</em> question even though they have responded to <em>Vac 1</em> question. However, we are also convinced that all countries in the list (except Israel) that has responded to <em>Vac 1</em> question are accompanied by the respondent profile information (they all have the same count of records).</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-20"></span>
+<img src="images/dataPrep_checkInfoCompleteness4.jpg" alt="Check information completeness for _Gender_, _Vac 3_, _Vac2 1_, _Vac2 2_, _Vac2 3_, _Vac2 6_" width="633" />
+<p class="caption">
+Figure 20: Check information completeness for <em>Gender</em>, <em>Vac 3</em>, <em>Vac2 1</em>, <em>Vac2 2</em>, <em>Vac2 3</em>, <em>Vac2 6</em>
+</p>
+</div>
+</div>
+<p>As we navigate the steps so far, it takes quite some time for Tableau to process/query the data. Therefore, it is better to exclude those unused records from the data set, rather than using context filter. To do so, export the current data into csv by choosing <em>View Data</em> and <em>Export All</em>. Save it as “FilteredData.csv”.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-21"></span>
+<img src="images/dataPrep_viewExportData.jpg" alt="View and export data" width="150%" />
+<p class="caption">
+Figure 21: View and export data
+</p>
+</div>
+</div>
+<p>With the help of excel, we can remove those records where <em>Vac 1</em> column is blank. We can first sort <em>Vac 1</em> column ascendingly.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-22"></span>
+<img src="images/dataPrep_sortVac1Asc.jpg" alt="Sort _Vac 1_ ascendingly" width="633" />
+<p class="caption">
+Figure 22: Sort <em>Vac 1</em> ascendingly
+</p>
+</div>
+</div>
+<p>Delete rows with empty <em>Vac 1</em> column at the bottom of the table.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-23"></span>
+<img src="images/dataPrep_deleteEmptyVac1.jpg" alt="Delete rows with empty _Vac 1_ at the bottom of table" width="636" />
+<p class="caption">
+Figure 23: Delete rows with empty <em>Vac 1</em> at the bottom of table
+</p>
+</div>
+</div>
+<p>Also, delete all rows which correspond to Israel.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-24"></span>
+<img src="images/dataPrep_deleteIsrael.jpg" alt="Delete rows corresponding to Israel data" width="636" />
+<p class="caption">
+Figure 24: Delete rows corresponding to Israel data
+</p>
+</div>
+</div>
+<p>Finally, we can save the filtered file (at this point, the file size is around 6MB) and connect the data to Tableau.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-25"></span>
+<img src="images/dataPrep_reimportData.jpg" alt="Import filtered data to Tableau" width="150%" />
+<p class="caption">
+Figure 25: Import filtered data to Tableau
+</p>
+</div>
+</div>
+<p>As recommended in the Tableau blog on <a href="https://www.tableau.com/about/blog/2018/2/prepare-survey-data-analysis-three-easy-steps-83122">preparing survey data</a>, it is a good practice to have a ‘tall and thin’ data. To do so, we can pivot the <em>Vac</em> fields. Rename the new header accordingly to <em>Question</em> and <em>Response</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-26"></span>
+<img src="images/dataPrep_reshape.jpg" alt="Reshape survey response fields" width="479" />
+<p class="caption">
+Figure 26: Reshape survey response fields
+</p>
+</div>
+</div>
+<p>The response is currently of <em>String</em> type and we can better handle the values by converting it to integer 1-5 through calculated field. Subsequently, change the data type to <em>Number (whole)</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-27"></span>
+<img src="images/dataPrep_responseInt.jpg" alt="Convert response to integer 1 to 5" width="374" />
+<p class="caption">
+Figure 27: Convert response to integer 1 to 5
+</p>
+</div>
+</div>
+<p>The final data table will look like this.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-28"></span>
+<img src="images/dataPrep_final.jpg" alt="Final appearance of  data table" width="634" />
+<p class="caption">
+Figure 28: Final appearance of data table
+</p>
+</div>
+</div>
+<h2 id="visualisation-part-1-dot-plot-with-error-bar">Visualisation part 1 – Dot plot with error bar</h2>
+<p>As the sample size between countries is different, we convey this fact by using a dot plot to represent the average response and error bars to represent the uncertainty. To do so, we create new calculated fields for these estimates: mean, upper, and lower bound for 95% and 99% confidence interval. But first, create new calculated field to count the number of records easier.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-29"></span>
+<img src="images/plot1_meanCIfields.jpg" alt="Calculated Fields for number of records, mean, and confidence interval" width="328" />
+<p class="caption">
+Figure 29: Calculated Fields for number of records, mean, and confidence interval
+</p>
+</div>
+</div>
+<p>Drag <em>Measure Values</em> to the <em>Columns</em> shelf. Remove all the fields from <em>Measure Values</em> pane except for the lower and upper 95% and 99% confidence interval. Subsequently, drag <em>Country</em> field to <em>Rows</em> shelf. Change the chart type to <em>Line</em> and add <em>Measure Names</em> to the <em>Path</em> in <em>Marks</em> shelf to connect our upper and lower bound values. To differentiate 95% and 99% bar, once again drag <em>Measure Names</em> to the <em>Color</em> in <em>Marks</em> shelf.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-30"></span>
+<img src="images/plot1_CIbar.jpg" alt="Displaying confidence interval as line" width="634" />
+<p class="caption">
+Figure 30: Displaying confidence interval as line
+</p>
+</div>
+</div>
+<p>To show our mean value as a dot plot, drag <em>Mean</em> field to <em>Columns</em> shelf, select <em>Dual Axis</em> and choose <em>Synchronize Axis</em>. Change the chart type for <em>Mean</em> field to <em>Circle</em> type. Edit the X-axis and uncheck <em>Include zero</em> option so that the dot and error bar is more visible. Sort the X-axis based on <em>Mean</em> and hide the top X-axis as it is redundant.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-31"></span>
+<img src="images/plot1_meanDot.jpg" alt="Displaying mean as dot plot" width="150%" />
+<p class="caption">
+Figure 31: Displaying mean as dot plot
+</p>
+</div>
+</div>
+<p>We should filter by <em>Vac 1</em> question to show the response on public willingness to be vaccinated. Drag <em>Question</em> field to <em>Filters</em> shelf and select <em>Vac 1</em>. We can then add a reference line at value equals to 3 which represent the neutral response. In general, the negative response is usually positioned at the left side and positive response is on the right side. Hence, we reverse the X-axis so that response towards 5 (strongly disagree) is on the left while response towards 1 (strongly agree) is on the right side.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-32"></span>
+<img src="images/plot1_refLine.jpg" alt="Reverse X-axis and reference line" width="566" />
+<p class="caption">
+Figure 32: Reverse X-axis and reference line
+</p>
+</div>
+</div>
+<p>Adjust the error bar color by clicking on the <em>Measure Names</em> color legend and the bar size by adjusting <em>Size</em> in the <em>Marks</em> shelf. Note that the order of the lower and upper bound in the legend affect the display accordingly (arrange such that 99% confidence interval at the top, followed by 95% confidence interval and mean value).</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-33"></span>
+<img src="images/plot1_color.jpg" alt="Adjust plot color" width="585" />
+<p class="caption">
+Figure 33: Adjust plot color
+</p>
+</div>
+</div>
+<p>Set the X-axis from 1 to 5 with interval of 1 and remove its title. Also, right click on the X-axis and add reference line at 5 and 1 value with label “Strongly Disagree” and “Strongly Agree” to orientate the reader that left side is negative and vice versa.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-34"></span>
+<img src="images/plot1_strongRefLine.jpg" alt="Reference line with label" width="592" />
+<p class="caption">
+Figure 34: Reference line with label
+</p>
+</div>
+</div>
+<p>As it is difficult to trace the dot plot to the country label at the left header, we can instead label each dot with the country name and remove the Y-axis. To do so, drag <em>Country</em> field to <em>Label</em> of <em>Measure Values</em> in <em>Marks</em> shelf, change the alignment to <em>Middle</em> vertical.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-35"></span>
+<img src="images/plot1_labelDot.jpg" alt="Create label near the data point" width="588" />
+<p class="caption">
+Figure 35: Create label near the data point
+</p>
+</div>
+</div>
+<p>To allow reader to cycle among different survey question, we can show the filter by <em>Show Filter</em> for <em>Question</em> field. However, the value under <em>Question</em> is not intuitive and hence we need to create aliases for each question. Right click on <em>Question</em> in the <em>Data</em> pane and choose <em>Aliases…</em>. Fill the <em>Value (Alias)</em> column according to the actual survey question.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-36"></span>
+<img src="images/plot1_aliasQuestion.jpg" alt="Create alias for _Question_" width="590" />
+<p class="caption">
+Figure 36: Create alias for <em>Question</em>
+</p>
+</div>
+</div>
+<p>Click on the <em>Question</em> filter card and select single <em>Single Value (list)</em>. Also, go to <em>Customize</em> and turn off <em>Show “All” Value</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-37"></span>
+<img src="images/plot1_filterQuestion.jpg" alt="Show filter for _Question_" width="593" />
+<p class="caption">
+Figure 37: Show filter for <em>Question</em>
+</p>
+</div>
+</div>
+<p>Next, we would like to provide options for reader to select how they want to split the average response; not only by <em>Country</em>, but also by other respondent profile such as age, gender, household size, and employment status. To do so, create a new parameter <em>Based-on Selector</em> and add these attributes to the <em>List of values</em> (taking reference from <a href="https://help.tableau.com/current/pro/desktop/en-us/parameters_swap.htm">here</a>). Right click on the parameter and select <em>Show Parameter</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-38"></span>
+<img src="images/plot1_parameter.jpg" alt="Create new parameter to select attributes" width="308" />
+<p class="caption">
+Figure 38: Create new parameter to select attributes
+</p>
+</div>
+</div>
+<p>We also need to create new calculated fields for the respondent profile data. For Age, create new group so that we can assign respondents into one of the age group. For <em>Household Size</em> and <em>Household Children</em>, we need to right click and choose create new calculated field for new categorical fields <em>Household Size (Grp)</em> and <em>Household Children (Grp)</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-39"></span>
+<img src="images/plot1_newFields.jpg" alt="Create new calculated fields for respondent attributes" width="646" />
+<p class="caption">
+Figure 39: Create new calculated fields for respondent attributes
+</p>
+</div>
+</div>
+<p>Next, create a new calculated field <em>Placeholder1</em> to receive input from our [Based-on selector] parameter and drag it to our <em>Rows</em> shelf (replacing <em>Country</em>). The idea is that when reader choose the attribute from the parameter list, it will change the input to our <em>Rows</em> shelf.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-40"></span>
+<img src="images/plot1_placeholder.jpg" alt="Create new calculated field to receive attribute selection" width="658" />
+<p class="caption">
+Figure 40: Create new calculated field to receive attribute selection
+</p>
+</div>
+</div>
+<p>Finally, add title to link the average response towards the selected question. As we have observed previously, one of the survey questions has less respondent as compared to the rest. We can highlight this fact by showing the number of respondents in the title. Create new calculated field <em>SumRecords</em> to sum up record excluding the grouping by variable in <em>Placeholder1</em>. Drag it to the <em>Detail</em> in <em>Marks</em> shelf so that it will show up when we edit the title.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-41"></span>
+<img src="images/plot1_title.jpg" alt="Create title with number of respondent" width="681" />
+<p class="caption">
+Figure 41: Create title with number of respondent
+</p>
+</div>
+</div>
+<p>For the individual data point, we also provide the number of respondents by dragging the <em>Number of records</em> to the <em>Tooltip</em> of <em>AGG(Mean)</em> in <em>Marks</em> shelf. Add <em>Placeholder1</em>, average response, and number of records as shown below.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-42"></span>
+<img src="images/plot1_tooltipMean.jpg" alt="Create tooltip for _Mean_" width="679" />
+<p class="caption">
+Figure 42: Create tooltip for <em>Mean</em>
+</p>
+</div>
+</div>
+<p>As for the tooltip of the confidence interval bar, we can show the category (<em>Placeholder1</em>) and the value of the confidence interval. Go to <em>Measure Values</em> card in <em>Marks</em> shelf and click on <em>Tooltip</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-43"></span>
+<img src="images/plot1_tooltipCI.jpg" alt="Create tooltip for confidence interval" width="346" />
+<p class="caption">
+Figure 43: Create tooltip for confidence interval
+</p>
+</div>
+</div>
+<p>Finally, change the <em>Measure Names</em> legend title to “Legend” and we can hide the X-axis as the reader can refer to “Strongly Agree” and “Strongly Disagree” annotation from our reference line.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-44"></span>
+<img src="images/plot1_finalTouch.jpg" alt="Final touch up" width="681" />
+<p class="caption">
+Figure 44: Final touch up
+</p>
+</div>
+</div>
+<p>Edit the <em>Filter</em> title to orientate reader to the selection of questions.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-45"></span>
+<img src="images/plot1_filterCaption.jpg" alt="Change filter caption" width="252" />
+<p class="caption">
+Figure 45: Change filter caption
+</p>
+</div>
+</div>
+<p>The visualisation for part 1 will look like this.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-46"></span>
+<img src="images/plot1_final.jpg" alt="Final appearance for part 1" width="634" />
+<p class="caption">
+Figure 46: Final appearance for part 1
+</p>
+</div>
+</div>
+<h2 id="visualisation-part-2-likert-chart-for-survey-questions">Visualisation part 2 – Likert chart for survey questions</h2>
+<p>In the next part, we want to count the percentage of responses for each category (1-5), hence we first need to count the positive, negative, and neutral response for <em>ResponseInt</em> using calculated field.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-47"></span>
+<img src="images/plot2_countResponse.jpg" alt="Count response" width="640" />
+<p class="caption">
+Figure 47: Count response
+</p>
+</div>
+</div>
+<p>Next, create another calculated field for percentage of each response category. We need to use <em>EXCLUDE:[Response]</em> so that the sum of number of records are calculated to include all categories (1-5) for a selected survey question.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-48"></span>
+<img src="images/plot2_countPct.jpg" alt="Count percentage of response" width="388" />
+<p class="caption">
+Figure 48: Count percentage of response
+</p>
+</div>
+</div>
+<p>We then create a dual-axis chart by dragging <em>Pct_Positive</em> and <em>Pct_Negative</em> to <em>Columns</em> shelf, and <em>Question</em> to the <em>Rows</em> shelf. Right click on <em>AGG(Pct_Negative)</em> and choose <em>Dual Axis</em>. For neutral response, we will show it separately at the side by dragging the <em>Pct_Neutral</em> to the side of <em>AGG(Pct_Negative)</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-49"></span>
+<img src="images/plot2_dragMeasure.jpg" alt="Drag measure to _Rows_ and _Columns_ shelf" width="520" />
+<p class="caption">
+Figure 49: Drag measure to <em>Rows</em> and <em>Columns</em> shelf
+</p>
+</div>
+</div>
+<p>Synchronise the two axis and change the format of X-axis label to percentage. The top X-axis can be hidden to save space.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-50"></span>
+<img src="images/plot2_syncAxis.jpg" alt="Sync X-axis and hide" width="500" />
+<p class="caption">
+Figure 50: Sync X-axis and hide
+</p>
+</div>
+</div>
+<p>Change the plot type to <em>Bar</em> and drag <em>Response</em> to <em>Color</em> in <em>Marks</em> shelf to color the bar according to the response. Change the default color by clicking on the <em>Legend</em>. Also, adjust the color legend so that the strongly agree and strongly disagree are centred for easy comparison. This is done by arranging the label in the color legend accordingly. We can reduce the bar size as well.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-51"></span>
+<img src="images/plot2_colorLegend.jpg" alt="Adjust color legend" width="540" />
+<p class="caption">
+Figure 51: Adjust color legend
+</p>
+</div>
+</div>
+<p>In addition, 0% reference line is added to assist reader in finding the centre point. Set <em>Value</em> at 0 and <em>Constant</em> type, set <em>Label</em> as <em>None</em>, and use dashed line.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-52"></span>
+<img src="images/plot2_zeroRefLine.jpg" alt="Set zero reference line" width="150%" />
+<p class="caption">
+Figure 52: Set zero reference line
+</p>
+</div>
+</div>
+<p>We can create <em>Aliases</em> for <em>Response</em> field to better clarify the response category and fix the incosistent dash character (-) between 1 and 5.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-53"></span>
+<img src="images/plot2_aliasResponse.jpg" alt="Set aliases for _Response_" width="120%" />
+<p class="caption">
+Figure 53: Set aliases for <em>Response</em>
+</p>
+</div>
+</div>
+<p>To understand the respondent profile for each response category, we can make use of Tableau tooltip to show the visualisations of each respondent’s attribute. But first, we need to prepare a visualisation for each respondent attribute.</p>
+<h3 id="gender">1. Gender</h3>
+<p>As there are only 2 categories under gender, we can use pie chart to compare the percentage between male and female respondents. Drag <em>Gender</em> to <em>Rows</em> shelf and <em>Number of records</em> to <em>Columns</em> shelf.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-54"></span>
+<img src="images/plot2_gender_measures.jpg" alt="Gender measure and number of records" width="244" />
+<p class="caption">
+Figure 54: Gender measure and number of records
+</p>
+</div>
+</div>
+<p>Open <em>Show Me</em> feature from the top right corner and select pie chart.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-55"></span>
+<img src="images/plot2_gender_pie.jpg" alt="Select pie chart from _Show Me_ feature" width="216" />
+<p class="caption">
+Figure 55: Select pie chart from <em>Show Me</em> feature
+</p>
+</div>
+</div>
+<p>Drag <em>Number of records</em> to the <em>Label</em> in <em>Marks</em> shelf, go to <em>Quick Table Calculation</em> and select <em>Percent of Total</em> to convert the value to percentage.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-56"></span>
+<img src="images/plot2_gender_percent.jpg" alt="Add percentage value" width="429" />
+<p class="caption">
+Figure 56: Add percentage value
+</p>
+</div>
+</div>
+<p>Change the format of <em>% of Total</em> field to remove decimal place.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-57"></span>
+<img src="images/plot2_gender_removeDecimal.jpg" alt="Set label decimal format" width="474" />
+<p class="caption">
+Figure 57: Set label decimal format
+</p>
+</div>
+</div>
+<p>Drag <em>Gender</em> to <em>Label</em> in <em>Marks</em> shelf and adjust the format of the label.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-58"></span>
+<img src="images/plot2_gender_label.jpg" alt="Add gender and set label format" width="150%" />
+<p class="caption">
+Figure 58: Add gender and set label format
+</p>
+</div>
+</div>
+<p>Set the <em>Fit</em> setting to <em>Entire View</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-59"></span>
+<img src="images/plot2_gender_final.jpg" alt="Final appearance for gender pie chart" width="150%" />
+<p class="caption">
+Figure 59: Final appearance for gender pie chart
+</p>
+</div>
+</div>
+<h3 id="age">2. Age</h3>
+<p>There are 3 age groups created in the previous part and we can use donut chart to represent the percentage among them. We can refer to this <a href="https://interworks.com/blog/nmarques/2019/04/30/the-donut-chart-in-tableau-a-step-by-step-guide/">blog post</a> to create a donut chart in Tableau.</p>
+<p>Double-click on <em>Rows</em> shelf and write “avg(0)” and press enter. Repeat the same step next to the newly created <em>AGG(avg(0))</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-60"></span>
+<img src="images/plot2_age_createCards.jpg" alt="Create empty cards" width="150%" />
+<p class="caption">
+Figure 60: Create empty cards
+</p>
+</div>
+</div>
+<p>This will create 2 cards in <em>Marks</em> shelf. On the first card, change the type from <em>Automatic</em> to <em>Pie</em>. Drag <em>Age (group)</em> and <em>Number of Records</em> to <em>Label</em> in <em>Marks</em> shelf. Drag another <em>Age (group)</em> to <em>Color</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-61"></span>
+<img src="images/plot2_age_createPie.jpg" alt="Create pie chart" width="564" />
+<p class="caption">
+Figure 61: Create pie chart
+</p>
+</div>
+</div>
+<p>Change the label to percent of total.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-62"></span>
+<img src="images/plot2_age_percentTotal.jpg" alt="Create percentage label" width="497" />
+<p class="caption">
+Figure 62: Create percentage label
+</p>
+</div>
+</div>
+<p>Remove the decimal place through formatting.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-63"></span>
+<img src="images/plot2_age_removeDecimal.jpg" alt="Remove decimal place" width="484" />
+<p class="caption">
+Figure 63: Remove decimal place
+</p>
+</div>
+</div>
+<p>On the second card, change the type to <em>Circle</em>. Adjust the <em>Size</em> (make it smaller) and set <em>Colour</em> to white to get the intended donut chart. Remove the Y-axis as well.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-64"></span>
+<img src="images/plot2_age_createDonut.jpg" alt="Create donut shape" width="477" />
+<p class="caption">
+Figure 64: Create donut shape
+</p>
+</div>
+</div>
+<p>To add “Age” in the middle of the donut chart, drag <em>Age (group)</em> to the <em>Label</em> for the second <em>AGG(avg(0))</em> and change the <em>Text</em> to “Age” instead of the age group value. Set <em>Alignment</em> to <em>Middle</em> and tick <em>Allow labels to overlap other marks</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-65"></span>
+<img src="images/plot2_age_title.jpg" alt="Add age title in the middle of donut" width="528" />
+<p class="caption">
+Figure 65: Add age title in the middle of donut
+</p>
+</div>
+</div>
+<p>Set the <em>Fit</em> setting to <em>Entire View</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-66"></span>
+<img src="images/plot2_age_final.jpg" alt="Final appearance for age donut chart" width="544" />
+<p class="caption">
+Figure 66: Final appearance for age donut chart
+</p>
+</div>
+</div>
+<h3 id="employment-status">3. Employment status</h3>
+<p>For employment status, we will use horizontal bar chart with percentage label to show the distribution. Drag <em>Emp Status</em> to <em>Rows</em> shelf and <em>Number of records</em> to the <em>Columns</em>. Right click on the <em>SUM(Number of records)</em>, go to <em>Quick Table Calculation</em> and select <em>Percent of Total</em> to convert the value to percentage.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-67"></span>
+<img src="images/plot2_emp_addMeasure.jpg" alt="Add measure and set to Percent of Total" width="444" />
+<p class="caption">
+Figure 67: Add measure and set to Percent of Total
+</p>
+</div>
+</div>
+<p>Turn on the <em>Label</em> and change the format of <em>% of Total</em> field to remove decimal place.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-68"></span>
+<img src="images/plot2_emp_label.jpg" alt="Turn on the label and remove decimal place" width="514" />
+<p class="caption">
+Figure 68: Turn on the label and remove decimal place
+</p>
+</div>
+</div>
+<p>Remove X-axis and re-arrange the order of employment status accordingly.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-69"></span>
+<img src="images/plot2_emp_reorder.jpg" alt="Reorder employment status and remove X-axis" width="526" />
+<p class="caption">
+Figure 69: Reorder employment status and remove X-axis
+</p>
+</div>
+</div>
+<p>Set the <em>Fit</em> setting to <em>Entire View</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-70"></span>
+<img src="images/plot2_emp_final.jpg" alt="Final appearance for employment status bar chart" width="150%" />
+<p class="caption">
+Figure 70: Final appearance for employment status bar chart
+</p>
+</div>
+</div>
+<h3 id="household-size-and-children">4. Household Size and Children</h3>
+<p>For these 2 attributes, we will use vertical bar chart. Drag <em>Household Size (Grp)</em> to <em>Rows</em> shelf and <em>Number of records</em> to the <em>Columns</em>. Right click on the <em>SUM(Number of records)</em>, go to <em>Quick Table Calculation</em> and select <em>Percent of Total</em> to convert the value to percentage.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-71"></span>
+<img src="images/plot2_house_addMeasure.jpg" alt="Add measure and change to Percent of Total" width="150%" />
+<p class="caption">
+Figure 71: Add measure and change to Percent of Total
+</p>
+</div>
+</div>
+<p>Turn on the <em>Label</em> and change the format to remove decimal place.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-72"></span>
+<img src="images/plot2_house_labelFormat.jpg" alt="Add label and change the format" width="150%" />
+<p class="caption">
+Figure 72: Add label and change the format
+</p>
+</div>
+</div>
+<p>Remove the Y-axis and set the <em>Fit</em> setting to <em>Entire View</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-73"></span>
+<img src="images/plot2_house_final.jpg" alt="Final appearance for household size bar chart" width="150%" />
+<p class="caption">
+Figure 73: Final appearance for household size bar chart
+</p>
+</div>
+</div>
+<p>Repeat the same step for <em>Household Children (Grp)</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-74"></span>
+<img src="images/plot2_house_final_2.jpg" alt="Final appearance for household children bar chart" width="150%" />
+<p class="caption">
+Figure 74: Final appearance for household children bar chart
+</p>
+</div>
+</div>
+<h3 id="tooltip-integration"><em>Tooltip integration</em></h3>
+<p>Before we add the above visualisation to the tooltip, make sure that each of them has <em>Entire View</em> selected as the <em>Fit</em> setting. Back to the Likert scale worksheet, we want to allow reader to view country specific responses. Drag our <em>Country</em> to the <em>Filters</em> shelf, go to <em>Apply to Worksheets</em>, and choose <em>Selected Worksheets…</em>. Ensure all worksheets corresponding to our respondent’s attribute are selected.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-75"></span>
+<img src="images/plot2_filterLink.jpg" alt="Link filter to individual visualisation of each respondent attribute" width="540" />
+<p class="caption">
+Figure 75: Link filter to individual visualisation of each respondent attribute
+</p>
+</div>
+</div>
+<p>Activate <em>Show Filter</em> and use <em>Single Value (dropdown)</em> format for the filter interface.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-76"></span>
+<img src="images/plot2_showFilter.jpg" alt="Show filter with dropdown list" width="417" />
+<p class="caption">
+Figure 76: Show filter with dropdown list
+</p>
+</div>
+</div>
+<p>Drag <em>Country</em> and <em>Number of records</em> to the <em>Tooltip</em> for <em>All</em> in the <em>Marks</em> shelf.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-77"></span>
+<img src="images/plot2_addTooltip.jpg" alt="Add tooltip" width="234" />
+<p class="caption">
+Figure 77: Add tooltip
+</p>
+</div>
+</div>
+<p>Click on <em>Tooltip</em> and insert all the visualisations that we prepared before. For the <em>Gender</em>, <em>Age</em>, and <em>EmpStatus</em> worksheet, we can fit them into one row (add a space between each of them). Press enter after we insert <em>Emp Status</em> to go to the next row, and insert <em>HseSize</em> and <em>HseChild</em> worksheet. Please note that the <em>maxwidth</em> and <em>maxheight</em> of each worksheet has been modified to fit into the tooltip. Change the <em>Show tooltips</em> setting to <em>On Hover</em> so that it does not unnecessarily show the additional info when reader is moving the pointer across the visualisation (avoid overwhelming the reader).</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-78"></span>
+<img src="images/plot2_editTooltip.jpg" alt="Edit tooltip content" width="150%" />
+<p class="caption">
+Figure 78: Edit tooltip content
+</p>
+</div>
+</div>
+<p>Next, put the percentage of response as a label on the box so that the X-axis can be removed. Select <em>Pct_Positive</em>, <em>Pct_Negative</em>, <em>Pct_Neutral</em> and drag them to the <em>Label</em> for <em>All</em> in <em>Marks</em> shelf. Subsequently, adjust the format of the value to percentage with 0 decimal place.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-79"></span>
+<img src="images/plot2_addLabel.jpg" alt="Add label and format" width="150%" />
+<p class="caption">
+Figure 79: Add label and format
+</p>
+</div>
+</div>
+<p>Select <em>AGG(Pct_Positive)</em> card in <em>Marks</em> shelf and remove <em>AGG(Pct_Negative)</em> and <em>AGG(Pct_Neutral)</em> from the <em>Marks</em> shelf. Do the same for <em>AGG(Pct_Negative)</em> and <em>AGG(Pct_Neutral)</em> <em>Marks</em> shelf, but retain <em>AGG(Pct_Negative)</em> and <em>AGG(Pct_Neutral)</em> accordingly.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-80"></span>
+<img src="images/plot2_removeLabel.jpg" alt="Remove label in each card" width="150%" />
+<p class="caption">
+Figure 80: Remove label in each card
+</p>
+</div>
+</div>
+<p>However, now we notice that the box length for the two plots are currently not proportionally the same. For example, the neutral box for 25% is bigger than the 29% of positive box side by side.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-81"></span>
+<img src="images/plot2_proportionIssue.jpg" alt="Box size is not proportional between _Neutral_ and others" width="150%" />
+<p class="caption">
+Figure 81: Box size is not proportional between <em>Neutral</em> and others
+</p>
+</div>
+</div>
+<p>To fix this, we can follow a workaround described in Steve Wexler’s <a href="https://www.datarevelations.com/resources/got-likert-data-neutrals/">blog</a>. However, there is a bit of adjustment required as we have different Level of Detail than the example in the blog. First, create new calculated fields to get highest range between positive and negative response. This will determine our <em>Neutral</em> X-axis range by setting an invisible reference line with that range value.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-82"></span>
+<img src="images/plot2_calcFieldsNeutral.jpg" alt="Create new calculated fields to set up _Neutral_ reference line" width="150%" />
+<p class="caption">
+Figure 82: Create new calculated fields to set up <em>Neutral</em> reference line
+</p>
+</div>
+</div>
+<p>Bring <em>Neutral_Ref_Line</em> to the <em>Detail</em> of <em>AGG(Pct_Neutral)</em>. Right click the X-axis of <em>Pct_Neutral</em> and <em>Add Reference Line</em>. Set <em>Value</em> to our <em>Neutral_Ref_Line</em> with <em>Total</em> aggregate, and set the <em>Label</em> and <em>Line</em> to <em>None</em> as we don’t really need to show it.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-83"></span>
+<img src="images/plot2_createRefLine.jpg" alt="Create new calculated fields to set up _Neutral_ reference line" width="150%" />
+<p class="caption">
+Figure 83: Create new calculated fields to set up <em>Neutral</em> reference line
+</p>
+</div>
+</div>
+<p>Now, the box size for <em>Neutral</em> and <em>Positive</em> / <em>Negative</em> is proportional: the 29% response in both sides are now of similar size. We can proceed to hide the X-axis as the label has shown the percentage value.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-84"></span>
+<img src="images/plot2_proportionalBox.jpg" alt="Proportional box size" width="150%" />
+<p class="caption">
+Figure 84: Proportional box size
+</p>
+</div>
+</div>
+<p>The tooltip appearance will look like this when reader hover into one of the response boxes. <em>Note: if gender label overlaps with the pie chart, go to the gender worksheet and reduce the size of the pie chart</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-85"></span>
+<img src="images/plot2_final.jpg" alt="Tooltip appearance upon hovering on the box response" width="150%" />
+<p class="caption">
+Figure 85: Tooltip appearance upon hovering on the box response
+</p>
+</div>
+</div>
+<p>We can also rearrange the <em>Question</em> to follow the original order accordingly.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-86"></span>
+<img src="images/plot2_final2.jpg" alt="Rearrange question order" width="150%" />
+<p class="caption">
+Figure 86: Rearrange question order
+</p>
+</div>
+</div>
+<h3 id="capitalise-country-label"><em>Capitalise country label</em></h3>
+<p><em>This part can be skipped if you don’t mind having country label in lower case.</em><br />
+To capitalise the initial letter of each <em>Country</em> label, create new calculated field <em>Country2</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-87"></span>
+<img src="images/plot2_country.jpg" alt="Capitalise country name" width="150%" />
+<p class="caption">
+Figure 87: Capitalise country name
+</p>
+</div>
+</div>
+<p>Change all measure <em>Country</em> in both visualisation part 1 and 2 with <em>Country2</em>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-88"></span>
+<img src="images/plot2_changeCountry2.jpg" alt="Change country label" width="150%" />
+<p class="caption">
+Figure 88: Change country label
+</p>
+</div>
+</div>
+<p>Finally, add title to the visualisation and edit the <em>Filter</em> title to better orientate the reader.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-89"></span>
+<img src="images/plot2_addTitle.jpg" alt="Edit title and filter caption" width="362" />
+<p class="caption">
+Figure 89: Edit title and filter caption
+</p>
+</div>
+</div>
+<h3 id="creating-dashboard"><em>Creating dashboard</em></h3>
+<p>Create new dashboard and drag <em>Average</em> worksheet to the dashboard. The blue color rectangle below shows the component of our worksheet. The other components like image, text, and blank are highlighted accordingly with different colors. The image is taken from <a href="https://images.theconversation.com/files/341551/original/file-20200612-153812-ws3rqu.jpg?ixlib=rb-1.1.0&amp;q=45&amp;auto=format&amp;w=754&amp;fit=clip">here</a>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-90"></span>
+<img src="images/dashboard1.jpg" alt="Dashboard 1" width="472" />
+<p class="caption">
+Figure 90: Dashboard 1
+</p>
+</div>
+</div>
+<p>Create new dashboard and drag <em>Questions</em> worksheet to the dashboard. Similarly, the components are highlighted with different colors below.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-91"></span>
+<img src="images/dashboard2.jpg" alt="Dashboard 2" width="478" />
+<p class="caption">
+Figure 91: Dashboard 2
+</p>
+</div>
+</div>
+<p>Often, the format of the visualisation is not properly displayed in Tableau Public (due to different display setting between browser and desktop). Some adjustments like font size and filter type are made to address this issue.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-92"></span>
+<img src="images/publish_adjustment.jpg" alt="Adjustment before publishing to Tableau Public" width="498" />
+<p class="caption">
+Figure 92: Adjustment before publishing to Tableau Public
+</p>
+</div>
+</div>
+<h1 id="observations">4. Observations</h1>
+<ol type="1">
+<li>From this interactive visualisation, we can observe that United Kingdom has the most positive response towards vaccination while France is leaning more towards the negative side. If we look at another question on “whether they will regret if they do not get a vaccine”, their responses are also the most negative which may suggest that majority of France respondents do not see getting vaccinated as a necessity. We can also see that Singapore is mostly neutral in this aspect.</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-93"></span>
+<img src="images/obs1.JPG" alt="Which country is more positive towards vaccination?" width="150%" />
+<p class="caption">
+Figure 93: Which country is more positive towards vaccination?
+</p>
+</div>
+</div>
+<ol start="2" type="1">
+<li>In the previous chart, Japanese respondent is the second least positive about getting vaccinated (after France). The chart below shows that despite the Japanese respondent being the most worried about getting COVID, they are also the most concerned about the potential side effects from the vaccine. Singapore is the second country being most worried with the vaccine’s side effect.</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-94"></span>
+<img src="images/obs2.JPG" alt="Which country is the most concerned about vaccine side effect?" width="150%" />
+<p class="caption">
+Figure 94: Which country is the most concerned about vaccine side effect?
+</p>
+</div>
+</div>
+<ol start="3" type="1">
+<li>When we investigate the response by employment status, retired respondents are more willing to get vaccinated as compared to the rest. Interestingly, this aligns with them being the least worried about the side effect and most supportive and trusting of their government to provide effective vaccine.</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-95"></span>
+<img src="images/obs3.JPG" alt="Retired respondent is more willing towards vaccination" width="150%" />
+<p class="caption">
+Figure 95: Retired respondent is more willing towards vaccination
+</p>
+</div>
+</div>
+<ol start="4" type="1">
+<li>From the Likert scale and interactive tooltip for Singapore, the higher observation for male respondents who are willing to be vaccinated may stem from the fact that there are more female respondents who are worried about the side effects.</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-96"></span>
+<img src="images/obs4.JPG" alt="Different response based on gender in Singapore" width="150%" />
+<p class="caption">
+Figure 96: Different response based on gender in Singapore
+</p>
+</div>
+</div>
+<p>Comparing “strongly agree” response towards vaccination between Singapore and UK (18% vs 61%), it becomes apparent that UK has higher percentage of retired respondent (and older age group). This may suggest a possible link between a country’s demographic and country’s response towards vaccination.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-97"></span>
+<img src="images/obs5.JPG" alt="Demographic and response" width="150%" />
+<p class="caption">
+Figure 97: Demographic and response
+</p>
+</div>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
