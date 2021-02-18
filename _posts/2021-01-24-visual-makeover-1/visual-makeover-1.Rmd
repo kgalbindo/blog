@@ -358,3 +358,5 @@ _Note: The final visualisation is saved under "Desktop" dashboard. Uploading to 
 # 5. Conclusion
 
 A critique and makeover on labour force distribution plot have been done by first assessing both clarity and aesthetics aspects of the original visualisation. Subsequently, a proposed new visualisation has been developed with the intention to improve the clarity of author's intended message and visual aspects of the original visualisation. The rationale behind the choice of visualisation type and components have also been provided. Lastly, the visualisation has been realised in Tableau, with observations from the new visualisation explained.
+
+_Any suggestion and feedback is much appreciated! Email: kevin.albindo@gmail.com_

@@ -566,12 +566,12 @@ include_graphics("images/plot2_addTitle.jpg")
 ## Creating dashboard
 Create new dashboard and drag _Average_ worksheet to the dashboard. The blue color rectangle below shows the component of our worksheet. The other components like image, text, and blank are highlighted accordingly with different colors. The image is taken from [here]( https://images.theconversation.com/files/341551/original/file-20200612-153812-ws3rqu.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=754&fit=clip).
 
-```{r, echo=FALSE, fig.align='center', fig.cap='Dashboard 1'}
+```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Dashboard 1'}
 include_graphics("images/dashboard1.jpg")
 ```
 Create new dashboard and drag _Questions_ worksheet to the dashboard. Similarly, the components are highlighted with different colors below.
 
-```{r, echo=FALSE, fig.align='center', fig.cap='Dashboard 2'}
+```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Dashboard 2'}
 include_graphics("images/dashboard2.jpg")
 ```
 Often, the format of the visualisation is not properly displayed in Tableau Public (due to different display setting between browser and desktop). Some adjustments like font size and filter type are made to address this issue.
@@ -607,3 +607,4 @@ Comparing "strongly agree" response towards vaccination between Singapore and UK
 include_graphics("images/obs5.jpg")
 ```
 
+_Any suggestion and feedback is much appreciated! Email: kevin.albindo@gmail.com_
