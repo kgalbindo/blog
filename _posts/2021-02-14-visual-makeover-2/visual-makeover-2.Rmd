@@ -325,7 +325,7 @@ The visualisation for part 1 will look like this.
 include_graphics("images/plot1_final.jpg")
 ```
 
-## Visualisation part 2 – Likert chart for survey questions
+## Visualisation part 2 – Diverging bar chart for Likert scale survey
 In the next part, we want to count the percentage of responses for each category (1-5), hence we first need to count the positive, negative, and neutral response for _ResponseInt_ using calculated field.
 
 ```{r, echo=FALSE, fig.align='center', fig.cap='Count response'}
@@ -480,7 +480,7 @@ Repeat the same step for _Household Children (Grp)_.
 include_graphics("images/plot2_house_final_2.jpg")
 ```
 
-## *Tooltip integration*
+## Tooltip integration
 Before we add the above visualisation to the tooltip, make sure that each of them has _Entire View_ selected as the _Fit_ setting. Back to the Likert scale worksheet, we want to allow reader to view country specific responses. Drag our _Country_ to the _Filters_ shelf, go to _Apply to Worksheets_, and choose _Selected Worksheets…_. Ensure all worksheets corresponding to our respondent’s attribute are selected.
 
 ```{r, echo=FALSE, fig.align='center', fig.cap='Link filter to individual visualisation of each respondent attribute'}
@@ -563,7 +563,7 @@ Finally, add title to the visualisation and edit the _Filter_ title to better or
 ```{r, echo=FALSE, fig.align='center', fig.cap='Edit title and filter caption'}
 include_graphics("images/plot2_addTitle.jpg")
 ```
-## *Creating dashboard*
+## Creating dashboard
 Create new dashboard and drag _Average_ worksheet to the dashboard. The blue color rectangle below shows the component of our worksheet. The other components like image, text, and blank are highlighted accordingly with different colors. The image is taken from [here]( https://images.theconversation.com/files/341551/original/file-20200612-153812-ws3rqu.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=754&fit=clip).
 
 ```{r, echo=FALSE, fig.align='center', fig.cap='Dashboard 1'}

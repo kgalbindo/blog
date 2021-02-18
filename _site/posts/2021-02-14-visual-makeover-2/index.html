@@ -2079,16 +2079,16 @@ document.addEventListener('DOMContentLoaded', function() {
 <li><a href="#variable-list">Variable list</a></li>
 <li><a href="#data-preparation">Data preparation</a></li>
 <li><a href="#visualisation-part-1-dot-plot-with-error-bar">Visualisation part 1 – Dot plot with error bar</a></li>
-<li><a href="#visualisation-part-2-likert-chart-for-survey-questions">Visualisation part 2 – Likert chart for survey questions</a>
+<li><a href="#visualisation-part-2-diverging-bar-chart-for-likert-scale-survey">Visualisation part 2 – Diverging bar chart for Likert scale survey</a>
 <ul>
 <li><a href="#gender">1. Gender</a></li>
 <li><a href="#age">2. Age</a></li>
 <li><a href="#employment-status">3. Employment status</a></li>
 <li><a href="#household-size-and-children">4. Household Size and Children</a></li>
 </ul></li>
-<li><a href="#tooltip-integration"><em>Tooltip integration</em></a></li>
+<li><a href="#tooltip-integration">Tooltip integration</a></li>
 <li><a href="#capitalise-country-label"><em>Capitalise country label</em></a></li>
-<li><a href="#creating-dashboard"><em>Creating dashboard</em></a></li>
+<li><a href="#creating-dashboard">Creating dashboard</a></li>
 </ul></li>
 <li><a href="#observations">4. Observations</a></li>
 </ul>
@@ -2612,7 +2612,7 @@ Figure 46: Final appearance for part 1
 </p>
 </div>
 </div>
-<h2 id="visualisation-part-2-likert-chart-for-survey-questions">Visualisation part 2 – Likert chart for survey questions</h2>
+<h2 id="visualisation-part-2-diverging-bar-chart-for-likert-scale-survey">Visualisation part 2 – Diverging bar chart for Likert scale survey</h2>
 <p>In the next part, we want to count the percentage of responses for each category (1-5), hence we first need to count the positive, negative, and neutral response for <em>ResponseInt</em> using calculated field.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-47"></span>
@@ -2871,7 +2871,7 @@ Figure 74: Final appearance for household children bar chart
 </p>
 </div>
 </div>
-<h2 id="tooltip-integration"><em>Tooltip integration</em></h2>
+<h2 id="tooltip-integration">Tooltip integration</h2>
 <p>Before we add the above visualisation to the tooltip, make sure that each of them has <em>Entire View</em> selected as the <em>Fit</em> setting. Back to the Likert scale worksheet, we want to allow reader to view country specific responses. Drag our <em>Country</em> to the <em>Filters</em> shelf, go to <em>Apply to Worksheets</em>, and choose <em>Selected Worksheets…</em>. Ensure all worksheets corresponding to our respondent’s attribute are selected.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-75"></span>
@@ -3010,7 +3010,7 @@ Figure 89: Edit title and filter caption
 </p>
 </div>
 </div>
-<h2 id="creating-dashboard"><em>Creating dashboard</em></h2>
+<h2 id="creating-dashboard">Creating dashboard</h2>
 <p>Create new dashboard and drag <em>Average</em> worksheet to the dashboard. The blue color rectangle below shows the component of our worksheet. The other components like image, text, and blank are highlighted accordingly with different colors. The image is taken from <a href="https://images.theconversation.com/files/341551/original/file-20200612-153812-ws3rqu.jpg?ixlib=rb-1.1.0&amp;q=45&amp;auto=format&amp;w=754&amp;fit=clip">here</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-90"></span>
