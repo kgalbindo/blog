@@ -217,12 +217,12 @@ include_graphics("images/dataPrep_reimportData.jpg")
 ```
 As recommended in the Tableau blog on [preparing survey data](https://www.tableau.com/about/blog/2018/2/prepare-survey-data-analysis-three-easy-steps-83122), it is a good practice to have a ‘tall and thin’ data. To do so, we can pivot the _Vac_ fields. Rename the new header accordingly to _Question_ and _Response_. 
 
-```{r, echo=FALSE, fig.align='center', fig.cap='Reshape survey response fields'}
+```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Reshape survey response fields'}
 include_graphics("images/dataPrep_reshape.jpg")
 ```
 The response is currently of _String_ type and we can better handle the values by converting it to integer 1-5 through calculated field. Subsequently, change the data type to _Number (whole)_.
 
-```{r, echo=FALSE, fig.align='center', fig.cap='Convert response to integer 1 to 5'}
+```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Convert response to integer 1 to 5'}
 include_graphics("images/dataPrep_responseInt.jpg")
 ```
 The final data table will look like this.
@@ -234,12 +234,12 @@ include_graphics("images/dataPrep_final.jpg")
 ## Visualisation part 1 – Dot plot with error bar
 As the sample size between countries is different, we convey this fact by using a dot plot to represent the average response and error bars to represent the uncertainty. To do so, we create new calculated fields for these estimates: mean, upper, and lower bound for 95% and 99% confidence interval. But first, create new calculated field to count the number of records easier.
 
-```{r, echo=FALSE, fig.align='center', fig.cap='Calculated Fields for number of records, mean, and confidence interval'}
+```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Calculated Fields for number of records, mean, and confidence interval'}
 include_graphics("images/plot1_meanCIfields.jpg")
 ```
 Drag _Measure Values_ to the _Columns_ shelf. Remove all the fields from _Measure Values_ pane except for the lower and upper 95% and 99% confidence interval. Subsequently, drag _Country_ field to _Rows_ shelf. Change the chart type to _Line_ and add _Measure Names_ to the _Path_ in _Marks_ shelf to connect our upper and lower bound values. To differentiate 95% and 99% bar, once again drag _Measure Names_ to the _Color_ in _Marks_ shelf.
 
-```{r, echo=FALSE, fig.align='center', fig.cap='Displaying confidence interval as line'}
+```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Displaying confidence interval as line'}
 include_graphics("images/plot1_CIbar.jpg")
 ```
 To show our mean value as a dot plot, drag _Mean_ field to _Columns_ shelf, select _Dual Axis_ and choose _Synchronize Axis_. Change the chart type for _Mean_ field to _Circle_ type. Edit the X-axis and uncheck _Include zero_ option so that the dot and error bar is more visible. Sort the X-axis based on _Mean_ and hide the top X-axis as it is redundant.
@@ -249,7 +249,7 @@ include_graphics("images/plot1_meanDot.jpg")
 ```
 We should filter by _Vac 1_ question to show the response on public willingness to be vaccinated. Drag _Question_ field to _Filters_ shelf and select _Vac 1_. We can then add a reference line at value equals to 3 which represent the neutral response. In general, the negative response is usually positioned at the left side and positive response is on the right side. Hence, we reverse the X-axis so that response towards 5 (strongly disagree) is on the left while response towards 1 (strongly agree) is on the right side.
 
-```{r, echo=FALSE, fig.align='center', fig.cap='Reverse X-axis and reference line'}
+```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Reverse X-axis and reference line'}
 include_graphics("images/plot1_refLine.jpg")
 ```
 Adjust the error bar color by clicking on the _Measure Names_ color legend and the bar size by adjusting _Size_ in the _Marks_ shelf. Note that the order of the lower and upper bound in the legend affect the display accordingly (arrange such that 99% confidence interval at the top, followed by 95% confidence interval and mean value).
@@ -264,7 +264,7 @@ include_graphics("images/plot1_strongRefLine.jpg")
 ```
 As it is difficult to trace the dot plot to the country label at the left header, we can instead label each dot with the country name and remove the Y-axis. To do so, drag _Country_ field to _Label_ of _Measure Values_ in _Marks_ shelf, change the alignment to _Middle_ vertical.
 
-```{r, echo=FALSE, fig.align='center', fig.cap='Create label near the data point'}
+```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Create label near the data point'}
 include_graphics("images/plot1_labelDot.jpg")
 ```
 To allow reader to cycle among different survey question, we can show the filter by _Show Filter_ for _Question_ field. However, the value under _Question_ is not intuitive and hence we need to create aliases for each question. Right click on _Question_ in the _Data_ pane and choose _Aliases…_. Fill the _Value (Alias)_ column according to the actual survey question.
@@ -319,7 +319,7 @@ include_graphics("images/plot1_filterCaption.jpg")
 ```
 The visualisation for part 1 will look like this.
 
-```{r, echo=FALSE, fig.align='center', fig.cap='Final appearance for part 1'}
+```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Final appearance for part 1'}
 include_graphics("images/plot1_final.jpg")
 ```
 
@@ -341,7 +341,7 @@ include_graphics("images/plot2_dragMeasure.jpg")
 ```
 Synchronise the two axis and change the format of X-axis label to percentage. The top X-axis can be hidden to save space.
 
-```{r, echo=FALSE, fig.align='center', fig.cap='Sync X-axis and hide'}
+```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Sync X-axis and hide'}
 include_graphics("images/plot2_syncAxis.jpg")
 ```
 Change the plot type to _Bar_ and drag _Response_ to _Color_ in _Marks_ shelf to color the bar according to the response. Change the default color by clicking on the _Legend_. Also, adjust the color legend so that the strongly agree and strongly disagree are centred for easy comparison. This is done by arranging the label in the color legend accordingly. We can reduce the bar size as well.
@@ -571,7 +571,7 @@ include_graphics("images/dashboard2.jpg")
 ```
 Often, the format of the visualisation is not properly displayed in Tableau Public (due to different display setting between browser and desktop). Some adjustments like font size and filter type are made to address this issue.
 
-```{r, echo=FALSE, fig.align='center', fig.cap='Adjustment before publishing to Tableau Public'}
+```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Adjustment before publishing to Tableau Public'}
 include_graphics("images/publish_adjustment.jpg")
 ```
 
