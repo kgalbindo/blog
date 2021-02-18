@@ -230,8 +230,10 @@ The final data table will look like this.
 ```{r, echo=FALSE, fig.align='center', fig.cap='Final appearance of  data table'}
 include_graphics("images/dataPrep_final.jpg")
 ```
+_If you are very particular about having Country label with initial capital letter, proceed to [this section](#country_label) first before continuing._
 
 ## Visualisation part 1 – Dot plot with error bar
+<a id="start_part1"></a>
 As the sample size between countries is different, we convey this fact by using a dot plot to represent the average response and error bars to represent the uncertainty. To do so, we create new calculated fields for these estimates: mean, upper, and lower bound for 95% and 99% confidence interval. But first, create new calculated field to count the number of records easier.
 
 ```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Calculated Fields for number of records, mean, and confidence interval'}
@@ -478,7 +480,7 @@ Repeat the same step for _Household Children (Grp)_.
 include_graphics("images/plot2_house_final_2.jpg")
 ```
 
-### *Tooltip integration*
+## *Tooltip integration*
 Before we add the above visualisation to the tooltip, make sure that each of them has _Entire View_ selected as the _Fit_ setting. Back to the Likert scale worksheet, we want to allow reader to view country specific responses. Drag our _Country_ to the _Filters_ shelf, go to _Apply to Worksheets_, and choose _Selected Worksheets…_. Ensure all worksheets corresponding to our respondent’s attribute are selected.
 
 ```{r, echo=FALSE, fig.align='center', fig.cap='Link filter to individual visualisation of each respondent attribute'}
@@ -541,13 +543,16 @@ We can also rearrange the _Question_ to follow the original order accordingly.
 include_graphics("images/plot2_final2.jpg")
 ```
 
-### *Capitalise country label*
+## *Capitalise country label*
+<a id="country_label"></a>
 _This part can be skipped if you don't mind having country label in lower case._  
 To capitalise the initial letter of each _Country_ label, create new calculated field _Country2_.
 
 ```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Capitalise country name'}
 include_graphics("images/plot2_country.jpg")
 ```
+_If you were redirected here from data preparation section, go back to [this section](#start_part1) to continue with the visualisation, and use Country2 instead of Country in the subsequent steps_
+
 Change all measure _Country_ in both visualisation part 1 and 2 with _Country2_.
 
 ```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Change country label'}
@@ -558,7 +563,7 @@ Finally, add title to the visualisation and edit the _Filter_ title to better or
 ```{r, echo=FALSE, fig.align='center', fig.cap='Edit title and filter caption'}
 include_graphics("images/plot2_addTitle.jpg")
 ```
-### *Creating dashboard*
+## *Creating dashboard*
 Create new dashboard and drag _Average_ worksheet to the dashboard. The blue color rectangle below shows the component of our worksheet. The other components like image, text, and blank are highlighted accordingly with different colors. The image is taken from [here]( https://images.theconversation.com/files/341551/original/file-20200612-153812-ws3rqu.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=754&fit=clip).
 
 ```{r, echo=FALSE, fig.align='center', fig.cap='Dashboard 1'}

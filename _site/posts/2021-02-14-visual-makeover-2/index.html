@@ -2085,10 +2085,10 @@ document.addEventListener('DOMContentLoaded', function() {
 <li><a href="#age">2. Age</a></li>
 <li><a href="#employment-status">3. Employment status</a></li>
 <li><a href="#household-size-and-children">4. Household Size and Children</a></li>
+</ul></li>
 <li><a href="#tooltip-integration"><em>Tooltip integration</em></a></li>
 <li><a href="#capitalise-country-label"><em>Capitalise country label</em></a></li>
 <li><a href="#creating-dashboard"><em>Creating dashboard</em></a></li>
-</ul></li>
 </ul></li>
 <li><a href="#observations">4. Observations</a></li>
 </ul>
@@ -2424,7 +2424,7 @@ Figure 25: Import filtered data to Tableau
 <p>As recommended in the Tableau blog on <a href="https://www.tableau.com/about/blog/2018/2/prepare-survey-data-analysis-three-easy-steps-83122">preparing survey data</a>, it is a good practice to have a ‘tall and thin’ data. To do so, we can pivot the <em>Vac</em> fields. Rename the new header accordingly to <em>Question</em> and <em>Response</em>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-26"></span>
-<img src="images/dataPrep_reshape.jpg" alt="Reshape survey response fields" width="479" />
+<img src="images/dataPrep_reshape.jpg" alt="Reshape survey response fields" width="150%" />
 <p class="caption">
 Figure 26: Reshape survey response fields
 </p>
@@ -2433,7 +2433,7 @@ Figure 26: Reshape survey response fields
 <p>The response is currently of <em>String</em> type and we can better handle the values by converting it to integer 1-5 through calculated field. Subsequently, change the data type to <em>Number (whole)</em>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-27"></span>
-<img src="images/dataPrep_responseInt.jpg" alt="Convert response to integer 1 to 5" width="374" />
+<img src="images/dataPrep_responseInt.jpg" alt="Convert response to integer 1 to 5" width="150%" />
 <p class="caption">
 Figure 27: Convert response to integer 1 to 5
 </p>
@@ -2448,11 +2448,12 @@ Figure 28: Final appearance of data table
 </p>
 </div>
 </div>
+<p><em>If you are very particular about having Country label with initial capital letter, proceed to <a href="#country_label">this section</a> first before continuing.</em></p>
 <h2 id="visualisation-part-1-dot-plot-with-error-bar">Visualisation part 1 – Dot plot with error bar</h2>
-<p>As the sample size between countries is different, we convey this fact by using a dot plot to represent the average response and error bars to represent the uncertainty. To do so, we create new calculated fields for these estimates: mean, upper, and lower bound for 95% and 99% confidence interval. But first, create new calculated field to count the number of records easier.</p>
+<p><a id="start_part1"></a> As the sample size between countries is different, we convey this fact by using a dot plot to represent the average response and error bars to represent the uncertainty. To do so, we create new calculated fields for these estimates: mean, upper, and lower bound for 95% and 99% confidence interval. But first, create new calculated field to count the number of records easier.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-29"></span>
-<img src="images/plot1_meanCIfields.jpg" alt="Calculated Fields for number of records, mean, and confidence interval" width="328" />
+<img src="images/plot1_meanCIfields.jpg" alt="Calculated Fields for number of records, mean, and confidence interval" width="150%" />
 <p class="caption">
 Figure 29: Calculated Fields for number of records, mean, and confidence interval
 </p>
@@ -2461,7 +2462,7 @@ Figure 29: Calculated Fields for number of records, mean, and confidence interva
 <p>Drag <em>Measure Values</em> to the <em>Columns</em> shelf. Remove all the fields from <em>Measure Values</em> pane except for the lower and upper 95% and 99% confidence interval. Subsequently, drag <em>Country</em> field to <em>Rows</em> shelf. Change the chart type to <em>Line</em> and add <em>Measure Names</em> to the <em>Path</em> in <em>Marks</em> shelf to connect our upper and lower bound values. To differentiate 95% and 99% bar, once again drag <em>Measure Names</em> to the <em>Color</em> in <em>Marks</em> shelf.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-30"></span>
-<img src="images/plot1_CIbar.jpg" alt="Displaying confidence interval as line" width="634" />
+<img src="images/plot1_CIbar.jpg" alt="Displaying confidence interval as line" width="150%" />
 <p class="caption">
 Figure 30: Displaying confidence interval as line
 </p>
@@ -2479,7 +2480,7 @@ Figure 31: Displaying mean as dot plot
 <p>We should filter by <em>Vac 1</em> question to show the response on public willingness to be vaccinated. Drag <em>Question</em> field to <em>Filters</em> shelf and select <em>Vac 1</em>. We can then add a reference line at value equals to 3 which represent the neutral response. In general, the negative response is usually positioned at the left side and positive response is on the right side. Hence, we reverse the X-axis so that response towards 5 (strongly disagree) is on the left while response towards 1 (strongly agree) is on the right side.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-32"></span>
-<img src="images/plot1_refLine.jpg" alt="Reverse X-axis and reference line" width="566" />
+<img src="images/plot1_refLine.jpg" alt="Reverse X-axis and reference line" width="150%" />
 <p class="caption">
 Figure 32: Reverse X-axis and reference line
 </p>
@@ -2506,7 +2507,7 @@ Figure 34: Reference line with label
 <p>As it is difficult to trace the dot plot to the country label at the left header, we can instead label each dot with the country name and remove the Y-axis. To do so, drag <em>Country</em> field to <em>Label</em> of <em>Measure Values</em> in <em>Marks</em> shelf, change the alignment to <em>Middle</em> vertical.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-35"></span>
-<img src="images/plot1_labelDot.jpg" alt="Create label near the data point" width="588" />
+<img src="images/plot1_labelDot.jpg" alt="Create label near the data point" width="150%" />
 <p class="caption">
 Figure 35: Create label near the data point
 </p>
@@ -2605,7 +2606,7 @@ Figure 45: Change filter caption
 <p>The visualisation for part 1 will look like this.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-46"></span>
-<img src="images/plot1_final.jpg" alt="Final appearance for part 1" width="634" />
+<img src="images/plot1_final.jpg" alt="Final appearance for part 1" width="150%" />
 <p class="caption">
 Figure 46: Final appearance for part 1
 </p>
@@ -2642,7 +2643,7 @@ Figure 49: Drag measure to <em>Rows</em> and <em>Columns</em> shelf
 <p>Synchronise the two axis and change the format of X-axis label to percentage. The top X-axis can be hidden to save space.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-50"></span>
-<img src="images/plot2_syncAxis.jpg" alt="Sync X-axis and hide" width="500" />
+<img src="images/plot2_syncAxis.jpg" alt="Sync X-axis and hide" width="150%" />
 <p class="caption">
 Figure 50: Sync X-axis and hide
 </p>
@@ -2870,7 +2871,7 @@ Figure 74: Final appearance for household children bar chart
 </p>
 </div>
 </div>
-<h3 id="tooltip-integration"><em>Tooltip integration</em></h3>
+<h2 id="tooltip-integration"><em>Tooltip integration</em></h2>
 <p>Before we add the above visualisation to the tooltip, make sure that each of them has <em>Entire View</em> selected as the <em>Fit</em> setting. Back to the Likert scale worksheet, we want to allow reader to view country specific responses. Drag our <em>Country</em> to the <em>Filters</em> shelf, go to <em>Apply to Worksheets</em>, and choose <em>Selected Worksheets…</em>. Ensure all worksheets corresponding to our respondent’s attribute are selected.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-75"></span>
@@ -2979,8 +2980,8 @@ Figure 86: Rearrange question order
 </p>
 </div>
 </div>
-<h3 id="capitalise-country-label"><em>Capitalise country label</em></h3>
-<p><em>This part can be skipped if you don’t mind having country label in lower case.</em><br />
+<h2 id="capitalise-country-label"><em>Capitalise country label</em></h2>
+<p><a id="country_label"></a> <em>This part can be skipped if you don’t mind having country label in lower case.</em><br />
 To capitalise the initial letter of each <em>Country</em> label, create new calculated field <em>Country2</em>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-87"></span>
@@ -2990,6 +2991,7 @@ Figure 87: Capitalise country name
 </p>
 </div>
 </div>
+<p><em>If you were redirected here from data preparation section, go back to <a href="#start_part1">this section</a> to continue with the visualisation, and use Country2 instead of Country in the subsequent steps</em></p>
 <p>Change all measure <em>Country</em> in both visualisation part 1 and 2 with <em>Country2</em>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-88"></span>
@@ -3008,7 +3010,7 @@ Figure 89: Edit title and filter caption
 </p>
 </div>
 </div>
-<h3 id="creating-dashboard"><em>Creating dashboard</em></h3>
+<h2 id="creating-dashboard"><em>Creating dashboard</em></h2>
 <p>Create new dashboard and drag <em>Average</em> worksheet to the dashboard. The blue color rectangle below shows the component of our worksheet. The other components like image, text, and blank are highlighted accordingly with different colors. The image is taken from <a href="https://images.theconversation.com/files/341551/original/file-20200612-153812-ws3rqu.jpg?ixlib=rb-1.1.0&amp;q=45&amp;auto=format&amp;w=754&amp;fit=clip">here</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-90"></span>
@@ -3030,7 +3032,7 @@ Figure 91: Dashboard 2
 <p>Often, the format of the visualisation is not properly displayed in Tableau Public (due to different display setting between browser and desktop). Some adjustments like font size and filter type are made to address this issue.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-92"></span>
-<img src="images/publish_adjustment.jpg" alt="Adjustment before publishing to Tableau Public" width="498" />
+<img src="images/publish_adjustment.jpg" alt="Adjustment before publishing to Tableau Public" width="150%" />
 <p class="caption">
 Figure 92: Adjustment before publishing to Tableau Public
 </p>
