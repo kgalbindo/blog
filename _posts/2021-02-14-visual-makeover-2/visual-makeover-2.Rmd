@@ -286,10 +286,10 @@ Next, we would like to provide options for reader to select how they want to spl
 ```{r, echo=FALSE, fig.align='center', fig.cap='Create new parameter to select attributes'}
 include_graphics("images/plot1_parameter.jpg")
 ```
-We also need to create new calculated fields for the respondent profile data. For Age, create new group so that we can assign respondents into one of the age group. For _Household Size_ and _Household Children_, we need to right click and choose create new calculated field for new categorical fields _Household Size (Grp)_ and _Household Children (Grp)_.
+We also need to create new calculated fields for the respondent profile data. For Age, create new group so that we can assign respondents into one of the age group. 4 groups are created to represent different generation: babyboomer, Gen X, Y, and Z. For _Household Size_ and _Household Children_, we need to right click and choose create new calculated field for new categorical fields _Household Size (Grp)_ and _Household Children (Grp)_.
 
 ```{r, echo=FALSE, fig.align='center', fig.cap='Create new calculated fields for respondent attributes'}
-include_graphics("images/plot1_newFields.jpg")
+include_graphics("images/plot1_newFields_2.jpg")
 ```
 Next, create a new calculated field _Placeholder1_ to receive input from our [Based-on selector] parameter and drag it to our _Rows_ shelf (replacing _Country_). The idea is that when reader choose the attribute from the parameter list, it will change the input to our _Rows_ shelf.
 
@@ -400,7 +400,7 @@ include_graphics("images/plot2_gender_final.jpg")
 
 ### 2. Age
 
-There are 3 age groups created in the previous part and we can use donut chart to represent the percentage among them. We can refer to this [blog post](https://interworks.com/blog/nmarques/2019/04/30/the-donut-chart-in-tableau-a-step-by-step-guide/) to create a donut chart in Tableau.
+There are 4 age groups created in the previous part and we can use donut chart to represent the percentage among them. We can refer to this [blog post](https://interworks.com/blog/nmarques/2019/04/30/the-donut-chart-in-tableau-a-step-by-step-guide/) to create a donut chart in Tableau.
 
 Double-click on _Rows_ shelf and write "avg(0)" and press enter. Repeat the same step next to the newly created _AGG(avg(0))_.
 
@@ -410,17 +410,22 @@ include_graphics("images/plot2_age_createCards.jpg")
 This will create 2 cards in _Marks_ shelf. On the first card, change the type from _Automatic_ to _Pie_. Drag _Age (group)_ and _Number of Records_ to _Label_ in _Marks_ shelf. Drag another _Age (group)_ to _Color_.
 
 ```{r, echo=FALSE, fig.align='center', fig.cap='Create pie chart'}
-include_graphics("images/plot2_age_createPie.jpg")
+include_graphics("images/plot2_age_createPie_2.jpg")
 ```
 Change the label to percent of total.
 
 ```{r, echo=FALSE, fig.align='center', fig.cap='Create percentage label'}
-include_graphics("images/plot2_age_percentTotal.jpg")
+include_graphics("images/plot2_age_percentTotal_2.jpg")
 ```
 Remove the decimal place through formatting.
 
 ```{r, echo=FALSE, fig.align='center', fig.cap='Remove decimal place'}
-include_graphics("images/plot2_age_removeDecimal.jpg")
+include_graphics("images/plot2_age_removeDecimal_2.jpg")
+```
+Edit the label to show category and value side-by-side, set font size to 5, and allow overlap.
+
+```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Adjust label'}
+include_graphics("images/plot2_age_label_2.jpg")
 ```
 On the second card, change the type to _Circle_. Adjust the _Size_ (make it smaller) and set _Colour_ to white to get the intended donut chart. Remove the Y-axis as well.
 
@@ -435,7 +440,7 @@ include_graphics("images/plot2_age_title.jpg")
 Set the _Fit_ setting to _Entire View_.
 
 ```{r, echo=FALSE, fig.align='center', fig.cap='Final appearance for age donut chart'}
-include_graphics("images/plot2_age_final.jpg")
+include_graphics("images/plot2_age_final_2.jpg")
 ```
 
 ### 3.	Employment status  
@@ -537,7 +542,7 @@ The tooltip appearance will look like this when reader hover into one of the res
 _Note: if gender label overlaps with the pie chart, go to the gender worksheet and reduce the size of the pie chart_
 
 ```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Tooltip appearance upon hovering on the box response'}
-include_graphics("images/plot2_final.jpg")
+include_graphics("images/plot2_final_2.jpg")
 ```
 We can also rearrange the _Question_ to follow the original order accordingly.
 
@@ -601,12 +606,12 @@ include_graphics("images/obs3.jpg")
 4. From the Likert scale and interactive tooltip for Singapore, the higher observation for male respondents who are willing to be vaccinated may stem from the fact that there are more female respondents who are worried about the side effects.
 
 ```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Different response based on gender in Singapore'}
-include_graphics("images/obs4.jpg")
+include_graphics("images/obs4_2.jpg")
 ```
 Comparing "strongly agree" response towards vaccination between Singapore and UK (18% vs 61%), it becomes apparent that UK has higher percentage of retired respondent (and older age group). This may suggest a possible link between a country’s demographic and country's response towards vaccination.
 
 ```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Demographic and response'}
-include_graphics("images/obs5.jpg")
+include_graphics("images/obs5_2.jpg")
 ```
 
 _Any suggestion and feedback is much appreciated! Email: kevin.albindo@gmail.com_
