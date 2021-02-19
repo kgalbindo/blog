@@ -47,7 +47,7 @@ There are room for improvement to enhance the clarity and aesthetic of the origi
 4.	It is also beneficial to understand the respondent profile (overall or within each country) to help the reader assess the validity/significance of the different opinion between countries e.g. whether the response is skewed due to the distribution of a particular respondent's profile (age, gender, etc.). This is not present in the original visualisation.
 
 ## Aesthetic
-1.	The existing color palette (green, cyan, red, orange, blue) does not help in representing the opposing view of public opinion. TO address this, diverging color palette like blue-grey-red will be used to represent positive, neutral, and negative opinion accordingly.
+1.	The existing color palette (green, cyan, red, orange, blue) does not help in representing the opposing view of public opinion. To address this, diverging color palette like blue-grey-red will be used to represent positive, neutral, and negative opinion accordingly.
 
 2.	Legend title is not elaborated further and left with the default field name (vac_1). Reader may wonder what is the variable/survey question being visualised here. Also, there is minor inconsistency in the length of dash character (-) in the label text. We will fix this by showing the exact question (vac_1 and others) that were asked to the respondent.
 
@@ -55,7 +55,7 @@ There are room for improvement to enhance the clarity and aesthetic of the origi
 
 # 3. Proposed visualisation
 ## Sketch
-The following sketch shows the proposed visualisation and the rationale behind the choices made are given below.
+The following sketch shows the proposed visualisation and the advantage as compared to the original visualisation.
 
 ```{r, echo=FALSE, fig.align='center', fig.cap='Sketch of proposed visualisation'}
 include_graphics("images/sketch_2.jpg")
@@ -588,7 +588,7 @@ include_graphics("images/publish_adjustment.jpg")
 ```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Which country is more positive towards vaccination?'}
 include_graphics("images/obs1_p.jpg")
 ```
-2. In the previous chart, Japanese respondent is the least positive about getting vaccinated. However, the chart below shows that despite the Japanese respondent is worried about getting COVID (2nd place), they are also concerned about the potential side effects from the vaccine (3rd place). While France lead in the 1st place with the most worried respondent, Singapore is at 4th place, suggesting the reason against vaccination.
+2. In the previous chart, Japanese respondent is the least positive about getting vaccinated. However, the chart below shows that despite the Japanese respondent is worried about getting COVID (2nd place), they are also concerned about the potential side effects from the vaccine (3rd place). While France leads in the 1st place with the most worried respondent, Singapore is at 4th place which may suggest the reason against vaccination.
 
 ```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Which country is the most concerned about vaccine side effect?'}
 include_graphics("images/obs2_p.jpg")
