@@ -613,5 +613,15 @@ Comparing "strongly agree" response towards vaccination between Singapore and UK
 ```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Demographic and response'}
 include_graphics("images/obs5_2.jpg")
 ```
+This is also true for Germany and France (high percentage of old and retired person), even though negative sentiment rules the majority of France respondent.
+
+```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Germany and France respondent who strongly agree with vaccination'}
+include_graphics("images/obs6.jpg")
+```
+Between Japan and UK, although the respondent who “strongly agree” to get vaccinated has similar percentage of old age (above 57), the percentage is totally different (61% vs 18%). Perhaps older person is more willing to get vaccinated, be it he/she is a retiree or not.
+
+```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Japan and UK respondent who strongly agree with vaccination'}
+include_graphics("images/obs7.jpg")
+```
 
 _Any suggestion and feedback is much appreciated! Email: kevin.albindo@gmail.com_
