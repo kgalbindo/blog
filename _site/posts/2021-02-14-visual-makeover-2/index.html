@@ -2075,7 +2075,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <li><a href="#proposed-visualisation">3. Proposed visualisation</a>
 <ul>
 <li><a href="#sketch">Sketch</a></li>
-<li><a href="#rationale">Rationale</a></li>
+<li><a href="#advantage-of-the-proposed-visualisation">Advantage of the proposed visualisation</a></li>
 <li><a href="#variable-list">Variable list</a></li>
 <li><a href="#data-preparation">Data preparation</a></li>
 <li><a href="#visualisation-part-1-dot-plot-with-error-bar">Visualisation part 1 – Dot plot with error bar</a></li>
@@ -2112,14 +2112,14 @@ Figure 1: Original data visualisation of survey response on public willingness t
 <ol type="1">
 <li><p>The original author would like to compare the public willingness on vaccination between countries. While the first chart provides the distribution of public opinion in each country, it does not allow reader to compare between countries easily. The visualisation is sorted according to the country name in an alphabetical order, which requires reader to search for the longest blue bar to find country with highest number of strong opinions towards vaccination. In this case, the highest percentage is by any chance belongs to UK at the bottom (not so difficult to find). On the other hand, the second bar chart answers the question more directly as it is sorted in descending order by the percentage of strong opinion in each country.</p></li>
 <li><p>On the other hand, the second bar chart on the right seems to answer the question more directly as it is sorted in descending order by the percentage of strong opinion in each country. However, both the 100% stacked bar chart and the sorted bar chart fails to convey the fact that the number of respondents from each country varies between 2000 and 5000. It is important to inform the reader about the difference in sample size and hence the uncertainty that comes when estimating the average public opinion.</p></li>
-<li><p>There is also room for improvement in terms of the textual explanation. Currently, the title does a good job in posing the main question that the author would like to answer. However, more explanation and conclusion should be added in the visualisation to emphasise the main observations that the author has regarding public opinion on vaccination.</p></li>
-<li><p>It is also beneficial to understand the respondent profile (overall or within each country) to help the reader assess the validity/significance of the different opinion between countries e.g. whether the response is skewed due to the distribution of a particular respondent’s profile (age, gender, etc.).</p></li>
+<li><p>There is also room for improvement in terms of the textual explanation. Currently, the title poses the main question that the author would like to answer. However, more explanation should be added in the visualisation to orientate the reader in reading the visualisation.</p></li>
+<li><p>It is also beneficial to understand the respondent profile (overall or within each country) to help the reader assess the validity/significance of the different opinion between countries e.g. whether the response is skewed due to the distribution of a particular respondent’s profile (age, gender, etc.). This is not present in the original visualisation.</p></li>
 </ol>
 <h2 id="aesthetic">Aesthetic</h2>
 <ol type="1">
-<li><p>The existing color palette (green, cyan, red, orange, blue) does not help in representing the opposing view of public opinion. Alternatively, diverging color palette like blue-grey-red can be used to represent positive, neutral, and negative opinion accordingly.</p></li>
-<li><p>Legend title is not elaborated further and left with the default field name (vac_1). Reader may wonder what is the variable/survey question being visualised here. Also, there is minor inconsistency in the length of dash character (-) in the label text.</p></li>
-<li><p>Position of legend is selected at the top right corner which leaves a lot of whitespace at the bottom right. The space usage can be maximised by embedding the legend into the chart instead.</p></li>
+<li><p>The existing color palette (green, cyan, red, orange, blue) does not help in representing the opposing view of public opinion. TO address this, diverging color palette like blue-grey-red will be used to represent positive, neutral, and negative opinion accordingly.</p></li>
+<li><p>Legend title is not elaborated further and left with the default field name (vac_1). Reader may wonder what is the variable/survey question being visualised here. Also, there is minor inconsistency in the length of dash character (-) in the label text. We will fix this by showing the exact question (vac_1 and others) that were asked to the respondent.</p></li>
+<li><p>Position of legend is selected at the top right corner which leaves a lot of whitespace at the bottom right. The space usage can be maximised by embedding the legend into the chart instead, if we choose to show both charts together. However, the proposed visualisation will use 2 dashboards instead and use tooltip to provide more interactivity for reader to explore.</p></li>
 </ol>
 <h1 id="proposed-visualisation">3. Proposed visualisation</h1>
 <h2 id="sketch">Sketch</h2>
@@ -2132,7 +2132,7 @@ Figure 2: Sketch of proposed visualisation
 </p>
 </div>
 </div>
-<h2 id="rationale">Rationale</h2>
+<h2 id="advantage-of-the-proposed-visualisation">Advantage of the proposed visualisation</h2>
 <ol type="1">
 <li><p>The visualisation is divided into 2 parts, each with its own dashboard to allow a quick overview of average response among different variables e.g. country, gender, age group, followed up by a more detailed information for each survey questions.</p></li>
 <li><p>To improve the comparison of response between countries and other variables, diverging bar chart is used instead of 100% stacked bar chart. By doing so, contrast between agree and disagree will be more apparent. I also choose to plot <em>Neutral</em> response separately rather than distributing it equally to both sides of the response, as it is important to understand how many percentage are sitting on the fence regarding vaccination and this may warrant further investigation.</p></li>
@@ -3111,7 +3111,7 @@ Figure 99: Germany and France respondent who strongly agree with vaccination
 </p>
 </div>
 </div>
-<p>Between Japan and UK, although the respondent who “strongly agree” to get vaccinated has similar percentage of old age (above 57), the percentage is totally different (61% vs 18%). Perhaps older person is more willing to get vaccinated, be it he/she is a retiree or not.</p>
+<p>Between Japan and UK, although the respondent who “strongly agree” to get vaccinated has similar percentage of old age (above 57), the percentage is totally different (61% vs 18%). This shows that older person is generally more willing to get vaccinated, be it he/she is a retiree or not.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-100"></span>
 <img src="images/obs7.JPG" alt="Japan and UK respondent who strongly agree with vaccination" width="150%" />
