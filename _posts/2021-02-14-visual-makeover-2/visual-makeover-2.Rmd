@@ -38,9 +38,9 @@ include_graphics("images/excerpt.jpg")
 There are room for improvement to enhance the clarity and aesthetic of the original visualisation. Currently, while the intention is clearly stated by the questions posed in the title, reader may find it difficult to navigate through the visualisation and make appropriate conclusion.
 
 ## Clarity
-1.	The original author would like to compare the public willingness on vaccination between countries. While the first chart provides the distribution of public opinion in each country, it does not allow reader to compare between countries easily. The visualisation is sorted according to the country name in an alphabetical order, which requires reader to search for the longest blue bar to find country with highest number of strong opinions towards vaccination. In this case, the highest percentage is by any chance belongs to UK at the bottom (not so difficult to find). On the other hand, the second bar chart answers the question more directly as it is sorted in descending order by the percentage of strong opinion in each country.
+1.	The original author would like to compare the public willingness on vaccination between countries. While the first chart provides the distribution of public opinion in each country, it does not allow reader to compare between countries easily. The visualisation is sorted according to the country name in an alphabetical order, which requires reader to search for the longest blue bar to find country with highest number of strong opinions towards vaccination. In this case, the highest percentage is by any chance belongs to UK at the bottom (not so difficult to find).
 
-2.	On the other hand, the second bar chart on the right seems to answer the question more directly as it is sorted in descending order by the percentage of strong opinion in each country. However, both the 100% stacked bar chart and the sorted bar chart fails to convey the fact that the number of respondents from each country varies between 2000 and 5000. It is important to inform the reader about the difference in sample size and hence the uncertainty that comes when estimating the average public opinion.
+2.	On the other hand, the second bar chart on the right answer the question more directly as it is sorted in descending order by the percentage of strong opinion in each country. However, both the 100% stacked bar chart and the sorted bar chart fails to convey the fact that the number of respondents from each country varies between 2000 and 5000. It is important to inform the reader about the difference in sample size and hence the uncertainty that comes when estimating the percentage of public opinion.
 
 3.	There is also room for improvement in terms of the textual explanation. Currently, the title poses the main question that the author would like to answer. However, more explanation should be added in the visualisation to orientate the reader in reading the visualisation.
 
@@ -58,19 +58,19 @@ There are room for improvement to enhance the clarity and aesthetic of the origi
 The following sketch shows the proposed visualisation and the rationale behind the choices made are given below.
 
 ```{r, echo=FALSE, fig.align='center', fig.cap='Sketch of proposed visualisation'}
-include_graphics("images/sketch.jpg")
+include_graphics("images/sketch_2.jpg")
 ```
 
 ## Advantage of the proposed visualisation
-1. The visualisation is divided into 2 parts, each with its own dashboard to allow a quick overview of average response among different variables e.g. country, gender, age group, followed up by a more detailed information for each survey questions.
+1. The visualisation is divided into 2 parts, each with its own dashboard to allow a quick overview of "strongly agree" response among different variables e.g. country, gender, age group, followed up by a more detailed information for each survey questions.
 
 2.	To improve the comparison of response between countries and other variables, diverging bar chart is used instead of 100% stacked bar chart. By doing so, contrast between agree and disagree will be more apparent. I also choose to plot _Neutral_ response separately rather than distributing it equally to both sides of the response, as it is important to understand how many percentage are sitting on the fence regarding vaccination and this may warrant further investigation.
 
-3.	It is also important to understand the uncertainty in the survey response which differs between countries due to the different sampling size. We can use dot plot with error bar to better convey the uncertainty to the reader. This will also aid in the comparison of average response between different variables.
+3.	It is also important to understand the uncertainty in the survey response which differs between countries due to the different sampling size. We can use dot plot with error bar to better convey the uncertainty to the reader. This will also aid in the comparison of response between different variables.
 
 4.	To allow more meaningful insight, respondent profile is also considered in the analysis. This is included through interactive visualisation, leveraging the tooltip function in Tableau.
 
-The link to Tableau visualisation can be found [here](https://public.tableau.com/profile/kevin.gunawan.albindo#!/vizhome/Y210218_VM2_v2/AverageResponse)
+The link to Tableau visualisation can be found [here](https://public.tableau.com/profile/kevin.gunawan.albindo#!/vizhome/Y210218_VM2_v2/SAResponse?publish=yes)
 
 ## Variable list
 
@@ -236,40 +236,35 @@ _If you are very particular about having Country label with initial capital lett
 
 ## Visualisation part 1 – Dot plot with error bar
 <a id="start_part1"></a>
-As the sample size between countries is different, we convey this fact by using a dot plot to represent the average response and error bars to represent the uncertainty. To do so, we create new calculated fields for these estimates: mean, upper, and lower bound for 95% and 99% confidence interval. But first, create new calculated field to count the number of records easier.
+As the sample size between countries is different, we convey this fact by using a dot plot to represent the % of “strongly agree” response and error bars to represent the uncertainty. To do so, we create new calculated fields for these estimates: % strongly agree, upper, and lower bound for 95% and 99% confidence interval. But first, create new calculated field to count the number of records easier.
 
-```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Calculated Fields for number of records, mean, and confidence interval'}
-include_graphics("images/plot1_meanCIfields.jpg")
+```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Calculated Fields for number of records, %strongly agree, and confidence interval'}
+include_graphics("images/plot1_meanCIfields_3.jpg")
 ```
 Drag _Measure Values_ to the _Columns_ shelf. Remove all the fields from _Measure Values_ pane except for the lower and upper 95% and 99% confidence interval. Subsequently, drag _Country_ field to _Rows_ shelf. Change the chart type to _Line_ and add _Measure Names_ to the _Path_ in _Marks_ shelf to connect our upper and lower bound values. To differentiate 95% and 99% bar, once again drag _Measure Names_ to the _Color_ in _Marks_ shelf.
 
 ```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Displaying confidence interval as line'}
 include_graphics("images/plot1_CIbar.jpg")
 ```
-To show our mean value as a dot plot, drag _Mean_ field to _Columns_ shelf, select _Dual Axis_ and choose _Synchronize Axis_. Change the chart type for _Mean_ field to _Circle_ type. Edit the X-axis and uncheck _Include zero_ option so that the dot and error bar is more visible. Sort the X-axis based on _Mean_ and hide the top X-axis as it is redundant.
+To show our % of "strongly agree" as a dot plot, drag _Pct_SA_ field to _Columns_ shelf, select _Dual Axis_ and choose _Synchronize Axis_. Change the chart type for _Pct_SA_ field to _Circle_ type. Edit the X-axis and set to fixed 0 - 1 with tick mark every 0.2. Sort the X-axis based on _Pct_SA_ and hide the top X-axis as it is redundant.
 
-```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Displaying mean as dot plot'}
-include_graphics("images/plot1_meanDot.jpg")
+```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Displaying % strongly agree as dot plot'}
+include_graphics("images/plot1_pctDot.jpg")
 ```
-We should filter by _Vac 1_ question to show the response on public willingness to be vaccinated. Drag _Question_ field to _Filters_ shelf and select _Vac 1_. We can then add a reference line at value equals to 3 which represent the neutral response. In general, the negative response is usually positioned at the left side and positive response is on the right side. Hence, we reverse the X-axis so that response towards 5 (strongly disagree) is on the left while response towards 1 (strongly agree) is on the right side.
+We should filter by _Vac 1_ question to show the response on public willingness to be vaccinated. Drag _Question_ field to _Filters_ shelf and select _Vac 1_. We can then add a reference line at value equals to 0.5 which represent 50% response.
 
-```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Reverse X-axis and reference line'}
-include_graphics("images/plot1_refLine.jpg")
+```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Set reference line'}
+include_graphics("images/plot1_refLine_3.jpg")
 ```
-Adjust the error bar color by clicking on the _Measure Names_ color legend and the bar size by adjusting _Size_ in the _Marks_ shelf. Note that the order of the lower and upper bound in the legend affect the display accordingly (arrange such that 99% confidence interval at the top, followed by 95% confidence interval and mean value).
+Adjust the error bar color by clicking on the _Measure Names_ color legend and the bar size by adjusting _Size_ in the _Marks_ shelf. Note that the order of the lower and upper bound in the legend affect the display accordingly (arrange such that 99% confidence interval at the top, followed by 95% confidence interval and % of strongly agree value).
 
 ```{r, echo=FALSE, fig.align='center', fig.cap='Adjust plot color'}
-include_graphics("images/plot1_color.jpg")
+include_graphics("images/plot1_color_3.jpg")
 ```
-Set the X-axis from 1 to 5 with interval of 1 and remove its title. Also, right click on the X-axis and add reference line at 5 and 1 value with label “Strongly Disagree” and “Strongly Agree” to orientate the reader that left side is negative and vice versa.
-
-```{r, echo=FALSE, fig.align='center', fig.cap='Reference line with label'}
-include_graphics("images/plot1_strongRefLine.jpg")
-```
-As it is difficult to trace the dot plot to the country label at the left header, we can instead label each dot with the country name and remove the Y-axis. To do so, drag _Country_ field to _Label_ of _Measure Values_ in _Marks_ shelf, change the alignment to _Middle_ vertical.
+As it is difficult to trace the dot plot to the country label at the left header, we can instead label each dot with the country name and remove the Y-axis. To do so, drag _Country_ field to _Label_ of _Measure Values_ in _Marks_ shelf, change the alignment to _Middle_ vertical and _Allow labels to overlap_.
 
 ```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Create label near the data point'}
-include_graphics("images/plot1_labelDot.jpg")
+include_graphics("images/plot1_labelDot_3.jpg")
 ```
 To allow reader to cycle among different survey question, we can show the filter by _Show Filter_ for _Question_ field. However, the value under _Question_ is not intuitive and hence we need to create aliases for each question. Right click on _Question_ in the _Data_ pane and choose _Aliases…_. Fill the _Value (Alias)_ column according to the actual survey question.
 
@@ -281,7 +276,7 @@ Click on the _Question_ filter card and select single _Single Value (list)_. Als
 ```{r, echo=FALSE, fig.align='center', fig.cap='Show filter for _Question_'}
 include_graphics("images/plot1_filterQuestion.jpg")
 ```
-Next, we would like to provide options for reader to select how they want to split the average response; not only by _Country_, but also by other respondent profile such as age, gender, household size, and employment status. To do so, create a new parameter _Based-on Selector_ and add these attributes to the _List of values_ (taking reference from [here](https://help.tableau.com/current/pro/desktop/en-us/parameters_swap.htm)). Right click on the parameter and select _Show Parameter_.
+Next, we would like to provide options for reader to select how they want to split the percentage of response; not only by _Country_, but also by other respondent profile such as age, gender, household size, and employment status. To do so, create a new parameter _Based-on Selector_ and add these attributes to the _List of values_ (taking reference from [here](https://help.tableau.com/current/pro/desktop/en-us/parameters_swap.htm)). Right click on the parameter and select _Show Parameter_.
 
 ```{r, echo=FALSE, fig.align='center', fig.cap='Create new parameter to select attributes'}
 include_graphics("images/plot1_parameter.jpg")
@@ -291,27 +286,27 @@ We also need to create new calculated fields for the respondent profile data. Fo
 ```{r, echo=FALSE, fig.align='center', fig.cap='Create new calculated fields for respondent attributes'}
 include_graphics("images/plot1_newFields_2.jpg")
 ```
-Next, create a new calculated field _Placeholder1_ to receive input from our [Based-on selector] parameter and drag it to our _Rows_ shelf (replacing _Country_). The idea is that when reader choose the attribute from the parameter list, it will change the input to our _Rows_ shelf.
+Next, create a new calculated field _Placeholder1_ to receive input from our [Based-on selector] parameter and drag it to our _Rows_ shelf and _Label_ card (replacing _Country_). The idea is that when reader choose the attribute from the parameter list, it will change the input to our _Rows_ shelf.
 
 ```{r, echo=FALSE, fig.align='center', fig.cap='Create new calculated field to receive attribute selection'}
 include_graphics("images/plot1_placeholder.jpg")
 ```
-Finally, add title to link the average response towards the selected question. As we have observed previously, one of the survey questions has less respondent as compared to the rest. We can highlight this fact by showing the number of respondents in the title. Create new calculated field _SumRecords_ to sum up record excluding the grouping by variable in _Placeholder1_. Drag it to the _Detail_ in _Marks_ shelf so that it will show up when we edit the title.
+Finally, add title to link the percentage response towards the selected question. As we have observed previously, one of the survey questions has less respondent as compared to the rest. We can highlight this fact by showing the number of respondents in the title. Create new calculated field _SumRecords_ to sum up record excluding the grouping by variable in _Placeholder1_. Drag it to the _Detail_ in _Marks_ shelf so that it will show up when we edit the title.
 
 ```{r, echo=FALSE, fig.align='center', fig.cap='Create title with number of respondent'}
 include_graphics("images/plot1_title.jpg")
 ```
-For the individual data point, we also provide the number of respondents by dragging the _Number of records_ to the _Tooltip_ of _AGG(Mean)_ in _Marks_ shelf. Add _Placeholder1_, average response, and number of records as shown below.
+For the individual data point, we also provide the number of respondents by dragging the _Number of records_ to the _Tooltip_ of _AGG(Pct_SA)_ in _Marks_ shelf. Add _Placeholder1_, % of strongly agree, and number of records as shown below.
 
-```{r, echo=FALSE, fig.align='center', fig.cap='Create tooltip for _Mean_'}
-include_graphics("images/plot1_tooltipMean.jpg")
+```{r, echo=FALSE, fig.align='center', fig.cap='Create tooltip for _Pct_SA_'}
+include_graphics("images/plot1_tooltipPct.jpg")
 ```
 As for the tooltip of the confidence interval bar, we can show the category (_Placeholder1_) and the value of the confidence interval. Go to _Measure Values_ card in _Marks_ shelf and click on _Tooltip_.
 
 ```{r, echo=FALSE, fig.align='center', fig.cap='Create tooltip for confidence interval'}
 include_graphics("images/plot1_tooltipCI.jpg")
 ```
-Finally, change the _Measure Names_ legend title to “Legend” and we can hide the X-axis as the reader can refer to "Strongly Agree" and "Strongly Disagree" annotation from our reference line.
+Finally, change the _Measure Names_ legend title to “Legend” and format the _Measure Values_ and _Pct_SA_ fields to percentage type.
 
 ```{r, echo=FALSE, fig.align='center', fig.cap='Final touch up'}
 include_graphics("images/plot1_finalTouch.jpg")
@@ -324,7 +319,7 @@ include_graphics("images/plot1_filterCaption.jpg")
 The visualisation for part 1 will look like this.
 
 ```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Final appearance for part 1'}
-include_graphics("images/plot1_final.jpg")
+include_graphics("images/plot1_final_3.jpg")
 ```
 
 ## Visualisation part 2 – Diverging bar chart for Likert scale survey
@@ -571,7 +566,7 @@ Finally, add title to the visualisation and edit the _Filter_ title to better or
 include_graphics("images/plot2_addTitle.jpg")
 ```
 ## Creating dashboard
-Create new dashboard and drag _Average_ worksheet to the dashboard. The blue color rectangle below shows the component of our worksheet. The other components like image, text, and blank are highlighted accordingly with different colors. The image is taken from [here]( https://images.theconversation.com/files/341551/original/file-20200612-153812-ws3rqu.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=754&fit=clip).
+Create new dashboard and drag _Percent_ worksheet to the dashboard. The blue color rectangle below shows the component of our worksheet. The other components like image, text, and blank are highlighted accordingly with different colors. The image is taken from [here]( https://images.theconversation.com/files/341551/original/file-20200612-153812-ws3rqu.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=754&fit=clip).
 
 ```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Dashboard 1'}
 include_graphics("images/dashboard1.jpg")
@@ -588,20 +583,20 @@ include_graphics("images/publish_adjustment.jpg")
 ```
 
 # 4. Observations
-1. From this interactive visualisation, we can observe that United Kingdom has the most positive response towards vaccination while France is leaning more towards the negative side. If we look at another question on “whether they will regret if they do not get a vaccine”, their responses are also the most negative which may suggest that majority of France respondents do not see getting vaccinated as a necessity. We can also see that Singapore is mostly neutral in this aspect.
+1. From this interactive visualisation, we can observe that United Kingdom has the most positive response towards vaccination while Singapore is at the bottom with low positive response. If we look at another question on “whether they will regret if they do not get a vaccine”, Singapore response is also the least positive which may suggest that majority of Singapore respondents do not see getting vaccinated as a necessity.
 
 ```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Which country is more positive towards vaccination?'}
-include_graphics("images/obs1.jpg")
+include_graphics("images/obs1_p.jpg")
 ```
-2. In the previous chart, Japanese respondent is the second least positive about getting vaccinated (after France). The chart below shows that despite the Japanese respondent being the most worried about getting COVID, they are also the most concerned about the potential side effects from the vaccine. Singapore is the second country being most worried with the vaccine’s side effect.
+2. In the previous chart, Japanese respondent is the least positive about getting vaccinated. However, the chart below shows that despite the Japanese respondent is worried about getting COVID (2nd place), they are also concerned about the potential side effects from the vaccine (3rd place). While France lead in the 1st place with the most worried respondent, Singapore is at 4th place, suggesting the reason against vaccination.
 
 ```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Which country is the most concerned about vaccine side effect?'}
-include_graphics("images/obs2.jpg")
+include_graphics("images/obs2_p.jpg")
 ```
 3. When we investigate the response by employment status, retired respondents are more willing to get vaccinated as compared to the rest. Interestingly, this aligns with them being the least worried about the side effect and most supportive and trusting of their government to provide effective vaccine.
 
 ```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Retired respondent is more willing towards vaccination'}
-include_graphics("images/obs3.jpg")
+include_graphics("images/obs3_p.jpg")
 ```
 4. From the Likert scale and interactive tooltip for Singapore, the higher observation for male respondents who are willing to be vaccinated may stem from the fact that there are more female respondents who are worried about the side effects.
 
