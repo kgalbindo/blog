@@ -1,0 +1,39 @@
+---
+title: "Data Viz Makeover 3"
+description: |
+  Data visualisation critique and makeover on South-east Asia Armed Conflict Analysis dashboard.
+author:
+  - name: Kevin Gunawan Albindo
+    url: https://www.linkedin.com/in/kgalbindo
+date: 03-18-2021
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_float: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(knitr)
+```
+
+# 1. Introduction
+
+This post is part of the submission for ISSS608 DataViz Makeover assignment 3. Data visualisation critique and makeover is done on [South-east Asia Armed Conflict Analysis dashboard](https://public.tableau.com/profile/tskam#!/vizhome/South-eastAsiaArmedConflictAnalysis/South-eastAsiaArmedConflictAnalysis).
+
+The [data](http://github......./) is extracted from The Armed Conflict Location & Event Data Project (ACLED) database for Southeast Asia region between 2010 and 31 October 2020. More info about ACLED can be found [here](https://acleddata.com/about-acled/).
+
+The assessment criteria will be similar to the previous blog post, based on the clarity and aesthetic aspect of the visualisation (taking reference from ["Data Visualization: Clarity or Aesthetics?"](https://dataremixed.com/2012/05/data-visualization-clarity-or-aesthetics/) by Ben Jones). In addition, since the dashboard is meant to be interactive, we will also assess its interactive feature based on utility.
+
+# 2. Critique and suggestion
+
+The screenshot of original dashboard that will be assessed is shown below.
+
+```{r, echo=FALSE, output.width="120%", fig.align='center',fig.cap="Original South-east Asia Armed Conflict Analysis dashboard", out.extra='style="background-color: #000000; padding:1.5px; display: inline-block;"'}
+include_graphics("images/excerpt.jpg")
+```
+
+
+
