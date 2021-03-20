@@ -2155,14 +2155,14 @@ Figure 1: Original South-east Asia Armed Conflict Analysis dashboard
 <p>Currently, while the combination of map view and trend line chart serves the basic purpose of displaying the data, there are some limitations that prevent reader to do further exploration and derive more useful insights. The next few sections will elaborate some of these limitations.</p>
 <h2 id="clarity">Clarity</h2>
 <ol type="1">
-<li><p>The visualisation is at the deepest level of detail which is the individual event point. There is no option for aggregated view which allows comparison between countries. The reader is unable to derive some insights e.g. which country has higher frequnecy of conflicts relative to others in the region.</p></li>
+<li><p>The visualisation is at the deepest level of detail which is the individual event point. There is no option for aggregated view which allows comparison between countries. The reader may not be able to derive insights directly such as which country has higher frequency of conflicts relative to others in the region.</p></li>
 <li><p>The line chart at the right side of the map provides conflict breakdown based on different event type. This allows reader to see the trend over time for each event type. However, they are plotted separately with different y-axis scale, making it difficult for reader to compare the value between event types.</p></li>
 <li><p>The tooltip information for the map lacks important detail such as fatalities and actors involved. It will be clearer to have key event details in the tooltip, instead of the event ID and coordinate.</p></li>
 </ol>
 <h2 id="aesthetics">Aesthetics</h2>
 <ol type="1">
-<li><p>Although it is quite safe to assume that the Y-axis of the line chart refers to the count of event type, it is better to describe it properly rather than using “Count of Sheet1”.</p></li>
-<li><p>Individual events are colored according to event type which helps to differentiate them. However, the color is set to solid which makes the display cluttered, allowing events to be hidden under other nearby events.</p></li>
+<li><p>Although it is quite safe to assume that the Y-axis of the line chart refers to the count of event type, it is better to describe it properly rather than using “Count of Sheet1”. The long text also leads to truncation of axis title which is not good. Field label such as <em>Event Type</em> and <em>Event Date</em> are redundant because the title has stated <em>Event Type</em> and the year label at the bottom is self explanatory.</p></li>
+<li><p>Individual events are colored according to event type which helps to differentiate them. However, the color is set to solid which makes the display cluttered, allowing events to be hidden under other nearby events. In addition, the line chart should be colored accordingly by <em>Event Type</em> for consistency.</p></li>
 </ol>
 <h2 id="interactivity">Interactivity</h2>
 <ol type="1">
@@ -2968,7 +2968,7 @@ Figure 82: Overview of Southeast Asian countries
 </div>
 </div>
 <ol start="2" type="1">
-<li>If we look closely between Philippines and Myanmar, they have different period of conflicts even though their total numbers are quite close. As displayed by the bar chart, conflict in Myanmar has been recorded as early as 2010 and the occurrence remains constant throughout the year until 2020. On the other hand, Philippines record of events just started in the beginning of 2016, followed by a significant surge in July 2016. This points to the start of <a href="https://www.hrw.org/tag/philippines-war-drugs">Philippine President Rodrigo Duterte’s War on Drugs</a> after he took office in June 2016. Towards the end of 2018, we observe a decrease in the number of event, attributed to the <a href="https://www.theguardian.com/world/2017/oct/12/philippines-rodrigo-duterte-police-war-drugs">President Duterte’s decision to pull police force out of the war on drugs</a>, ending the 15 months of deadly campaign.</li>
+<li>If we look closely between Philippines and Myanmar, they have different period of conflicts even though their total numbers are quite close. As displayed by the bar chart, conflict in Myanmar has been recorded as early as 2010 and the occurrence remains constant throughout the year until 2020. On the other hand, Philippines’ record of events just started in the beginning of 2016 which could be due to the unavailability of pre-2016 data for Philippines. A significant surge in July 2016 points to the start of <a href="https://www.hrw.org/tag/philippines-war-drugs">Philippine President Rodrigo Duterte’s War on Drugs</a> after he took office in June 2016. Towards the end of 2018, we observe a decrease in the number of event, attributed to the <a href="https://www.theguardian.com/world/2017/oct/12/philippines-rodrigo-duterte-police-war-drugs">President Duterte’s decision to pull police force out of the war on drugs</a>, ending the 15 months of deadly campaign.</li>
 </ol>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-83"></span>
