@@ -2,6 +2,7 @@
 title: "Data Viz Makeover 3"
 description: |
   Data visualisation critique and makeover on South-east Asia Armed Conflict Analysis dashboard.
+preview: images/conflict.jpg
 author:
   - name: Kevin Gunawan Albindo
     url: https://www.linkedin.com/in/kgalbindo
@@ -60,7 +61,7 @@ In addition to the above points, information on fatality is not made available i
 
 # 3. Proposed visualisation
 ## Sketch
-The following sketch shows the proposed visualisation and the advantages over the original visualisation will be elaborated. [Tableau link](https://public.tableau.com/profile/kevin.gunawan.albindo#!/vizhome/Y210320_VM3__public/Dashboard1)
+The following sketch shows the proposed visualisation and the advantages over the original visualisation will be elaborated. [Tableau link](https://public.tableau.com/views/Y210320_VM3__public/Dashboard1?:language=en&:display_count=y&:origin=viz_share_link&:tabs=no)
 
 ```{r, echo=FALSE, fig.align='center', fig.cap='Sketch of proposed visualisation'}
 include_graphics("images/sketch.jpg")
@@ -491,7 +492,7 @@ Add _Filter_ action with _Reset2_ as _Source Sheets_, and other visualisations a
 ```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Add filter action by selecting the button'}
 include_graphics("images/ClearFilterStep3.jpg")
 ```
-Repeat the same process for _Dashboard2_, but without _Country_ in the _Target Filters_ for “ClearFilter” action. Also remove _Reset2_ from all the _Target Sheets_ of existing _Action_.
+Repeat the same process for _Dashboard2_, but without _Country_ in the _Target Filters_ for “ClearFilter” action. Also remove _Reset2_ from all the _Target Sheets_ of existing _Filter_ action in both dashboards.
 
 ```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Repeat same process for _Dashboard2_'}
 include_graphics("images/ClearFilterStep4.jpg")
