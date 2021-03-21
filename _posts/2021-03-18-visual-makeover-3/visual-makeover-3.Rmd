@@ -242,6 +242,11 @@ This blue box will serve as our “button” when we add it in the dashboard. Ho
 ```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Set the value for _BaselineDate_ and _Range_ parameters'}
 include_graphics("images/ResetStep4.jpg")
 ```
+Right click on the grid line and select format. Set all line to _None_ for _Sheet_, _Rows_, and _Columns_.
+
+```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Remove gridline'}
+include_graphics("images/ResetStep4-1.jpg")
+```
 Finally, add one more worksheet and name it _Title_. This will serve as the main title in the dashboard later. Multiselect _Country_, _EndDate_, _StartDate_ (by Ctrl+click) and drag them to the _Detail_ card in _Marks_ shelf. Right click on _EndDate_ and change the type to _Day_ (continuous). Do the same for _StartDate_.
 
 ```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Add variables for title text'}
