@@ -61,7 +61,7 @@ In addition to the above points, information on fatality is not made available i
 
 # 3. Proposed visualisation
 ## Sketch
-The following sketch shows the proposed visualisation and the advantages over the original visualisation will be elaborated. [Tableau link](https://public.tableau.com/views/Y210320_VM3__public/Dashboard1?:language=en&:display_count=y&:origin=viz_share_link&:tabs=no)
+The following sketch shows the proposed visualisation and the advantages over the original visualisation will be elaborated. [Tableau link](https://public.tableau.com/views/Y210320_VM3__public_16162097740970/Dashboard1?:language=en&:display_count=y&publish=yes&:origin=viz_share_link&:tabs=no)
 
 ```{r, echo=FALSE, fig.align='center', fig.cap='Sketch of proposed visualisation'}
 include_graphics("images/sketch.jpg")
