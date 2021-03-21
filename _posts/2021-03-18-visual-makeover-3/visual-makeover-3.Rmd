@@ -136,7 +136,7 @@ Tableau by default will show the aggregated value (average) of latitude and long
 ```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Color based on event type'}
 include_graphics("images/Map2Step2.jpg")
 ```
-We also want to show the number of fatalities by the size of the circle. Drag _Fatalities_ to the _Size_ card in _Marks_ shelf. Double click on the _Legend_ and slightly increase the smallest size by sliding the left limit to the right. Rename this worksheet to _Map2_.
+We also want to show the number of fatalities by the size of the circle. Drag _Fatalities_ to the _Size_ card in _Marks_ shelf. Double click on the _Legend_ and slightly increase the smallest and largest size by sliding them to the right. Set the minimum and maximum value accordingly. Rename this worksheet to _Map2_.
 
 ```{r, echo=FALSE, out.width="150%", fig.align='center', fig.cap='Add fatalities information as the size of circle'}
 include_graphics("images/Map2Step3.jpg")
