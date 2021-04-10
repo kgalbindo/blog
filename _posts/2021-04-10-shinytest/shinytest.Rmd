@@ -7,9 +7,9 @@ author:
     url: https://www.linkedin.com/in/kgalbindo
 date: 04-10-2021
 runtime: shiny
-output:
-  distill::distill_article:
-    self_contained: false
+output: html_document
+  # distill::distill_article:
+  #   self_contained: false
 draft: true
 ---
 
