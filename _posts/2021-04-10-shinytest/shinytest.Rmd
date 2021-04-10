@@ -1,0 +1,295 @@
+---
+title: "Shiny_test"
+description: |
+  A short description of the post.
+author:
+  - name: Kevin Gunawan Albindo
+    url: https://www.linkedin.com/in/kgalbindo
+date: 04-10-2021
+runtime: shiny
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Installing and loading necessary packages
+
+```{r echo=TRUE, results='hide'}
+packages = c('tidyverse', 'tidymodels', 'ggplot2', 'skimr', 'kableExtra',
+             'vip', 'ggstatsplot', 'corrplot', 'Hmisc', 'shinyWidgets')
+
+for(p in packages){
+  if(!require(p, character.only = T)){
+    install.packages(p)
+  }
+  library(p, character.only = T)
+}
+```
+
+### Load cleaned data
+The cleaned data is loaded using read_csv function from readr package.
+```{r echo=TRUE}
+listing_prep <- read_csv("data/listing_prep.csv")
+
+listing_prep <- listing_prep %>%
+  mutate(across(where(is.character), as.factor)) %>%
+  mutate(across(where(is.logical), as.factor))
+```
+
+### Get user input on response variable
+In this data set, there are 2 choices of response variable: _price_ and _review_scores_rating_.
+
+```{r echo=FALSE}
+var_list <- sort(names(listing_prep))
+
+var_list_num <- listing_prep %>%
+    keep(is.numeric) %>%
+    names()
+
+pickerInput(
+   inputId = "Itarget_var",
+   label = "Choose response variable:",
+   choices = c("price", "review_scores_rating"),
+   selected = "price"
+)
+ 
+```
+
+### Correlation matrix for numeric variables
+Next, we want to check correlation among numeric variables. User can further choose which numeric variables to be considered. Subsequently, choice of correlation type and p-value are available to customise the correlation matrix.
+
+```{r echo=FALSE}
+multiInput(
+  inputId = "Inum_vars_corr",
+  label = "Choose from numeric variables :",
+  choices = var_list_num,
+  width = "900px")
+
+actionButton("btn_all_num", "Select all")
+actionButton("btn_des_all_num", "Deselect all")
+
+radioButtons(
+   inputId = "Icorr_type",
+   label = "Correlation type:",
+   choices = c("parametric", "nonparametric", "robust", "bayes")
+)
+
+pickerInput(
+   inputId = "Isig_lvl_corr",
+   label = "p-value:",
+   choices = c("0.01", "0.05", "0.1"),
+   selected = "0.05"
+)
+
+actionButton("btn_corrplot", "Plot correlation matrix")
+
+plotOutput("Oplot_corrmat", width = "800px", height = "600px")
+```
+
+```{r echo=FALSE}
+observeEvent(input$btn_corrplot, {
+  output$Oplot_corrmat <- renderPlot(
+    listing_prep %>%
+      select(isolate(input$Inum_vars_corr)) %>%
+      ggcorrmat(insig = "pch", pch = "cross", title = "Correlation matrix",
+                sig.level = isolate(input$Isig_lvl_corr),
+                type = isolate(input$Icorr_type))
+  )
+})
+
+observeEvent(input$btn_all_num, {
+  updateMultiInput(
+    session = session,
+    inputId = "Inum_vars_corr",
+    selected = var_list_num
+  )
+})
+
+observeEvent(input$btn_des_all_num, {
+  updateMultiInput(
+    session = session,
+    inputId = "Inum_vars_corr",
+    selected = character(0)
+  )
+})
+```
+
+### Train/test data split
+The next step will be to split the data into train and test set. User will be able to choose the proportion and strata requirement. (K-folds cross validation will be made  possible).
+
+```{r echo=FALSE}
+
+sliderInput("Itrain_prop", "Training set proportion (%)", value = 80, min = 50, max = 100, step = 5)
+
+awesomeCheckbox(
+   inputId = "Itrain_strata",
+   label = "Stratified sampling for target variable",
+   value = TRUE
+)
+
+actionButton("btn_split_data", "Split data set")
+plotOutput("Oplot_traintest", width = "800px", height = "1000px")
+
+Rtrain_strata <- reactive(
+  if (input$Itrain_strata == FALSE){
+    NULL
+  }else{
+    input$Itarget_var
+  }
+)
+
+listing_train <- NULL
+
+observeEvent(input$btn_split_data, {
+  set.seed(1234)
+  listing_split <- listing_prep %>%
+    na.omit() %>% #Row with NA-value is omitted
+    initial_split(prop = isolate(input$Itrain_prop)/100,
+                  strata = Rtrain_strata())
+  
+  listing_train <<- training(listing_split)
+  listing_test <- testing(listing_split)
+
+  train_num <- listing_train %>%
+    mutate(split = "training")
+  test_num <- listing_test %>%
+    mutate(split = "test")
+  trainTest_num <- rbind(train_num, test_num)
+
+  output$Oplot_traintest <- renderPlot(
+    trainTest_num %>%
+      select(where(is.numeric) | split) %>%
+      gather(key, value, -split) %>%
+      ggplot(aes(x = value, fill = split)) +
+        facet_wrap(~ key, scales = "free", ncol = 4) +
+        geom_density(alpha=0.5)
+  )
+})
+```
+
+### Variable importance
+Using vip package, we can fit the response variable and predictors to a simple model and calculate its importance, which will guide our feature selection.
+
+```{r echo=FALSE}
+# fit variables to random forest model
+
+actionButton("btn_get_vip", "Calculate variable importance")
+
+verbatimTextOutput("Ovip")
+# plotOutput("Oplot_vip", width = "800px", height = "800px")
+
+observeEvent(input$btn_get_vip,{
+  f <- as.formula(paste(Rtarget_var(), "~ ."))
+
+  rf1 <- cforest(f, data = listing_train,
+                 control = cforest_unbiased(mtry=2, ntree=50))
+  
+  output$Ovip <- renderPrint(
+    # get variable importance, based on mean decrease in accuracy.
+    # conditional=TRUE' adjusts for correlations between predictors
+    varimp(rf1, conditional = TRUE) 
+  )
+})
+
+```
+
+
+### Build transformation recipe
+A predefined transformation process for the variables are provided for information. Transformed variable will be plotted side by side with their pre-transformed values for comparison.
+
+```{r echo=FALSE}
+actionButton("btn_rcpTransform", "Prepare recipe")
+verbatimTextOutput("Otransform_recipe")
+
+pickerInput(
+   inputId = "Iproc_var",
+   label = "Choose variables:",
+   choices = character(0)
+)
+
+plotOutput("Otransformed_plot", width = "600px", height = "300")
+
+Rtarget_var <- reactive(input$Itarget_var)
+
+trainTProcessed <- NULL
+
+observeEvent(input$btn_rcpTransform,{
+  set.seed(1234)
+  listing_split <- listing_prep %>%
+    rename(target_var = Rtarget_var()) %>%
+    na.omit() %>% #Row with NA-value is omitted
+    initial_split(prop = isolate(input$Itrain_prop)/100,
+                  strata = 
+                    if(is.null(Rtrain_strata())){
+                      target_var
+                    }else{NULL})
+
+  listing_train <- training(listing_split)
+  listing_test <- testing(listing_split)
+  listing_kfolds <- vfold_cv(listing_train, v = 5,
+                             strata = 
+                               if(is.null(Rtrain_strata())){
+                                 target_var
+                                 }else{NULL})
+
+  rcpTransform <- recipe(target_var ~ ., data = listing_train) %>%
+  step_corr(all_numeric(), -all_outcomes(), threshold = 0.7) %>%
+  step_log(all_outcomes(), skip = TRUE) %>%
+  # step_log(all_numeric(), -year_host, -all_outcomes(), offset = 0.1) %>%
+  step_normalize(all_numeric(), -all_outcomes(), na_rm = TRUE) %>%
+  step_dummy(all_nominal(), -all_outcomes())
+
+  output$Otransform_recipe <- renderPrint(rcpTransform)
+  
+  #see the transformed data
+  listingTrain_T <- rcpTransform %>% prep() %>% bake(new_data = NULL)
+  
+  listingTrain_T %>%
+    gather() %>%
+    ggplot(aes(x = value)) +
+      facet_wrap(~ key, scales = "free", ncol = 4) +
+      geom_bar()
+  
+  listing_train_var <- listing_train %>%
+    keep(is.numeric) %>%
+    names()
+  listingTrain_T_var <- listingTrain_T %>%
+    keep(is.numeric) %>%
+    names()
+  
+  intersect_vars <- intersect(listing_train_var, listingTrain_T_var)
+  
+  updatePickerInput(
+    session = session,
+    inputId = "Iproc_var",
+    choices = gsub("target_var", Rtarget_var(), intersect_vars))
+    
+  train_proc <- listing_train %>%
+    select(all_of(intersect_vars)) %>%
+    mutate(processed = "original")
+  
+  train_T_proc <- listingTrain_T %>%
+    select(all_of(intersect_vars)) %>%
+    mutate(processed = "processed")
+    
+  trainTProcessed <<- rbind(train_proc, train_T_proc)
+})
+
+observeEvent(input$Iproc_var,{
+  output$Otransformed_plot <- renderPlot(
+    trainTProcessed %>%
+      rename(!!Rtarget_var() := target_var) %>%
+      select(input$Iproc_var | processed) %>%
+      gather(key, value, -processed) %>%
+      ggplot(aes(x = value)) +
+      facet_wrap(~ processed, scales = "free", ncol = 4) +
+      geom_histogram(alpha=0.5)
+  )
+})
+```
+
