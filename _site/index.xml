@@ -7,14 +7,23 @@
     <description>Learning data visualisation
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 17 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 19 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Predictive analytics in R</title>
+      <dc:creator>Kevin Gunawan Albindo</dc:creator>
+      <link>https://kgalbindo.netlify.app/posts/2021-03-20-predictive-analytics-in-r</link>
+      <description>How visual analytics technique can be used to complement predictive analytics.</description>
+      <guid>https://kgalbindo.netlify.app/posts/2021-03-20-predictive-analytics-in-r</guid>
+      <pubDate>Fri, 19 Mar 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://kgalbindo.netlify.app/posts/2021-03-20-predictive-analytics-in-r/images/tidymodels_components.jpg" medium="image" type="image/jpeg"/>
+    </item>
     <item>
       <title>Data Viz Makeover 3</title>
       <dc:creator>Kevin Gunawan Albindo</dc:creator>
       <link>https://kgalbindo.netlify.app/posts/2021-03-18-visual-makeover-3</link>
       <description>Data visualisation critique and makeover on South-east Asia Armed Conflict Analysis dashboard.</description>
       <guid>https://kgalbindo.netlify.app/posts/2021-03-18-visual-makeover-3</guid>
-      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 18 Mar 2021 00:00:00 +0000</pubDate>
       <media:content url="https://kgalbindo.netlify.app/posts/2021-03-18-visual-makeover-3/images/conflict.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
