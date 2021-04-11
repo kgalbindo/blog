@@ -807,7 +807,7 @@ top_err_id <- listing_pred %>%
 top_err <- listing_pred %>%
   filter(id %in% top_err_id) %>%
   mutate(pred_error = abs(target_var-.pred)) %>%
-  select(slp, id, pred_error) %>%
+  select(all_of(slp), id, pred_error) %>%
   gather(key, value, -id, -pred_error) %>%
   mutate(id = as.factor(id))
 ```
@@ -816,7 +816,7 @@ We can then plot the two data set with selected 6 predictors by:
 - plotting the training set distribution as histogram  
 - plotting the test set data points as point with jitter  
 
-```{r echo=TRUE, fig.dim=c(10,15)}
+```{r echo=TRUE, fig.dim=c(10,12)}
 
 color_vec <- rep(c("red"), times = length(unique(top_err$id)))
 
@@ -829,7 +829,8 @@ ggplotly(ggplot(NULL, aes(x = value)) +
                                                 "\nerror: ", round(pred_error,2))),
               alpha = 0.5, width = 0.01, height = 50) +
     scale_color_manual(values = color_vec) +
-    facet_wrap(~ key, scales = "free_x"),
+    facet_wrap(~ key, scales = "free_x") +
+    theme(panel.spacing.y = unit(2, "lines")),
 tooltip = c('text'))
 
 ```
@@ -1167,7 +1168,7 @@ toc()
 # Collect all metric
 Best model from each algorithm is summarised into one table and plotted using `ggplot` wrapped by `plotly`.
 
-```{r echo=TRUE, fig.dim=c(10,15)}
+```{r echo=TRUE, fig.dim=c(10,12)}
 metric_p <- final_metric_lm %>%
   mutate(model = "LM") %>%
   bind_rows(final_metric_glm %>% mutate(model = "GLM")) %>%
@@ -1181,7 +1182,8 @@ metric_p <- final_metric_lm %>%
   scale_x_reordered() +
   facet_wrap(~ .metric, scales = "free") +
   ylab("Estimate") +
-  theme(axis.title.x = element_blank())
+  theme(axis.title.x = element_blank(),
+        panel.spacing.y = unit(2, "lines"))
 ggplotly(metric_p, tooltip = c("text"))
 
 ```
