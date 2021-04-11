@@ -9,6 +9,8 @@ date: 03-20-2021
 output:
   distill::distill_article:
     self_contained: false
+    toc: true
+    toc_float: true
 draft: false
 ---
 
@@ -57,7 +59,7 @@ In this module, we will compare _Random Forest_ (embedded method) and _Boruta_ (
 
 Quite recently, Max Kuhn introduces [`tidymodels`](https://www.tidymodels.org/) as a framework with collection of packages for modeling and machine learning. This framework is aligned with the tidyverse principles which means we can expect a tidier and consistent grammar in our predictive analytics process. We will use `tidymodels` framework for our predictive module.
 
-```{r, echo=FALSE, fig.align='center', fig.cap='Components of tidymodels', class.source = 'fold-show'}
+```{r, echo=FALSE, fig.align='center', fig.cap='Components of tidymodels'}
 include_graphics("images/tidymodels_components.jpg")
 ```
 
@@ -165,7 +167,7 @@ Listings of Airbnbs in Singapore are extracted from [InsideAirbnb.com](http://in
 
 Besides `Tidyverse`, we will use `ggplot2`, `skimr`, `naniar`, and `cld3` for data preparation.
 
-```{r, message = FALSE, class.source = 'fold-show'}
+```{r, message = FALSE}
 packages = c('tidyverse', 'ggplot2', 'skimr', 'naniar', 'cld3', 'plotly')
 
 for(p in packages){
@@ -180,7 +182,7 @@ for(p in packages){
 
 The data was loaded using `read_csv()` of the readr package, which reads delimited files into a `tibble`.
 
-```{r,  message = FALSE, class.source = 'fold-show'}
+```{r,  message = FALSE}
 listings <- read_csv("./data/raw/listings.csv")
 ```
 
@@ -620,15 +622,15 @@ listing_test <- testing(listing_split)
 
 
 ### Build transformation recipe
-After we assess the correlation and feature importance, we might want to exclude several variables from our model. The removal can be done manually or we can use functions in `recipe` framework to do so. On top of feature selection, we also perform several processing steps as follows:
+After we assess the correlation and feature importance, we also need to perform several processing steps as follows:  
 - removal of rows with NA (missing data) [`step_naomit`]  
 - removal of highly correlated variables [`step_corr`] with a specified threshold  
 - normalise variable to get similar range of values among variables [`step_normalize`]  
 - pool infrequently occurring values into "other" category [`step_other`]  
 - one hot encoding for categorical variables [`step_dummy`]  
-_All available steps in `recipe` can be found [here](https://recipes.tidymodels.org/reference/index.html)_
+_Other available steps in `recipe` can be found [here](https://recipes.tidymodels.org/reference/index.html)_
 
-We will create 3 different recipes for linear regression, decision tree, and random forest model as they have different requirement of data transformation. For  the first linear regression, missing value has to be removed from the data set as they are not handled by the algorithm, whereas we can leave it for decision tree model.
+We will create 3 different recipes for linear regression, decision tree, and random forest model as they have different requirement of data transformation. For linear regression and random forest, missing values have to be removed from the data set as they are not handled by the algorithm, whereas we can leave it for decision tree model.
 
 ```{r echo=TRUE, fig.dim=c(20,8)}
 #recipe for linear regression
@@ -814,7 +816,7 @@ We can then plot the two data set with selected 6 predictors by:
 - plotting the training set distribution as histogram  
 - plotting the test set data points as point with jitter  
 
-```{r echo=TRUE}
+```{r echo=TRUE, fig.dim=c(10,15)}
 
 color_vec <- rep(c("red"), times = length(unique(top_err$id)))
 
@@ -944,7 +946,7 @@ final_metric_glm <- collect_metrics(final_fit_glm)
 final_metric_glm
 ```
 
-With regularised linear regression, we observe no significant improvement in RMSE score where it stays at 100.3 and we still see the same behaviour where the model underestimates the predicted price for listing price above \$250.
+With regularised linear regression, we observe no significant improvement in RMSE score and we still see the same behaviour where the model underestimates the predicted price for listing price above \$250.
 
 ### Decision tree
 For decision tree, we are using `rpart` package with `cost_complexity`, `tree_depth` (maximum tree depth), and `min_n` (minimum number of data points in a node that are required for the node to be split further) as hyper-parameters to be tuned.
@@ -1019,7 +1021,7 @@ multi_metric <- metric_set(mae, mape, rmse, rsq)
 final_metric_dtree <- collect_metrics(final_fit_tree)
 final_metric_dtree
 ```
-With decision tree, we get 91 RMSE score which is an improvement from the GLM model.
+With decision tree, we get better RMSE score as compared to the GLM model.
 
 ### Random forest
 We perform similar steps using random forest, with `mtry` (number of variables randomly sampled as candidates at each split) and `min_n` as the hyper-parameters to be tuned.
@@ -1165,7 +1167,7 @@ toc()
 # Collect all metric
 Best model from each algorithm is summarised into one table and plotted using `ggplot` wrapped by `plotly`.
 
-```{r echo=TRUE, fig.dim=c(10,8)}
+```{r echo=TRUE, fig.dim=c(10,15)}
 metric_p <- final_metric_lm %>%
   mutate(model = "LM") %>%
   bind_rows(final_metric_glm %>% mutate(model = "GLM")) %>%
@@ -1185,19 +1187,38 @@ ggplotly(metric_p, tooltip = c("text"))
 ```
 
 # Summary
+
+The proposed dashboard will cover the predictive analytics steps described above and the sketches are shown below.
+
+```{r, echo=FALSE, fig.align='center', fig.cap='Data splitting and feature selection'}
+include_graphics("images/sketch1.jpg")
+```
+```{r, echo=FALSE, fig.align='center', fig.cap='Data transformation and model training'}
+include_graphics("images/sketch2.jpg")
+```
+```{r, echo=FALSE, fig.align='center', fig.cap='Model comparison'}
+include_graphics("images/sketch3.jpg")
+```
+
 In summary, visualisation and interactivity are explored to support the following predictive analytics steps:  
 - correlation matrix  
   By allowing user input on variable selection and p-value setting, user has more flexibility in assessing the correlation among variables. Interaction provided by `plotly` also allows tooltip function to help user in reading the correlation coefficient and p-value which static plot is unable to provide.  
+  
 - feature selection  
   On top of correlation matrix, comparison of feature importance from different methods allow user to visually assess the important features to be included in the subsequent modeling steps.  
+  
 - data splitting  
   Flexibility in allocating train-test data set allows user to decide how he/she wants to spend their data budget on the model development process. The distribution plot between training and test set also help user to be aware on the potential bias in the training data set.  
+  
 - data transformation  
   As most predictive analytics process involve data transformation, visual aid in the form of distribution plot between pre and post processing step increase user awareness on what transformation steps are performed and on which variables.  
+  
 - assessment of high prediction error  
   Besides assessment from metric such as RMSE and Rsquare, training set distribution plot overlapped with predicted values allow user to investigate further on the prediction error and understand which variables may contribute to the error.  
+  
 - hyper-parameter evaluation  
   Cross validation is an iterative process of applying different hyper-parameters setting and a visualisation helps user to understand the performance improvement/degradation.  
+  
 - model evaluation  
   Finally, all model performance metrics are plotted together to ease the model evaluation process.
   
