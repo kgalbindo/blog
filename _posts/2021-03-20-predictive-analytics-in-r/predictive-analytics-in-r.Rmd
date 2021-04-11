@@ -811,8 +811,8 @@ top_err <- listing_pred %>%
 ```
 
 We can then plot the two data set with selected 6 predictors by:  
-- plotting the training set distribution as histogram
-- plotting the test set data points as point with jitter
+- plotting the training set distribution as histogram  
+- plotting the test set data points as point with jitter  
 
 ```{r echo=TRUE}
 
