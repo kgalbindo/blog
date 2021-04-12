@@ -356,14 +356,13 @@ predVar <- c("host_response_time", "host_response_rate" , "host_acceptance_rate"
 targetVar <- sym("price")
 ```
 
-Character and logical variables are converted into factor variable. A quick summary of the dataset is provided using `skim` function from `skimr` package.
+Character and logical variables are converted into factor variable.
 
 ```{r echo=TRUE}
 listing_prep2 <- listing_prep %>%
   select(all_of(predVar), targetVar) %>%
   mutate(across(where(is.character), as.factor)) %>%
   mutate(across(where(is.logical), as.factor))
-skim_without_charts(listing_prep2)
 ```
 
 ### Correlation plot
@@ -780,7 +779,7 @@ final_metric_lm
 
 From the plot, the predicted value below \$250 shows relatively good agreement with the actual value. On the other hand, the model underestimates the predicted price for listing price above \$250.
 
-We can further evaluate those predicted values which deviate greatly from the actual values. First, we get the top 8 predictors from training model (based on p.value) and prepare the filtered training set.
+We can further evaluate those predicted values which deviate greatly from the actual values. First, we get the top 9 predictors from training model (based on p.value) and prepare the filtered training set.
 
 ```{r echo=TRUE}
 slp <- sig_lm_predictors %>%
@@ -812,7 +811,7 @@ top_err <- listing_pred %>%
   mutate(id = as.factor(id))
 ```
 
-We can then plot the two data set with selected 6 predictors by:  
+We can then plot the two data set with selected 9 predictors by:  
 - plotting the training set distribution as histogram  
 - plotting the test set data points as point with jitter  
 
