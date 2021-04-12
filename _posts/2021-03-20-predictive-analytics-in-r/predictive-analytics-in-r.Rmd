@@ -318,14 +318,14 @@ glimpse(final_listing)
 # 5. Proposed predictive analysis module
 This section provides the code and proposed visualisation in each predictive analytics steps described in section 3.
 
-### Load R packages and pre-processed AirBnb data set
+## 5.1 Load R packages and pre-processed AirBnb data set
 
 First, we are going to load the required packages.
 
 ```{r echo=TRUE}
 packages = c('tidyverse', 'tidymodels', 'ggstatsplot', 'ggplot2', 'plotly',
              'skimr', 'Boruta', 'vip', 'corrplot', 'GGally', 'ggcorrplot',
-             'reshape2', 'tictoc', 'tidytext')
+             'reshape2', 'tictoc', 'tidytext', 'visNetwork', 'rattle', 'sparkline')
 
 for(p in packages){
   if(!require(p, character.only = T)){
@@ -365,7 +365,7 @@ listing_prep2 <- listing_prep %>%
   mutate(across(where(is.logical), as.factor))
 ```
 
-### Correlation plot
+## 5.2 Correlation plot
 
 First, we will separate numeric variables into _listing_prep2_num_ for corrrelation analysis.
 
@@ -438,6 +438,7 @@ However, the tooltip label in the above plot does not provide much information a
 So, the following code chunk is an attempt to create customised correlation matrix using `ggplot` and `plotly`. The guideline in this [link](http://www.sthda.com/english/wiki/ggplot2-quick-correlation-matrix-heatmap-r-software-and-data-visualization) provides a good reference on creating correlation matrix heat map.
 
 ```{r echo=TRUE}
+tic("ggplot timing")
 #user input (correlation method and p-value)
 corr_method <- "Pearson"
 p_val <- 0.05
@@ -483,7 +484,7 @@ gx <- gheat +
       legend.text = element_text(size = 6))
 
 ggplotly(gx, tooltip=c('text'))
-
+toc()
 ```
 
 Based on the result above, we can remove some variables that are known to be highly correlated with others. We will remove _reviews_per_month, availability_60, availability_90, and availability_365_ as they have relatively high correlation score (above 0.6). This will also help in the feature selection process as `Boruta` algorithm does not treat collinearity when selecting important variables.
@@ -497,7 +498,7 @@ listing_prep2 <- listing_prep2 %>%
 
 In addition to correlation matrix, we want to perform feature importance analysis using _random forest_ and _Boruta_ algorithm. However, as it requires model training, we need to perform this analysis on the training data set only to avoid bias in the model. Therefore, we will first proceed with splitting of data set into train and test set in the next section, before returning to our feature importance evaluation later.
 
-### Train-test data split
+## 5.3 Train-test data split
 
 Splitting data into training and test set is done by calling `initial_split` function from `rsample` package (part of `tidymodels`). The proportion of training set can be set in the _training_prop_ argument which is then supplied to `initial_split`. We use stratified sampling (`strata` argument) based on the target variable in order to ensure balance representation of target variable in both training and test set.
 Although stratified sampling is often used for classification, it is also appropriate for regression with small sample size and for target variable which does not follow normal distribution. [Stratified sampling](http://uc-r.github.io/regression_preparation#reg_perf_split) will break target variable into quantiles and randomly sample from each quantile.
@@ -551,7 +552,7 @@ trainTest_p2 <- trainTest_grp %>%
 ggplotly(trainTest_p2)
 ```
 
-### Feature importance using random forest
+## 5.4 Feature importance
 First method of feature importance is using random forest. Here, we fit our data into random forest model using `ranger` package and the feature importance is calculated. The resulting importance value is extracted and plotted using `ggplot` and wrapped with `plotly` for interactivity.
 
 ```{r}
@@ -572,7 +573,8 @@ rf_p <- ranger::importance(rf_res1) %>%
 ggplotly(rf_p, tooltip = c('text'))
 ```
 
-### Feature importance using boruta
+Feature importance using _boruta_ algorithm to be compared with _random forest_.
+
 ```{r}
 boruta_output <- Boruta(target_var ~ .,
                         data = listing_train %>% na.omit(),
@@ -609,8 +611,7 @@ training_prop <- 0.8
 listing_split <- listing_prep2 %>%
   select(all_of(selected_var)) %>%
   rename(target_var = targetVar) %>%
-  # drop_na(target_var) %>% #remove rows where target variable is missing
-  na.omit() %>%
+  na.omit() %>% #remove all rows with missing values
   mutate(id = row_number()) %>%
   initial_split(prop = training_prop, strata = target_var)
 
@@ -620,7 +621,7 @@ listing_test <- testing(listing_split)
 ```
 
 
-### Build transformation recipe
+## 5.5 Build transformation recipe
 After we assess the correlation and feature importance, we also need to perform several processing steps as follows:  
 - removal of rows with NA (missing data) [`step_naomit`]  
 - removal of highly correlated variables [`step_corr`] with a specified threshold  
@@ -629,7 +630,7 @@ After we assess the correlation and feature importance, we also need to perform 
 - one hot encoding for categorical variables [`step_dummy`]  
 _Other available steps in `recipe` can be found [here](https://recipes.tidymodels.org/reference/index.html)_
 
-We will create 3 different recipes for linear regression, decision tree, and random forest model as they have different requirement of data transformation. For linear regression and random forest, missing values have to be removed from the data set as they are not handled by the algorithm, whereas we can leave it for decision tree model.
+We will create 3 different recipes for linear regression, decision tree, and random forest model as they have different requirement of data transformation. For tree-based model, we can skip normalisation and one-hot encoding steps.
 
 ```{r echo=TRUE, fig.dim=c(20,8)}
 #recipe for linear regression
@@ -652,7 +653,6 @@ rcpTransform2 <- recipe(target_var ~ ., data = listing_train) %>%
 #recipe for random forest
 rcpTransform3 <- recipe(target_var ~ ., data = listing_train) %>%
   update_role(id, new_role = "id variable") %>%
-  step_naomit(all_predictors()) %>% #remove rows with NA
   step_other(all_predictors(), -all_numeric(),
              threshold = 0.05, other = "Others")
 
@@ -689,7 +689,7 @@ trainTProcessed %>%
 
 ```
 
-### Linear regression model
+## 5.6 Linear regression model
 First, we will build a linear regression model using parsnip. The first step is to specify the model specification. Model specification is then fed in to a  `workflow` object which acts as a container that aggregates information required to fit and predict a model. This leads to a more readable code (`workflow` is part of `tidymodels` framework).
 
 Next, the model is fitted using our training set (_listing_train_). The statistics such as Rsquared and p-value of the model can be extracted using `glance` while the parameter coefficient is plotted using `ggcoefstats` from `ggstatsplot` package. In the code chunk below, only coefficient with p-value of less than 0.05 is displayed.
@@ -751,7 +751,6 @@ ggplotly(
 
 ```
 
-### Predict using the fitted model
 The trained model is then used to predict listing price in the test set (_listing_test_). The test set is pre-processed using the recipe with `prep()` and `bake()` steps, which are then added with the prediction result from `predict`. This is so that we get a tibble dataframe with both predicted and actual value. The performance metric such as RMSE, MAPE, MAE, and Rsquared can be collected using `metric_set` function from `yardstick` package. Finally, we plot both predicted vs actual value in an Rsquared plot.
 
 ```{r echo=TRUE}
@@ -836,7 +835,7 @@ tooltip = c('text'))
 
 This plot helps us to understand that high prediction error may be a result of the listing being outliers e.g. large number of _bedrooms/accommodates_ and belong to small distribution of property/room type (hotel/service apartment).
 
-### Cross validation
+## 5.7 Cross validation
 K-fold cross validation is also performed to divide training data into _k_ groups (folds). This will be used to find model with the best performance which is more likely to balance the bias-variance tradeoff. In this example, we use 3-folds instead of the commonly used 5/10 folds to speed up the process. Before creating the folds, we will apply pre-processing steps (using `step_naomit` in `recipe`) to our train set to eliminate missing values.
 
 ```{r echo=TRUE}
@@ -852,7 +851,7 @@ listing_kfolds <- rcpKFold %>%
   vfold_cv(v = kfold, strata = target_var)
 ```
 
-### GLM models
+## 5.8 GLM models
 Next, we would like to apply regularisation to our linear model to see if it helps in reducing the issue of model overfitting. We are going to use `tune` package from `tidymodels` framework to try out several combination of hyper-parameters such as `penalty` and `mixture`. Here, _penalty_ refers to the amount of regularisation or _lambda_ in regularised linear model and _mixture_ is the amount of different types of regularisation where 0 refers to ridge regression and 1 refers to lasso regression. More info can be found [here](https://parsnip.tidymodels.org/reference/linear_reg.html)
 
 ```{r eval=TRUE}
@@ -948,7 +947,7 @@ final_metric_glm
 
 With regularised linear regression, we observe no significant improvement in RMSE score and we still see the same behaviour where the model underestimates the predicted price for listing price above \$250.
 
-### Decision tree
+## 5.9 Decision tree
 For decision tree, we are using `rpart` package with `cost_complexity`, `tree_depth` (maximum tree depth), and `min_n` (minimum number of data points in a node that are required for the node to be split further) as hyper-parameters to be tuned.
 
 ```{r echo=TRUE}
@@ -975,7 +974,7 @@ tree_result <- tree_wf %>%
             control = control_resamples(save_pred = TRUE))
 ```
 
-The subsequent steps are similar to that of GLM model. For the tree plotting, we use `fancyRpartPlot` function from `rattle` package. However, the visualisation becomes cluttered as the tree grows too deep.
+The subsequent steps are similar to that of GLM model. For the tree plotting, there is not many options for the package that support interactivity. Here, we are comparing `fancyRpartPlot` function from `rattle` package and `visTree` from `visNetwork` package. Clearly with deep tree, interactivity provided by `visTree` is superior to that of static `fancyRpartPlot`.
 
 ```{r}
 collect_metrics(tree_result)
@@ -1001,7 +1000,9 @@ final_tree %>%
 final_tree_fit <- final_tree %>%
   pull_workflow_fit()
 
-rattle::fancyRpartPlot(final_tree_fit$fit, sub = "Decision Tree model")
+fancyRpartPlot(final_tree_fit$fit, sub = "Decision Tree model")
+
+visNetwork::visTree(final_tree_fit$fit)
 
 final_fit_tree <- last_fit(final_tree_wf,
                            split = listing_split,
@@ -1023,7 +1024,7 @@ final_metric_dtree
 ```
 With decision tree, we get better RMSE score as compared to the GLM model.
 
-### Random forest
+## 5.10 Random forest
 We perform similar steps using random forest, with `mtry` (number of variables randomly sampled as candidates at each split) and `min_n` as the hyper-parameters to be tuned.
 
 ```{r echo=TRUE}
@@ -1092,7 +1093,7 @@ final_metric_rf <- final_fit_rf %>%
 toc()
 ```
 
-### Boosted tree
+## 5.11 Boosted tree
 For boosted tree, we use `xgboost` package with `trees`, `min_n`, `tree_depth`, and `learn_rate` as hyper-parameters to be tuned.
 
 ```{r echo=TRUE, eval=TRUE}
@@ -1164,7 +1165,7 @@ final_metric_xgb <- collect_metrics(final_fit_xgboost)
 toc()
 ```
 
-# Collect all metric
+## 5.12 Collect all metric
 Best model from each algorithm is summarised into one table and plotted using `ggplot` wrapped by `plotly`.
 
 ```{r echo=TRUE, fig.dim=c(10,12)}
@@ -1187,7 +1188,7 @@ ggplotly(metric_p, tooltip = c("text"))
 
 ```
 
-# Summary
+# 6. Summary
 
 The proposed dashboard will cover the predictive analytics steps described above and the sketches are shown below.
 
@@ -1202,6 +1203,7 @@ include_graphics("images/sketch3.jpg")
 ```
 
 In summary, visualisation and interactivity are explored to support the following predictive analytics steps:  
+
 - correlation matrix  
   By allowing user input on variable selection and p-value setting, user has more flexibility in assessing the correlation among variables. Interaction provided by `plotly` also allows tooltip function to help user in reading the correlation coefficient and p-value which static plot is unable to provide.  
   
