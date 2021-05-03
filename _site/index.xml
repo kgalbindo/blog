@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
   <channel>
-    <title>Data Viz Learning</title>
+    <title>KG's Learning Blog</title>
     <link>https://kgalbindo.netlify.app/</link>
     <atom:link href="https://kgalbindo.netlify.app/index.xml" rel="self" type="application/rss+xml"/>
     <description>Learning data visualisation
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Fri, 19 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 May 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Exploring Singapore PISA 2018 score</title>
+      <dc:creator>Kevin Gunawan Albindo</dc:creator>
+      <link>https://kgalbindo.netlify.app/posts/2021-05-03-exploring-singapore-pisa-2018-score</link>
+      <description>Singapore attained second rank in the PISA 2018 result. This exercise attempts to provide objective evaluation of performances between schools and gender based on the result.</description>
+      <guid>https://kgalbindo.netlify.app/posts/2021-05-03-exploring-singapore-pisa-2018-score</guid>
+      <pubDate>Mon, 03 May 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://kgalbindo.netlify.app/posts/2021-05-03-exploring-singapore-pisa-2018-score/images/preview.jpg" medium="image" type="image/jpeg"/>
+    </item>
     <item>
       <title>Predictive analytics in R</title>
       <dc:creator>Kevin Gunawan Albindo</dc:creator>
       <link>https://kgalbindo.netlify.app/posts/2021-03-20-predictive-analytics-in-r</link>
       <description>How visual analytics technique can be used to complement predictive analytics.</description>
       <guid>https://kgalbindo.netlify.app/posts/2021-03-20-predictive-analytics-in-r</guid>
-      <pubDate>Fri, 19 Mar 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://kgalbindo.netlify.app/posts/2021-03-20-predictive-analytics-in-r/images/tidymodels_components.jpg" medium="image" type="image/jpeg"/>
+      <pubDate>Sat, 20 Mar 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://kgalbindo.netlify.app/posts/2021-03-20-predictive-analytics-in-r/images/tidymodels_components.JPG" medium="image" type="image/jpeg"/>
     </item>
     <item>
       <title>Data Viz Makeover 3</title>
@@ -45,12 +54,12 @@
       <media:content url="https://kgalbindo.netlify.app/posts/2021-01-24-visual-makeover-1/images/cover.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
-      <title>Welcome to Data Viz Learning</title>
+      <title>Welcome to KG's Learning Blog</title>
       <dc:creator>Kevin Gunawan Albindo</dc:creator>
       <link>https://kgalbindo.netlify.app/posts/welcome</link>
-      <description>Welcome to my new blog Data Viz Learning!</description>
+      <description>Welcome to my new blog !</description>
       <guid>https://kgalbindo.netlify.app/posts/welcome</guid>
-      <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 03 Jan 2021 00:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>

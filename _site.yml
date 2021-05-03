@@ -1,5 +1,5 @@
 name: "blog"
-title: "Data Viz Learning"
+title: "KG's Learning Blog"
 description: |
   Learning data visualisation
 author:
@@ -11,10 +11,10 @@ navbar:
   right:
     - text: "Home"
       href: index.html
-    - text: "DataViz Makeover"
+    - text: "Academic assignment"
       href: index.html
     - text: "Visual Analytics Project"
-      href: index.html
+      href: https://ourshinypet.netlify.app/
     - text: "About"
       href: about.html
 output: distill::distill_article

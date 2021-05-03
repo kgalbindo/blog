@@ -1,7 +1,7 @@
 ---
-title: "Welcome to Data Viz Learning"
+title: "Welcome to KG's Learning Blog"
 description: |
-  Welcome to my new blog Data Viz Learning!
+  Welcome to my new blog !
   
 author:
   - name: Kevin Gunawan Albindo
