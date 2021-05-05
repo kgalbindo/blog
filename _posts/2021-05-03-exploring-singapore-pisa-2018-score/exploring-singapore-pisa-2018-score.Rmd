@@ -22,13 +22,15 @@ library(knitr)
 
 # 1. Introduction
 
+_This post is part of the assignment for ISSS602 Data Analytics Lab._
+
 Programme for International Student Assessment (PISA) is a three yearly assessment conducted by the Organisation for Economic Co-operation and Development (OECD) to score the education system of more than 70 different countries. The survey not only performs test on 15 years old student in the field of mathematics, reading, and science, but also collect other attributes, for example student well-being and financial literacy. In the latest PISA 2018 result, China earns the top rank with a big jump from 10th place in 2015 PISA result, pushing Singapore to second place (Teng, 2019). Despite Singapore’s high rank, there is still opinion from the general public that disparities exist between elite school and neighbourhood school. In this assignment, Interactive Data Exploration and Analysis (IDEA) approach will be used to both verify this statement and discover other insights from PISA 2018 result for Singapore student’s cognitive aspect.
 
 # 2.	Data
 
 ## 2.1.	Data source and structure
 
-The 2 data sets used is publicly available from OECD website: cognitive item and student questionnaire data. Compendia and Codebook of PISA 2018 survey provide additional information to understand the 2 main data sets.
+The 2 data sets used is publicly available from [OECD website](https://www.oecd.org/pisa/data/2018database/): cognitive item and student questionnaire data. Compendia and Codebook of PISA 2018 survey provide additional information to understand the 2 main data sets.
 
 ### 2.1.1.	Cognitive item data
 
@@ -154,7 +156,7 @@ Regular expression ^(CS|DS)\w*\d(C|S)$ is used to select the final score value o
 include_graphics("images/countStdSci.PNG")
 ```
 
-Using tabulate and graph builder, maximum number of questions corresponding to each Book ID confirms the presence of two clusters of science assessment (Figure 10). Book ID 13-24 have a total of 40 questions while the remainders have a total of 20 questions. 
+Using tabulate and graph builder, maximum number of questions corresponding to each Book ID confirms the presence of two clusters of science assessment (Figure 11). Book ID 13-24 have a total of 40 questions while the remainders have a total of 20 questions. 
 
 ```{r, echo=FALSE, fig.align='center', fig.cap='Maximum number of questions (science) registered for each Book ID'}
 include_graphics("images/maxQnSci.PNG")
@@ -269,7 +271,7 @@ include_graphics("images/sciScoreSchool.PNG")
 
 ### 3.2.1.	Does female student outperform male student in reading assessment?
 
-The null hypothesis (H0) to be tested is that there is no difference in reading proficiency between gender. Oneway analysis is performed to confirm presence of an effect with p-value criteria of <0.05 for H¬0 rejection. The returned p-value is <0.05 which suggests difference in reading score between gender is statistically significant (Figure 22).
+The null hypothesis (H0) to be tested is that there is no difference in reading proficiency between gender. Oneway analysis is performed to confirm presence of an effect with p-value criteria of <0.05 for H0 rejection. The returned p-value is <0.05 which suggests difference in reading score between gender is statistically significant (Figure 26).
 
 ```{r, echo=FALSE, fig.align='center', fig.cap='Oneway analysis for reading scores by gender'}
 include_graphics("images/oneWayReadGender.PNG")
@@ -281,13 +283,13 @@ The t-test is based on 3 assumptions: normality of distribution, independence of
 include_graphics("images/GoFread.PNG")
 ```
 
-The returned p-value <0.05 indicates the score distribution is not normal for both gender groups (Figure 23). Next, variance equality for the two sample groups is checked (Figure 24). The small p-value in all 5 tests indicates unequal variances. Welch’s t-test returns small p-value which suggests significant score difference between gender. However, Welch’s t-test also assumes normal distribution.
+The returned p-value <0.05 indicates the score distribution is not normal for both gender groups (Figure 27). Next, variance equality for the two sample groups is checked (Figure 28). The small p-value in all 5 tests indicates unequal variances. Welch’s t-test returns small p-value which suggests significant score difference between gender. However, Welch’s t-test also assumes normal distribution.
 
 ```{r, echo=FALSE, fig.align='center', fig.cap='Variance test and Welch\'s t-test for reading score by gender'}
 include_graphics("images/varWelchTestReadGender.PNG")
 ```
 
-As the assumption on normal distribution and homoscedasticity are violated, non-parametric test (Wilcoxon test) is used in place of t-test (Figure 25). Wilcoxon test returns p-value <0.05 which confirms the significance of gender in readings score.
+As the assumption on normal distribution and homoscedasticity are violated, non-parametric test (Wilcoxon test) is used in place of t-test (Figure 29). Wilcoxon test returns p-value <0.05 which confirms the significance of gender in readings score.
 
 ```{r, echo=FALSE, fig.align='center', fig.cap='Wilcoxon test for reading score by gender'}
 include_graphics("images/wilcoxReadGender.PNG")
@@ -295,7 +297,7 @@ include_graphics("images/wilcoxReadGender.PNG")
 
 ### 3.2.2.	Does it follow that male student is better in mathematics then?
 
-According to Figure 19, male student in private school seems to perform better in mathematics than female student. T-test returns p-value of 0.0502 which suggests no statistically significant difference in mathematics score between gender.
+According to Figure 23, male student in private school seems to perform better in mathematics than female student. T-test returns p-value of 0.0502 which suggests no statistically significant difference in mathematics score between gender.
 
 ```{r, echo=FALSE, fig.align='center', fig.cap='T-test for mathematics score by gender (private school)'}
 include_graphics("images/ttestMathGender.PNG")
@@ -357,15 +359,22 @@ Means comparison with Tukey test shows all pairs of means between school types a
 include_graphics("images/tukeyTotalSchool.PNG")
 ```
 
-# 4.	Summary
+# 4.	Summary & Recommendation
 
 Insights have been derived from Singapore student PISA score and several hypotheses have been tested. The key observations are as follows:
 
 a.	Female students perform better in reading assessment than male students with 5% mean score difference. Supportive findings come from Reilly’s (2019) study on US students which concludes that female outperformed male student in reading and writing achievement. However, there is still challenge in determining specific cause responsible for the difference.
 
-b.	Mean mathematics score of male students in private school is higher, while there is no statistically significant difference in bigger sample size. Diane (2007) observed high variance in male students’ quantitative abilities. Substantial evidence also suggests male advantage in mathematics is largest at the upper end of the ability distribution. This is evident by the wider interquartile range and higher count of male students who score the highest in Figure 17.
+b.	Mean mathematics score of male students in private school is higher, while there is no statistically significant difference in bigger sample size. Diane (2007) observed high variance in male students’ quantitative abilities. Substantial evidence also suggests male advantage in mathematics is largest at the upper end of the ability distribution. This is evident by the wider interquartile range and higher count of male students who score the highest in Figure 21.
 
 c.	The notion of elite school may have basis on the observation that higher mean score is observed in public school type 2 and private school. Although PISA report provides no information on the grouping criteria for public school, it is likely that public school type 1 refers to non-aided government school. This may suggest effect of government funding on school performance. More details can be found in Annex – Secondary school types
+
+Research studies have shown the complexity of understanding gender difference in cognitive abilities. To supplement findings from cognitive score, study on the effect of socio-economical aspect (e.g. financial condition, family background, living environment) is necessary.
+
+More analysis on Public school type 2 is required to understand potential factors attributing to higher cognitive score, such as:  
+- Extra funding in government-aided school  
+- Learning structure in school with Integrated Programme  
+- Bilingual teaching in school with Special Assistance Plan
 
 _Any suggestion and feedback is much appreciated! Email: kevin.albindo@gmail.com_
 
@@ -390,7 +399,7 @@ Teng, A. (3 December, 2019). Pisa 2018: Singapore slips to second place behind C
 
 Welch's t-test. (29 January, 2020). Retrieved from Wikipedia: https://en.wikipedia.org/wiki/Welch%27s_t-test
 
-
+*preview image taken from: https://www.flickr.com/photos/70109407@N00/2097402250/*
 
 # Annex - Secondary school types
 The distribution of school by its grouping is described in figure below.

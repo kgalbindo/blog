@@ -110,7 +110,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","preview","author","date","output","draft"]}},"value":[{"type":"character","attributes":{},"value":["Exploring Singapore PISA 2018 score"]},{"type":"character","attributes":{},"value":["Singapore attained second rank in the PISA 2018 result. This exercise attempts to provide objective evaluation of performances between schools and gender based on the result.\n"]},{"type":"character","attributes":{},"value":["images/preview.jpg"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Kevin Gunawan Albindo"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/in/kgalbindo"]}]}]},{"type":"character","attributes":{},"value":["05-03-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_float"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"logical","attributes":{},"value":[true]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","preview","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Exploring Singapore PISA 2018 score"]},{"type":"character","attributes":{},"value":["Singapore attained second rank in the PISA 2018 result. This exercise attempts to provide objective evaluation of performances between schools and gender based on the result.\n"]},{"type":"character","attributes":{},"value":["images/preview.jpg"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Kevin Gunawan Albindo"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/in/kgalbindo"]}]}]},{"type":"character","attributes":{},"value":["05-03-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_float"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1522,17 +1522,18 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <li><a href="#does-elite-school-exist">3.2.3. Does elite school exist?</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#summary">4. Summary</a></li>
+<li><a href="#summary-recommendation">4. Summary &amp; Recommendation</a></li>
 <li><a href="#references">References</a></li>
 <li><a href="#annex---secondary-school-types">Annex - Secondary school types</a></li>
 </ul>
 </nav>
 </div>
 <h1 id="introduction">1. Introduction</h1>
+<p><em>This post is part of the assignment for ISSS602 Data Analytics Lab.</em></p>
 <p>Programme for International Student Assessment (PISA) is a three yearly assessment conducted by the Organisation for Economic Co-operation and Development (OECD) to score the education system of more than 70 different countries. The survey not only performs test on 15 years old student in the field of mathematics, reading, and science, but also collect other attributes, for example student well-being and financial literacy. In the latest PISA 2018 result, China earns the top rank with a big jump from 10th place in 2015 PISA result, pushing Singapore to second place (Teng, 2019). Despite Singapore’s high rank, there is still opinion from the general public that disparities exist between elite school and neighbourhood school. In this assignment, Interactive Data Exploration and Analysis (IDEA) approach will be used to both verify this statement and discover other insights from PISA 2018 result for Singapore student’s cognitive aspect.</p>
 <h1 id="data">2. Data</h1>
 <h2 id="data-source-and-structure">2.1. Data source and structure</h2>
-<p>The 2 data sets used is publicly available from OECD website: cognitive item and student questionnaire data. Compendia and Codebook of PISA 2018 survey provide additional information to understand the 2 main data sets.</p>
+<p>The 2 data sets used is publicly available from <a href="https://www.oecd.org/pisa/data/2018database/">OECD website</a>: cognitive item and student questionnaire data. Compendia and Codebook of PISA 2018 survey provide additional information to understand the 2 main data sets.</p>
 <h3 id="cognitive-item-data">2.1.1. Cognitive item data</h3>
 <p>Cognitive item data consists of 606,627 rows and 3,590 columns. Each row represents one student and each column represents the attributes of and responses from student. Details of column names are given in compendia and codebook. The columns used are described in Table 1.</p>
 <table>
@@ -1743,7 +1744,7 @@ Figure 11: Count of students registering a specific number of science questions
 </p>
 </div>
 </div>
-<p>Using tabulate and graph builder, maximum number of questions corresponding to each Book ID confirms the presence of two clusters of science assessment (Figure 10). Book ID 13-24 have a total of 40 questions while the remainders have a total of 20 questions.</p>
+<p>Using tabulate and graph builder, maximum number of questions corresponding to each Book ID confirms the presence of two clusters of science assessment (Figure 11). Book ID 13-24 have a total of 40 questions while the remainders have a total of 20 questions.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-12"></span>
 <img src="images/maxQnSci.PNG" alt="Maximum number of questions (science) registered for each Book ID" width="595" />
@@ -1885,7 +1886,7 @@ Figure 25: Science score distribution between school types
 </div>
 <h2 id="hypothesis-test">3.2. Hypothesis test</h2>
 <h3 id="does-female-student-outperform-male-student-in-reading-assessment">3.2.1. Does female student outperform male student in reading assessment?</h3>
-<p>The null hypothesis (H0) to be tested is that there is no difference in reading proficiency between gender. Oneway analysis is performed to confirm presence of an effect with p-value criteria of &lt;0.05 for H¬0 rejection. The returned p-value is &lt;0.05 which suggests difference in reading score between gender is statistically significant (Figure 22).</p>
+<p>The null hypothesis (H0) to be tested is that there is no difference in reading proficiency between gender. Oneway analysis is performed to confirm presence of an effect with p-value criteria of &lt;0.05 for H0 rejection. The returned p-value is &lt;0.05 which suggests difference in reading score between gender is statistically significant (Figure 26).</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-26"></span>
 <img src="images/oneWayReadGender.PNG" alt="Oneway analysis for reading scores by gender" width="707" />
@@ -1903,7 +1904,7 @@ Figure 27: Anderson-Darling goodness-of-fit test for reading score
 </p>
 </div>
 </div>
-<p>The returned p-value &lt;0.05 indicates the score distribution is not normal for both gender groups (Figure 23). Next, variance equality for the two sample groups is checked (Figure 24). The small p-value in all 5 tests indicates unequal variances. Welch’s t-test returns small p-value which suggests significant score difference between gender. However, Welch’s t-test also assumes normal distribution.</p>
+<p>The returned p-value &lt;0.05 indicates the score distribution is not normal for both gender groups (Figure 27). Next, variance equality for the two sample groups is checked (Figure 28). The small p-value in all 5 tests indicates unequal variances. Welch’s t-test returns small p-value which suggests significant score difference between gender. However, Welch’s t-test also assumes normal distribution.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-28"></span>
 <img src="images/varWelchTestReadGender.PNG" alt="Variance test and Welch's t-test for reading score by gender" width="318" />
@@ -1912,7 +1913,7 @@ Figure 28: Variance test and Welch’s t-test for reading score by gender
 </p>
 </div>
 </div>
-<p>As the assumption on normal distribution and homoscedasticity are violated, non-parametric test (Wilcoxon test) is used in place of t-test (Figure 25). Wilcoxon test returns p-value &lt;0.05 which confirms the significance of gender in readings score.</p>
+<p>As the assumption on normal distribution and homoscedasticity are violated, non-parametric test (Wilcoxon test) is used in place of t-test (Figure 29). Wilcoxon test returns p-value &lt;0.05 which confirms the significance of gender in readings score.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-29"></span>
 <img src="images/wilcoxReadGender.PNG" alt="Wilcoxon test for reading score by gender" width="403" />
@@ -1922,7 +1923,7 @@ Figure 29: Wilcoxon test for reading score by gender
 </div>
 </div>
 <h3 id="does-it-follow-that-male-student-is-better-in-mathematics-then">3.2.2. Does it follow that male student is better in mathematics then?</h3>
-<p>According to Figure 19, male student in private school seems to perform better in mathematics than female student. T-test returns p-value of 0.0502 which suggests no statistically significant difference in mathematics score between gender.</p>
+<p>According to Figure 23, male student in private school seems to perform better in mathematics than female student. T-test returns p-value of 0.0502 which suggests no statistically significant difference in mathematics score between gender.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-30"></span>
 <img src="images/ttestMathGender.PNG" alt="T-test for mathematics score by gender (private school)" width="634" />
@@ -2013,13 +2014,19 @@ Figure 39: Tukey test comparing means of total score by school types
 </p>
 </div>
 </div>
-<h1 id="summary">4. Summary</h1>
+<h1 id="summary-recommendation">4. Summary &amp; Recommendation</h1>
 <p>Insights have been derived from Singapore student PISA score and several hypotheses have been tested. The key observations are as follows:</p>
 <ol type="a">
 <li><p>Female students perform better in reading assessment than male students with 5% mean score difference. Supportive findings come from Reilly’s (2019) study on US students which concludes that female outperformed male student in reading and writing achievement. However, there is still challenge in determining specific cause responsible for the difference.</p></li>
-<li><p>Mean mathematics score of male students in private school is higher, while there is no statistically significant difference in bigger sample size. Diane (2007) observed high variance in male students’ quantitative abilities. Substantial evidence also suggests male advantage in mathematics is largest at the upper end of the ability distribution. This is evident by the wider interquartile range and higher count of male students who score the highest in Figure 17.</p></li>
+<li><p>Mean mathematics score of male students in private school is higher, while there is no statistically significant difference in bigger sample size. Diane (2007) observed high variance in male students’ quantitative abilities. Substantial evidence also suggests male advantage in mathematics is largest at the upper end of the ability distribution. This is evident by the wider interquartile range and higher count of male students who score the highest in Figure 21.</p></li>
 <li><p>The notion of elite school may have basis on the observation that higher mean score is observed in public school type 2 and private school. Although PISA report provides no information on the grouping criteria for public school, it is likely that public school type 1 refers to non-aided government school. This may suggest effect of government funding on school performance. More details can be found in Annex – Secondary school types</p></li>
 </ol>
+<p>Research studies have shown the complexity of understanding gender difference in cognitive abilities. To supplement findings from cognitive score, study on the effect of socio-economical aspect (e.g. financial condition, family background, living environment) is necessary.</p>
+<p>More analysis on Public school type 2 is required to understand potential factors attributing to higher cognitive score, such as:<br />
+- Extra funding in government-aided school<br />
+- Learning structure in school with Integrated Programme<br />
+- Bilingual teaching in school with Special Assistance Plan</p>
+<p><em>Any suggestion and feedback is much appreciated! Email: <a href="mailto:kevin.albindo@gmail.com" class="email">kevin.albindo@gmail.com</a></em></p>
 <h1 id="references">References</h1>
 <p>Bartlett’s test. (23 September, 2019). Retrieved from Wikipedia: <a href="https://en.wikipedia.org/wiki/Bartlett%27s_test" class="uri">https://en.wikipedia.org/wiki/Bartlett%27s_test</a></p>
 <p>Diane F., H., Benbow, C. P., Geary, D. C., Gur, R. C., Hyde, J. S., &amp; Gernsbacher, M. A. (2007). The Science of Sex Differences in Science and Mathematics. Psychological Science in the Public Interest, 8(1), 1-51. <a href="doi:10.1111/j.1529-1006.2007.00032.x" class="uri">doi:10.1111/j.1529-1006.2007.00032.x</a></p>
@@ -2031,6 +2038,7 @@ Figure 39: Tukey test comparing means of total score by school types
 <p>Secondary school Type. (05 Feb, 2020). Retrieved from Ministry of Education, Singapore: <a href="https://beta.moe.gov.sg/secondary/schools/types/" class="uri">https://beta.moe.gov.sg/secondary/schools/types/</a></p>
 <p>Teng, A. (3 December, 2019). Pisa 2018: Singapore slips to second place behind China but still chalks up high scores. Retrieved 21 January, 2020, from The Straits Times: <a href="https://www.straitstimes.com/singapore/education/pisa-2018-singapore-slips-to-second-place-behind-china-but-still-chalks-up-high" class="uri">https://www.straitstimes.com/singapore/education/pisa-2018-singapore-slips-to-second-place-behind-china-but-still-chalks-up-high</a></p>
 <p>Welch’s t-test. (29 January, 2020). Retrieved from Wikipedia: <a href="https://en.wikipedia.org/wiki/Welch%27s_t-test" class="uri">https://en.wikipedia.org/wiki/Welch%27s_t-test</a></p>
+<p><em>preview image taken from: <a href="https://www.flickr.com/photos/70109407@N00/2097402250/" class="uri">https://www.flickr.com/photos/70109407@N00/2097402250/</a></em></p>
 <h1 id="annex---secondary-school-types">Annex - Secondary school types</h1>
 <p>The distribution of school by its grouping is described in figure below.</p>
 <p>According to Ministry of Education (MOE) <a href="https://beta.moe.gov.sg/secondary/schools/types/">website</a>, there are 5 types of school:</p>
