@@ -7,7 +7,16 @@
     <description>Learning data visualisation
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 03 May 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 19 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Is the table clean?</title>
+      <dc:creator>Kevin Gunawan Albindo</dc:creator>
+      <link>https://kgalbindo.netlify.app/posts/2021-11-19-is-the-table-clean</link>
+      <description>An IoT solution prototype for table cleanliness in food centre</description>
+      <guid>https://kgalbindo.netlify.app/posts/2021-11-19-is-the-table-clean</guid>
+      <pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://kgalbindo.netlify.app/posts/2021-11-19-is-the-table-clean/images/preview.PNG" medium="image" type="image/png" width="1256" height="776"/>
+    </item>
     <item>
       <title>Exploring Singapore PISA 2018 score</title>
       <dc:creator>Kevin Gunawan Albindo</dc:creator>
@@ -59,7 +68,7 @@
       <link>https://kgalbindo.netlify.app/posts/welcome</link>
       <description>Welcome to my new blog !</description>
       <guid>https://kgalbindo.netlify.app/posts/welcome</guid>
-      <pubDate>Sun, 03 Jan 2021 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>

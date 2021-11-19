@@ -805,7 +805,7 @@ top_err_id <- listing_pred %>%
 top_err <- listing_pred %>%
   filter(id %in% top_err_id) %>%
   mutate(pred_error = abs(target_var-.pred)) %>%
-  select(all_of(slp), id, pred_error) %>%
+  select(id, pred_error, all_of(slp)) %>%
   gather(key, value, -id, -pred_error) %>%
   mutate(id = as.factor(id))
 ```
