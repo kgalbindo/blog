@@ -1,3 +1,2 @@
-# blog
-ISSS608 - Data Visualisation Blog  
+# Learning blog
 https://kgalbindo.netlify.app/
