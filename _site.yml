@@ -13,6 +13,8 @@ navbar:
       href: index.html
     - text: "Visual Analytics Project"
       href: https://ourshinypet.netlify.app/
+    - text: Tableau
+      href: https://public.tableau.com/app/profile/kevin.gunawan.albindo
     - text: "About"
       href: about.html
     - icon: fa fa-linkedin
