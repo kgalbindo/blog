@@ -7,7 +7,16 @@
     <description>Learning data visualisation
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Fri, 19 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>It's all about love</title>
+      <dc:creator>Kevin Gunawan Albindo</dc:creator>
+      <link>https://kgalbindo.netlify.app/posts/2022-01-26-its-all-about-love</link>
+      <description>An exploration of Christian song over 30 years period using Spotify and Genius lyrics</description>
+      <guid>https://kgalbindo.netlify.app/posts/2022-01-26-its-all-about-love</guid>
+      <pubDate>Tue, 25 Jan 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://kgalbindo.netlify.app/posts/2022-01-26-its-all-about-love/preview.jpg" medium="image" type="image/jpeg"/>
+    </item>
     <item>
       <title>Is the table clean?</title>
       <dc:creator>Kevin Gunawan Albindo</dc:creator>
