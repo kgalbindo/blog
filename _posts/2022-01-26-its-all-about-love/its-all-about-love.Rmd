@@ -45,6 +45,8 @@ import numpy as np
 import pickle
 ```
 
+Next, we will need to provide Spotify and Genius API key.
+Refer to this [Spotify API guide](https://developer.spotify.com/documentation/web-api/quick-start/) and [Genius guide](https://docs.genius.com/) to get your API key.
 
 ```python
 # Setup Spotify API id and secret
@@ -63,7 +65,7 @@ genius = lg.Genius(genius_token, timeout=20, retries=5)
 
 ### 2. Collect songs from Spotify
 
-
+First, we will collect the songs information based on Christian genre.
 ```python
 # test Spotipy to retrieve Christian music genre
 result = spotify.search('genre:Christian', limit=1, type='track')
@@ -83,7 +85,7 @@ print(result['tracks'])
     'next': 'https://api.spotify.com/v1/search?query=genre%3AChristian&type=track&offset=1&limit=1', 'offset': 0, 'previous': None, 'total': 10000}
     
 
-
+Now we know the API works, let's get Christian music tracks from 1990-2021.
 ```python
 # collect more tracks from year 1990 - 2021
 ls_year = list(range(1990,2022))
@@ -138,7 +140,7 @@ for y in ls_year:
     collecting songs from 2020
     collecting songs from 2021
     
-
+We will store them as Pandas dataframe for further manipulation.
 
 ```python
 # convert result to Pandas dataframe for manipulation
@@ -301,7 +303,7 @@ df1.head()
 </div>
 
 
-
+Get relevant information for each tracks such as release date/year, artist, and track name.
 
 ```python
 # extract relevant information about songs
@@ -487,7 +489,7 @@ df1.head()
 </div>
 
 
-
+We want to see if we manage to get at least 100 tracks for each year.
 
 ```python
 # check how many songs succesfully retrieved for each year (at least there are 100 songs for each eyar)
@@ -659,7 +661,30 @@ df1.groupby(by=['release_year']).agg({'release_year': 'count'})
 </table>
 </div>
 
+Next, we want to get the track features for each song tracks.
 
+**Notes about track features:**  
+Acousticness - A confidence measure from 0.0 to 1.0 of whether the track is acoustic. 1.0 represents high confidence the track is acoustic.  
+
+Danceability - Describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable.  
+
+Energy - A measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy.  
+
+Instrumentalness - Predicts whether a track contains no vocals. "Ooh" and "aah" sounds are treated as instrumental in this context. Rap or spoken word tracks are clearly "vocal". The closer the instrumentalness value is to 1.0, the greater likelihood the track contains no vocal content. Values above 0.5 are intended to represent instrumental tracks, but confidence is higher as the value approaches 1.0.  
+
+Liveness - Detects the presence of an audience in the recording. Higher liveness values represent an increased probability that the track was performed live. A value above 0.8 provides strong likelihood that the track is live.  
+
+Loudness - The overall loudness of a track in decibels (dB). Loudness values are averaged across the entire track and are useful for comparing relative loudness of tracks. Loudness is the quality of a sound that is the primary psychological correlate of physical strength (amplitude). Values typically range between -60 and 0 db.  
+
+Speechiness - Detects the presence of spoken words in a track. The more exclusively speech-like the recording (e.g. talk show, audio book, poetry), the closer to 1.0 the attribute value. Values above 0.66 describe tracks that are probably made entirely of spoken words. Values between 0.33 and 0.66 describe tracks that may contain both music and speech, either in sections or layered, including such cases as rap music. Values below 0.33 most likely represent music and other non-speech-like tracks.  
+
+Tempo - The overall estimated tempo of a track in beats per minute (BPM). In musical terminology, tempo is the speed or pace of a given piece and derives directly from the average beat duration.  
+
+Valence - A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).  
+
+Popularity - The popularity of the track. The value will be between 0 and 100, with 100 being the most popular.
+The popularity of a track is a value between 0 and 100, with 100 being the most popular. The popularity is calculated by algorithm and is based, in the most part, on the total number of plays the track has had and how recent those plays are.
+Generally speaking, songs that are being played a lot now will have a higher popularity than songs that were played a lot in the past. Duplicate tracks (e.g. the same track from a single and an album) are rated independently. Artist and album popularity is derived mathematically from track popularity.
 
 
 ```python
@@ -924,7 +949,7 @@ df2.info()
     dtypes: bool(2), float64(9), int64(7), object(15)
     memory usage: 6.1+ MB
     
-
+We have extracted a lot of data up to now, let's save it to pickle file.
 
 ```python
 # export dataframe to pickle for easy retrieval next time
@@ -936,6 +961,7 @@ with open('songs.pickle', 'rb') as f:
     df2 = pickle.load(f)
 ```
 
+Let's check our data and see if there is any duplicate.
 
 ```python
 dfg = df2.groupby(by=['name','artists_name']).agg({'id':'count'}).sort_values(by='id', ascending=False)
@@ -1038,7 +1064,7 @@ dfg[dfg['id']>1]
 </div>
 
 
-
+Before we find the lyrics to each tracks, we want to remove duplicates if track name, artist, and released year are the same.
 
 ```python
 # drop duplicate if song, artist, released_year are the same
@@ -1047,6 +1073,7 @@ df2.drop_duplicates(['name', 'artists_name', 'release_year'], inplace=True)
 
 ### 3. Get song lyrics from GeniusLyrics
 
+Let's test our Genius API.
 
 ```python
 # test genius API to get song lyrics
@@ -1113,6 +1140,7 @@ df2.shape
 
     (24167, 33)
 
+We would be using various libraries below for text analysis.
 
 ```python
 # import necessary libraries for text analysis
@@ -1130,7 +1158,7 @@ from PIL import Image
 from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 %matplotlib inline
 ```
-
+We would not consider medley as it will have longer lyrics than usual. And the lyrics may likely not be retrieved successfully. We will also exclude non-english songs and songs with multiple artists.
 
 ```python
 # remove medley songs
@@ -1147,7 +1175,7 @@ print(df3.shape)
     (23919, 33)
     (22440, 33)
     
-
+We now have around 22k song tracks.
 
 ```python
 df3.columns
@@ -1166,13 +1194,13 @@ df3.columns
           dtype='object')
 
 
-
+We will keep album image URL for display later.
 
 ```python
 # save image url for display later
 df3['image_url'] = df3['album'].apply(lambda x: x['images'][1]['url'])
 ```
-
+To reduce the number of tracks for analysis, we will just take top 150 songs for each year based on popularity.
 
 ```python
 # get top 150 songs by popularity for each year
@@ -1182,7 +1210,7 @@ df_top = df3.sort_values('popularity',ascending = False).groupby('release_year')
 df_top.sort_values('release_year').head()
 ```
 
-    C:\Users\cowfu\Anaconda3\lib\site-packages\ipykernel_launcher.py:3: FutureWarning: Indexing with multiple keys (implicitly converted to a tuple of keys) will be deprecated, use a list instead.
+    C:\Users\nn\Anaconda3\lib\site-packages\ipykernel_launcher.py:3: FutureWarning: Indexing with multiple keys (implicitly converted to a tuple of keys) will be deprecated, use a list instead.
       This is separate from the ipykernel package so we can avoid doing imports until
     
 
@@ -1351,6 +1379,8 @@ df_top['name'] = df_top['original_name'].apply(lambda x: x.split('-')[0])
 df_top['name'] = df_top['name'].apply(lambda x: x.split('(')[0].strip())
 ```
 
+Next we create helper function to retrieve the lyrics.
+
 ```python
 # create helper function to retrieve lyrics
 def get_lyrics(title, artist):
@@ -1424,6 +1454,8 @@ df_top['lyrics'] = df_top.apply(lambda x: get_lyrics(x['name'], x['artists_name'
     ..........and more..........
 
 
+Again, save the dataframe as pickle file.
+
 ```python
 # save dataframe with lyrics as pickle for easy retrieval next time
 with open('df_top_lyrics.pickle', 'wb') as f:
@@ -1432,7 +1464,7 @@ with open('df_top_lyrics.pickle', 'wb') as f:
 with open('df_top_lyrics.pickle', 'rb') as f:
     df_top = pickle.load(f)
 ```
-
+Only 0.85% of tracks in our list has no lyrics.
 
 ```python
 # check how many song with missing lyrics
@@ -1445,7 +1477,7 @@ with open('df_top_lyrics.pickle', 'rb') as f:
     '% missing lyrics: 0.85%'
 
 
-
+Let's look further and try to retrieve the lyrics for them.
 
 ```python
 df_top[df_top['lyrics'].isnull()][['name','artists_name']]
@@ -1785,6 +1817,7 @@ df_top.loc[idx_missing,'lyrics'] = df_top.loc[idx_missing,'name'].apply(lambda x
     Done.
     ..........and more..........
 
+Now only 0.06% of tracks are without lyrics. We will just exclude them.
 
 ```python
 # check again % of song with missing lyrics
@@ -1807,6 +1840,7 @@ df_top.drop(index=idx_missing, inplace=True)
 
 ### 4. Analyse lyrics using nltk and sklearn 
 
+It's time to analyse our lyrics.
 
 ```python
 # add this term as stop words
@@ -1863,7 +1897,7 @@ df_top['length_tokens'].hist(bins=50)
 ![](output_40_1.png)
     
 
-
+We will exclude songs with 0 token. It is also observed that some non-english song still contains english word which pass through our filter earlier. Let's define english song as song with >80% english word in the lyrics.
 
 ```python
 # remove song with 0 tokens
@@ -1882,6 +1916,8 @@ df_top = df_top[df_top['tokens'].apply(lambda token: (sum([n in setofwords for n
 df_sorted = df_top['length_tokens'].sort_values().reset_index()
 df_sorted['pct_rank'] = df_sorted['length_tokens'].rank(pct=True)
 df_sorted
+
+Some songs have very short token length. Let's look at them.
 
 # look at song with short token length (<1 percentile)
 for i in df_sorted.loc[df_sorted['pct_rank'] < 0.01, 'index']:
@@ -1970,7 +2006,7 @@ for i in df_sorted.loc[df_sorted['pct_rank'] < 0.01, 'index']:
     == O Come Let Us Adore Him - Shane & Shane ==
     ['oh', 'come', 'let', 'adore', 'oh', 'come', 'let', 'adore', 'oh', 'come', 'let', 'adore', 'christ', 'lord', 'worthy', 'worthy', 'worthy', 'christ', 'lord', 'glory', 'glory', 'glory', 'christ', 'lord']
     
-
+On the other side, let's look at those with very long tokens.
 
 ```python
 # look at song with long token length (>99.5 percentile)
@@ -2046,7 +2082,7 @@ for i in df_sorted.loc[df_sorted['pct_rank'] > 0.995, 'index']:
 ....
     
 
-Some songs have very long token length because of incorrect lyrics (random literature assigned as the lyrics)
+Some songs have very long token length because of incorrect lyrics (random literature assigned as the lyrics). Let's try once again to retrieve the lyrics based on only the track name.
 
 
 ```python
@@ -2243,7 +2279,7 @@ df_top.loc[idx_redo, ['name','lyrics','artists_name']]
 </div>
 
 
-
+We will remove those with >500 token length.
 
 ```python
 # remove long tokens
@@ -2821,6 +2857,7 @@ We will explore this more using Tableau dashboard.
 
 ### 5. Prepare data for Tableau
 
+Before exploring our data in Tableau, let's prepare the data.
 
 ```python
 # sort dataframe by release year and name
@@ -3015,7 +3052,7 @@ df_final = df_final.sort_values('popularity', ascending = False).groupby('releas
 df_final.sort_values(by=['release_year','popularity'], ascending = [True, False])
 ```
 
-    C:\Users\cowfu\Anaconda3\lib\site-packages\ipykernel_launcher.py:3: FutureWarning: Indexing with multiple keys (implicitly converted to a tuple of keys) will be deprecated, use a list instead.
+    C:\Users\nn\Anaconda3\lib\site-packages\ipykernel_launcher.py:3: FutureWarning: Indexing with multiple keys (implicitly converted to a tuple of keys) will be deprecated, use a list instead.
       This is separate from the ipykernel package so we can avoid doing imports until
     
 
@@ -3370,30 +3407,4 @@ dfg.to_csv('top100_counts.csv', index=False)
 Click [here](https://public.tableau.com/app/profile/kevin.gunawan.albindo/viz/ChristianSongs/Dashboard1?publish=yes) for exploration of track features in Tableau.
 
 
-**Notes about track features:**  
-Acousticness - A confidence measure from 0.0 to 1.0 of whether the track is acoustic. 1.0 represents high confidence the track is acoustic.  
 
-Danceability - Describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable.  
-
-Energy - A measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy.  
-
-Instrumentalness - Predicts whether a track contains no vocals. "Ooh" and "aah" sounds are treated as instrumental in this context. Rap or spoken word tracks are clearly "vocal". The closer the instrumentalness value is to 1.0, the greater likelihood the track contains no vocal content. Values above 0.5 are intended to represent instrumental tracks, but confidence is higher as the value approaches 1.0.  
-
-Liveness - Detects the presence of an audience in the recording. Higher liveness values represent an increased probability that the track was performed live. A value above 0.8 provides strong likelihood that the track is live.  
-
-Loudness - The overall loudness of a track in decibels (dB). Loudness values are averaged across the entire track and are useful for comparing relative loudness of tracks. Loudness is the quality of a sound that is the primary psychological correlate of physical strength (amplitude). Values typically range between -60 and 0 db.  
-
-Speechiness - Detects the presence of spoken words in a track. The more exclusively speech-like the recording (e.g. talk show, audio book, poetry), the closer to 1.0 the attribute value. Values above 0.66 describe tracks that are probably made entirely of spoken words. Values between 0.33 and 0.66 describe tracks that may contain both music and speech, either in sections or layered, including such cases as rap music. Values below 0.33 most likely represent music and other non-speech-like tracks.  
-
-Tempo - The overall estimated tempo of a track in beats per minute (BPM). In musical terminology, tempo is the speed or pace of a given piece and derives directly from the average beat duration.  
-
-Valence - A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track. Tracks with high valence sound more positive (e.g. happy, cheerful, euphoric), while tracks with low valence sound more negative (e.g. sad, depressed, angry).  
-
-Popularity - The popularity of the track. The value will be between 0 and 100, with 100 being the most popular.
-The popularity of a track is a value between 0 and 100, with 100 being the most popular. The popularity is calculated by algorithm and is based, in the most part, on the total number of plays the track has had and how recent those plays are.
-Generally speaking, songs that are being played a lot now will have a higher popularity than songs that were played a lot in the past. Duplicate tracks (e.g. the same track from a single and an album) are rated independently. Artist and album popularity is derived mathematically from track popularity.
-
-
-```python
-
-```
