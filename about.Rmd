@@ -16,10 +16,12 @@ Hi there! My name is Kevin and this blog serves as a journal for my data analyti
 
 
 **Professional background:**  
-Currently working in SMRT Trains under Asset & Reliability team. I have done various data analytics and engineering activity, starting from building data pre-processor automation, data collection and integration project, engineering studies, as well as KPI reporting and dashboard.
+Currently working as Manager - Performance and Business Insights at DHL Supply Chain. I am driving the development of analytics solution for APAC service logistics by working together with key account managers from various accounts in technology and healthcare industry. Data literacy and capability is important in today's world and I have the opportunities to contribute by mentoring team members on analytics and process automation tasks, as well as conducting sharing sessions to promote a data-centric culture and awareness of data tools.
+
+Prior to DHL, I worked at SMRT Trains under Asset & Reliability team. I have done various data analytics and engineering activity, starting from building data pre-processor automation, data collection and integration project, engineering studies, as well as KPI reporting and dashboard.
 
 **Education background:**  
-I hold Bachelor's degree (with Honours) in Chemical Engineering from National University of Singapore. I am currently pursuing Master of IT in Business at Singapore Management University.
+I hold Bachelor's degree (with Honours) in Chemical Engineering from National University of Singapore. I also attained Master of IT in Business from Singapore Management University.
 
 **Personal interest:**  
 Analysing and visualising data, as well as creating tools to support business process. In general, helping people to do their tasks more efficiently. Other interest: badminton and jazz music.
